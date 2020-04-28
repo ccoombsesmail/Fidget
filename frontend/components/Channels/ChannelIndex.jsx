@@ -26,7 +26,6 @@ class ChannelIndex extends React.Component {
                     })
                 }
 
-
             </div>
 
 

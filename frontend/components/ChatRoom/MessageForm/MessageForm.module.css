@@ -1,0 +1,30 @@
+.messageFormWrapper{
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 10px;
+  width: 260px;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-left: -5px;
+
+}
+
+.messageSubmit {
+  width: 100%;
+  background-color: #3A3A3D;
+  border: solid  #3A3A3D 1px;
+  border-radius: 6px;
+  padding: 5px;
+  height: 30px;
+  font-weight: 700;
+
+
+}
+
+.messageSubmit:focus {
+  background-color: black;
+  border: solid  #9147FF 3px;
+  border-radius: 8px;
+  outline: none;
+  color: white;
+}

@@ -1,12 +1,15 @@
 import React from 'react'
 import classes from './ChannelShow.module.css'
+import ChatRoom from '../../ChatRoom/ChatRoom'
 
 
 const ChannelShow= (props) => {
 
     
     return (
-        <div className={classes.channelWrapper}> Channel </div>
+        <div className={classes.channelWrapper}> 
+            <ChatRoom channelId = {props.location.state['id']} />
+        </div>
     )
 }
 

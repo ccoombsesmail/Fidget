@@ -1,0 +1,49 @@
+
+
+.chatroomWrapper{
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 85vh;
+    margin-top: 100px;
+    min-width: 200px;
+    border: solid gray 1px;
+    background-color: #18181B;
+
+}
+
+.chatroomContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    overflow-y: hidden;
+}
+
+.messageList{
+    /* overflow-y: scroll; */
+    height: 100%;
+    width: 300px;
+    border: solid gray 1px;
+    background-color: #18181B;
+    color: #EFEFF1;
+    font-weight: 700;
+}
+
+.messageLi {
+    list-style: none;
+    margin: 10px;
+}
+
+.username {
+    color:#A86DFF;
+}
+
+
+.messageBody{
+    color: white;
+}
+
+.chatTitle {
+    color: whitesmoke;
+}
