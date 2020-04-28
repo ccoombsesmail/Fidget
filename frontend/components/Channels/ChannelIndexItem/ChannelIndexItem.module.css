@@ -1,0 +1,10 @@
+.channelItem {
+    list-style: none;
+    width: 200px;
+    height: 130px;
+    background-color: white;
+    margin: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

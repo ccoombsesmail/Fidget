@@ -1,9 +1,15 @@
+.controlsWrapper{
+    display: flex;
+    align-items: center;
+}
+
+
 .login {
     padding: 10px;
     background-color: #3A3A3D;
     border: none;
     color: whitesmoke;
-    margin-left: 5px;
+    margin-right: 5px;
     text-decoration: none;
     border-radius: 6px;
     font-weight: 750;
@@ -17,11 +23,12 @@
     background-color: #9147FF;
     border: none;
     color: whitesmoke;
-    margin: 5px;
     text-decoration: none;
     border-radius: 6px;
     font-weight: 750;
     font-size: 12px;
+    margin-right: 5px;
+
 
 
 
@@ -30,11 +37,13 @@
 .logout {
     padding: 10px;
     background-color: #3A3A3D;
+    border: none;
     color: whitesmoke;
-    margin: 5px;
+    margin-right: 5px;
     text-decoration: none;
     border-radius: 6px;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 750;
+    font-size: 12px;
 
 }
 
@@ -47,4 +56,49 @@
 .welcomeMessage {
     color: white;
     margin-right: 20px;
+ }
+
+
+ .userIcon{
+     color: white;
+     font-size: large;
+     margin-left: 10px;
+     font-size: 16px;
+     padding: 8px;
+     border-radius: 50%;
+     background-color: #00BAA3;
+     cursor: pointer;
+ }
+
+
+ .dropDown{
+     position: absolute;
+     width: 160px;
+     height: 300px;
+     background-color: #1F1F23;
+     right: 5px;
+     top: 50px;
+     color: white;
+     border-radius: 7px;
+ }
+
+ .dropDown > li {
+     font-size: 13px;
+     list-style: none;
+     color:white;
+     margin: 5px;
+     padding: 10px;
+ }
+
+ .dropDown > li:hover {
+     background-color: rgb(58,58,61);
+     
+ }
+
+ .hide {
+    display: none;
+ }
+
+ .show {
+     display: block;
  }

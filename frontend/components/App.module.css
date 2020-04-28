@@ -17,9 +17,15 @@
 }
 
 .rightNav {
-    margin-right: 30px;
+    margin-right: 20px;
 }
 
 .appTitle {
     color: whitesmoke;
 }
+
+.mainContainer {
+    display: flex;
+}
+
+

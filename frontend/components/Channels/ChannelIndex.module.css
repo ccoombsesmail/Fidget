@@ -1,0 +1,9 @@
+.indexWrapper {
+    flex-grow: 6.0;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #0E0E10;
+    justify-content: center;
+    align-items: center;
+    align-content: center
+}
