@@ -1,0 +1,22 @@
+.errorBox {
+    display: flex;
+    align-items: center;
+    width: 90%;
+    height: 50px;
+    background-color: #E6E6EA;
+    border: 1.2px solid red;
+    border-radius: 7px;
+    box-shadow: -3px 0 0px 0px red
+
+}
+
+.errorBoxContent {
+    font-size: 13px;
+}
+
+.errorsContentWrapper {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+
+}

@@ -1,14 +1,20 @@
 import React from 'react'
 import classes from './SessionForm.module.css'
-import TabNavs from './TabsNav'
 import { withRouter } from 'react-router-dom'
+
+import TabNavs from './TabsNav'
+import ErrorBox from './ErrorBox/ErrorBox'
+
+
 
 class SessionForm extends React.Component {
     constructor(props){
         super(props)
         this.state = {
             username: '',
-            password: ''
+            password: '',
+            confirmPassword: '',
+            passwordMatch: true 
         }
 
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -22,34 +28,32 @@ class SessionForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault()
-        this.props.processForm(this.state)
+        if (this.state.confirmPassword !== this.state.password && this.props.formType === 'Sign Up') {
+            
+            this.setState({ passwordMatch: false })
+        }else {
+            this.props.processForm({
+                username: this.state.username,
+                password: this.state.password
+            })
+        }
+    }
+
         // this.props.closeModal()
 
-    }
 
     render() {
         
-        let errors = this.props.errors
-        let errorBox;
-        if (!errors) {
-            errorBox = null
-        }else if (errors['usernameError']) {
-            errorBox = <div>
-                {errors['usernameError']}
-            </div>
-        }else {
-            errorBox = <div>
-                {errors['passwordError']}            
-            </div>
-        }
 
 
         return (
             <div className = {classes.formWrapper}>
 
-                {errorBox}
                 <h2 className= {classes.formMessage}>{this.props.formType} To Fidget</h2>
-                <TabNavs navToOtherForm= {this.props.navToOtherForm} currentForm = {this.props.formType} />
+                <TabNavs clearErrors = {this.props.clearErrors}  navToOtherForm={this.props.navToOtherForm} currentForm={this.props.formType}  />
+
+                {/* {errorBox} */}
+                <ErrorBox navToOtherForm={this.props.navToOtherForm} errors={this.props.errors} passwordMatch={this.state.passwordMatch} />
 
 
 
@@ -62,8 +66,18 @@ class SessionForm extends React.Component {
 
                     <label className={classes.formLabel}>
                         <h4>Password</h4>
-                        <input className={classes.formInput} type="text" value = {this.state.password} onChange = {this.update('password')}/>
+                        <input className={classes.formInput} type="password" value = {this.state.password} onChange = {this.update('password')}/>
                     </label>
+
+                    {
+                        this.props.formType === 'Sign Up'  ? 
+                        (
+                            <label className={classes.formLabel}>
+                                <h4>Confirm Password</h4>
+                                    <input className={classes.formInput} type="password" value={this.state.confirmPassword} onChange={this.update('confirmPassword')} />
+                            </label>
+                        ) : null
+                    }
 
                     <button type="submit" className={classes.formSubmit}> {this.props.formType}</button>
                 </form>

@@ -19,7 +19,7 @@ class TabNavs extends React.Component {
     }
 
     changeTab() {
-        
+        this.props.clearErrors()
         this.props.navToOtherForm()
         let nextForm 
         this.state.currentForm === 'Login' ? nextForm = 'Sign Up' : nextForm = 'Login'

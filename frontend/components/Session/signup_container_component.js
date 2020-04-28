@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { signup } from '../../actions/session_actions'
+import { signup, clearErrors } from '../../actions/session_actions'
 import SessionForm from './SessionForm'
 import {openModal, closeModal} from '../../actions/modal_actions'
 
@@ -8,7 +8,8 @@ const mSTP = state => {
 
     return {
         formType: 'Sign Up',
-        otherForm: 'Login'
+        otherForm: 'Login',
+        errors: state.errors.session
     }
 
 }
@@ -19,7 +20,8 @@ const mDTP = dispatch => {
     return {
         processForm: (user) => dispatch(signup(user)),
         navToOtherForm: () => dispatch(openModal('login')),
-        closeModal: () => dispatch(closeModal())
+        closeModal: () => dispatch(closeModal()),
+        clearErrors: () => dispatch(clearErrors())
 
     }
 }

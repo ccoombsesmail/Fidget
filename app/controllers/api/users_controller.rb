@@ -8,6 +8,7 @@ class Api::UsersController < ApplicationController
             Channel.create({:owner_id => @user.id})
             render :user
         else
+            
             render json: @user.errors.full_messages, status: 422
         end
 
