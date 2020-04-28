@@ -13,3 +13,19 @@
  *= require_tree .
  *= require_self
  */
+ 
+* {
+  margin: 0;
+}
+
+ h4, h2, li, ul, nav, div {
+     margin: 0;
+     padding: 0;
+ }
+
+ html {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+ }
+
+ 

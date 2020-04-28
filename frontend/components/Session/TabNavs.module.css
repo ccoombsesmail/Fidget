@@ -1,0 +1,22 @@
+.navContainer {
+    display: flex;
+    width: 80%;
+    border-bottom: 1px solid #E5E5E5;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.navTab {
+    list-style: none;
+    height: 100%;
+    width: 50px;
+    margin-right: 20px;
+    font-size: 14px;
+
+
+}
+
+.selected {
+    border-bottom: 2px solid #9147FF;
+    color: #9147FF
+}

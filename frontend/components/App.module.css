@@ -1,0 +1,25 @@
+.mainNav {
+  background-color: #18181B;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 3px 3px 8px #888888;
+  border-bottom: 2px solid #0E0E10;
+  width: 100%;
+
+}
+
+
+.leftNav {
+    margin-left: 30px;
+
+}
+
+.rightNav {
+    margin-right: 30px;
+}
+
+.appTitle {
+    color: whitesmoke;
+}

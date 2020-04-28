@@ -1,0 +1,50 @@
+.login {
+    padding: 10px;
+    background-color: #3A3A3D;
+    border: none;
+    color: whitesmoke;
+    margin-left: 5px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 750;
+    font-size: 12px;
+
+
+}
+
+.signup {
+    padding: 10px;
+    background-color: #9147FF;
+    border: none;
+    color: whitesmoke;
+    margin: 5px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 750;
+    font-size: 12px;
+
+
+
+}
+
+.logout {
+    padding: 10px;
+    background-color: #3A3A3D;
+    color: whitesmoke;
+    margin: 5px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+}
+
+
+.welcomeWrapper {
+    display: flex;
+    align-items: center;
+}
+
+.welcomeMessage {
+    color: white;
+    margin-right: 20px;
+ }
