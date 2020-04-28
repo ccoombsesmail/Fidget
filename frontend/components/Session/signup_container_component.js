@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 import { signup } from '../../actions/session_actions'
 import SessionForm from './SessionForm'
-import {openModal} from '../../actions/modal_actions'
+import {openModal, closeModal} from '../../actions/modal_actions'
 
 
 const mSTP = state => {

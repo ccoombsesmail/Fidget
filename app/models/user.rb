@@ -13,12 +13,14 @@ class User < ApplicationRecord
 
 
     def self.find_by_credentials(username, password) 
+        queryResult = []
         user = User.find_by(username: username)
+        # return nil if user.nil?
+        
+        queryResult.push(user)
+        return queryResult.push({usernameError: "This username does not exist"}) if user.nil?
 
-        return nil if user.nil?
-
-
-        user.verify_password(password) ? user : nil
+        user.verify_password(password) ? queryResult : [nil, { passwordError: "That password was incorrect. Please try again."}]
 
     end
 

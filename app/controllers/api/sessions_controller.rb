@@ -3,16 +3,20 @@ class Api::SessionsController < ApplicationController
     before_action :require_logged_in, only: [:destroy]
 
     def create
-        @user = User.find_by_credentials(
+
+        # returns [user(possibly nil), usernameError or passwordError] 
+        queryResult = User.find_by_credentials(
             params[:user][:username],
             params[:user][:password]
         )
+        
+        @user = queryResult[0]
 
         if @user
             login!(@user)
             render 'api/users/user'
         else
-            render json: ['Invalid Credentials'], status: 401
+            render json: queryResult[1], status: 401
         end
     end
 

@@ -20,20 +20,38 @@ class SessionForm extends React.Component {
         }
     }
 
-    handleSubmit() {
+    handleSubmit(e) {
+        e.preventDefault()
         this.props.processForm(this.state)
-        this.props.closeModal()
-    
-        this.props.history.push(this.props.location.pathname)
+        // this.props.closeModal()
 
     }
 
     render() {
+        
+        let errors = this.props.errors
+        let errorBox;
+        if (!errors) {
+            errorBox = null
+        }else if (errors['usernameError']) {
+            errorBox = <div>
+                {errors['usernameError']}
+            </div>
+        }else {
+            errorBox = <div>
+                {errors['passwordError']}            
+            </div>
+        }
+
 
         return (
             <div className = {classes.formWrapper}>
+
+                {errorBox}
                 <h2 className= {classes.formMessage}>{this.props.formType} To Fidget</h2>
                 <TabNavs navToOtherForm= {this.props.navToOtherForm} currentForm = {this.props.formType} />
+
+
 
                 <form onSubmit={this.handleSubmit} className={classes.form}>
 

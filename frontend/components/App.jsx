@@ -1,13 +1,11 @@
 import React from 'react'
 import {Route, Switch} from 'react-router-dom'
 
-import SignupContainerComponent from './Session/signup_container_component'
-import LoginContainerComponent from './Session/login_container_component'
 import SessionControlsContainer from './SessionControls/session_controls_container'
 import Modal from './Modal/Modal'
 
 import classes from './App.module.css'
-
+import SideBar from './SideBar/SideBar'
 
 
 const App = (props) => {
@@ -24,10 +22,10 @@ const App = (props) => {
                     <SessionControlsContainer/>
                 </div>
             </nav>
+            <SideBar/>
             
             {/* <Switch> 
-                <Route path="/login" component={LoginContainerComponent} />
-                <Route path ="/signup" component={SignupContainerComponent} />
+             
             </Switch> */}
 
         </div>

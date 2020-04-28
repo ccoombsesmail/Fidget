@@ -7,7 +7,8 @@ const mSTP = state => {
 
     return {
         formType: 'Login',
-        otherForm: 'Sign Up'
+        otherForm: 'Sign Up',
+        errors: state.errors.session
     }
 
 }
