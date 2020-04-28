@@ -8,11 +8,13 @@ const ChannelShow= (props) => {
     
     return (
         <div className={classes.channelWrapper}> 
-            <ChatRoom channelId = {props.location.state['id']} />
+            <ChatRoom />
         </div>
     )
 }
 
+
+// channelId = { props.location.state['id'] }
 
 
 

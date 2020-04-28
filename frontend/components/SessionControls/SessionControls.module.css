@@ -80,6 +80,7 @@
      top: 50px;
      color: white;
      border-radius: 7px;
+     z-index: 99999;
  }
 
  .dropDown > li {

@@ -3,9 +3,8 @@
 .chatroomWrapper{
     position: absolute;
     right: 0;
-    top: 0;
-    height: 85vh;
-    margin-top: 100px;
+    height: 90vh;
+    /* margin-top: 100px; */
     min-width: 200px;
     border: solid gray 1px;
     background-color: #18181B;
@@ -45,5 +44,8 @@
 }
 
 .chatTitle {
+    display: flex;
+    align-items: center;
     color: whitesmoke;
+    height: 40px;
 }

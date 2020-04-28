@@ -22,7 +22,6 @@ class MessageForm extends React.Component {
         //     this.props.history.push('/login')
         // } else {
         let userId = this.props.currentUser.id
-        debugger
         App.cable.subscriptions.subscriptions[1].speak({ message: this.state.body, channelName: this.props.channelName, user_id: userId });
 
         // }
