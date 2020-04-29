@@ -13,7 +13,7 @@ class SideBar extends React.Component {
 
         return (
 
-            <div className = {classes.sideBar}>
+            <div id="sidebar" className = {classes.sideBar}>
                 {/* <h1>hey</h1> */}
 
             </div>
