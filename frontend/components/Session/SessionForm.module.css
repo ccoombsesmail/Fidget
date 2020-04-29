@@ -26,6 +26,18 @@
 
 }
 
+.demoFormInput {
+    width: 100%;
+    background-color: #E8F0FE;
+    border-radius: 5px;
+    border-style: inset;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    /* margin-bottom: 10px;
+    font-size: 12px; */
+}
+
 
 .formInput:focus {
   border: solid  #9147FF 2.2px;

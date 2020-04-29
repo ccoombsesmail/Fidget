@@ -4,7 +4,6 @@ import { withRouter } from 'react-router-dom'
 
 import TabNavs from './TabNavs/TabsNav'
 import ErrorBox from './ErrorBox/ErrorBox'
-import Typewriter from 'typewriter-effect';
 
 
 class SessionForm extends React.Component {
@@ -59,20 +58,6 @@ class SessionForm extends React.Component {
                 <TabNavs clearErrors = {this.props.clearErrors}  navToOtherForm={this.props.navToOtherForm} currentForm={this.props.formType}  />
                 <ErrorBox navToOtherForm={this.props.navToOtherForm} errors={this.props.errors} passwordMatch={this.state.passwordMatch} />
 
-                <Typewriter
-                    onInit={(typewriter) => {
-                        typewriter.typeString('Hello World!')
-                            .callFunction(() => {
-                                console.log('String typed out!');
-                            })
-                            .pauseFor(2500)
-                            .deleteAll()
-                            .callFunction(() => {
-                                console.log('All strings were deleted');
-                            })
-                            .start();
-                    }}
-                />
 
                 <form onSubmit={this.handleSubmit} className={classes.form}>
 

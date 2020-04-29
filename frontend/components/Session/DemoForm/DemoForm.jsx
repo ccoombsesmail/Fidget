@@ -5,7 +5,7 @@ import {connect} from 'react-redux'
 import {login} from '../../../actions/session_actions'
 
 import TabNavs from '../TabNavs/TabsNav'
-import Typewriter from 'typewriter-effect';
+import Typist from 'react-typist';
 
 
 class DemoForm extends React.Component {
@@ -21,9 +21,8 @@ class DemoForm extends React.Component {
 
  
 
-    handleSubmit(e) {
-        e.preventDefault()
-        this.login(this.state)
+    handleSubmit() {
+        this.props.login(this.state)
     }
 
 
@@ -47,28 +46,23 @@ class DemoForm extends React.Component {
 
                     <label className={classes.formLabel}>
                         <h4>Username</h4>
-                        <div className={classes.formInput} type="text" > 
-                            <Typewriter
-                                onInit={(typewriter) => {
-                                    typewriter.typeString('Hello World!')
-                                        .callFunction(() => {
-                                            console.log('String typed out!');
-                                        })
-                                        .pauseFor(2500)
-                                        .deleteAll()
-                                        .callFunction(() => {
-                                            console.log('All strings were deleted');
-                                        })
-                                        .start();
-                                }}
-                            />
+                        <div className={classes.demoFormInput}  > 
+                       
+                            <Typist cursor = {{show: false}} >
+                                PleaseHireMe
+                            </Typist>
 
                           </div>
                     </label>
 
                     <label className={classes.formLabel}>
                         <h4>Password</h4>
-                        <input className={classes.formInput} type="password" />
+                        <div className={classes.demoFormInput}  >
+                            <Typist cursor={{ show: false }} onTypingDone={this.handleSubmit}>
+                                <Typist.Delay ms={1200} />
+                                *************
+                            </Typist>
+                          </div>
                     </label>
 
                     <button type="submit" className={classes.formSubmit}>Log In</button>

@@ -8,4 +8,5 @@
 
 
 
-User.create({:username => 'PleaseHireMe', :password => '12345678'})
+user = User.create({:username => 'PleaseHireMe', :password => '12345678'})
+Channel.create({:owner_id => user.id })
