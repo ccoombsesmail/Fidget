@@ -62,10 +62,13 @@ class SessionControls extends React.Component {
     }
 
     toggleMenu(e) {
-        if (e.target === this.userIcon) {
+        
+        if (e.target === this.userIcon || this.userIcon.contains(e.target)) {
+            
             this.toggle()
             e.stopPropagation()
         } else if (this.state.showMenu && !(e.target.closest('ul') === document.querySelector('ul'))) {
+            
             this.toggle()
         }
     }
@@ -87,7 +90,7 @@ class SessionControls extends React.Component {
                         {/* <h2 className={classes.welcomeMessage}  > Welcome {this.props.currentUser.username}</h2>
                         <Link className={classes.logout} to = '/' onClick = {this.handleClick} >Logout</Link> */}
                             
-                        <FontAwesomeIcon onClick={this.toggleMenu} className={classes.userIcon} icon={faUserNinja}  />
+                        <div onClick={this.toggleMenu}> <FontAwesomeIcon className={classes.userIcon} icon={faUserNinja} /> </div>
                         <DropDownMenu toggle={this.toggle} logout = {this.props.logout} currentUser = {this.props.currentUser} showMenu = {this.state.showMenu}/>
                     </div>
                   ) : (

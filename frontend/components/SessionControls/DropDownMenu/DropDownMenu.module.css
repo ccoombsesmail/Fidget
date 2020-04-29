@@ -16,6 +16,7 @@
      color:white;
      margin: 5px;
      padding: 10px;
+     cursor: pointer;
  }
 
  .dropDown > li:hover {
