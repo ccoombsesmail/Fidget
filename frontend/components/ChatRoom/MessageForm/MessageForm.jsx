@@ -35,7 +35,7 @@ class MessageForm extends React.Component {
         return (
             <div className={classes.messageFormWrapper}>
                 <form className={classes.messageForm} onSubmit={this.handleSubmit.bind(this)}>
-                    <input className={classes.messageSubmit}
+                    <input id= "messageSubmit" className={classes.messageSubmit}
                         type="text"
                         value={this.state.body}
                         onChange={this.update("body")}
@@ -44,6 +44,7 @@ class MessageForm extends React.Component {
                     />
                     {/* <input  type="submit" /> */}
                 </form>
+                <div className={classes.submitButton}> </div>
             </div>
         );
     }

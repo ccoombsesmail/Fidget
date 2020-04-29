@@ -7,7 +7,29 @@
     flex-grow: 1;
     min-width: 200px;
     max-width: 250px;
+    display: flex;
+    flex-direction: column;
     /* overflow-y: scroll; */
 
+}
 
+.sideBarItemContainer {
+    margin: 15px;
+    font-size: 25px;
+    color: white; 
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.sideBarItemContainer :first-child {
+    margin-top: 35px;
+    
+}
+.sideBarItemContainer :nth-child(2) {
+    margin-top: 35px;
+    
+}
+
+.sideBarItem {
+    /* font-size: 25px; */
 }

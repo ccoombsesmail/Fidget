@@ -59,17 +59,18 @@ class ChatRoom extends React.Component {
 
 
         return (
-            <div className={classes.chatroomWrapper}>
+            // <div id= "chatroomWrapper" className={classes.chatroomWrapper}>
                 <div className={classes.chatroomContainer}>
                     
                     <div className = {classes.chatTitle}>Stream Chat {this.props.channelId}</div> 
-                    <div className = {classes.messageList}>
+                    <div id="messageList" className = {classes.messageList}>
                         {messageList}
                         <MessageForm currentUser={this.props.currentUser} channelName={this.props.match.params.channelName} />
+                      
                     </div>
 
                 </div>
-            </div>
+            // </div>
         );
     }
 }

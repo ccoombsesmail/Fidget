@@ -1,4 +1,30 @@
 .channelWrapper {
     flex-grow: 6.0;
     background-color: whitesmoke;
+    display: flex;
+    
+}
+
+
+.channelContents {
+    display: flex;
+    flex-direction: column;
+    background-color: #0E0E10;
+    width: 100px;
+    flex-grow: 3;   
+ /* overflow-y: scroll; */
+}
+
+nav {
+    background-color: #18181B;
+    height: 40px;
+    border-bottom: 2px solid #18181B ;
+    
+}
+
+
+.right {
+    min-width: 342px;
+    max-width: 342px;
+    flex: 1;
 }

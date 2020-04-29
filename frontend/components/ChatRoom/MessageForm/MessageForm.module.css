@@ -17,14 +17,20 @@
   padding: 5px;
   height: 30px;
   font-weight: 700;
-
+  color: white;
 
 }
+
 
 .messageSubmit:focus {
   background-color: black;
   border: solid  #9147FF 3px;
   border-radius: 8px;
   outline: none;
-  color: white;
+}
+
+
+.submitButton {
+  background-color: #18181B;
+
 }

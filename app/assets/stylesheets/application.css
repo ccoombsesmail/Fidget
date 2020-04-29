@@ -28,13 +28,14 @@
 
  a {
    text-decoration: none;
-   color: white;
+   
 
  }
  html {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     /* font-family: 'Ubuntu', sans-serif; */
     -webkit-font-smoothing: antialiased;
+    overflow-y: hidden;
  }
 
  

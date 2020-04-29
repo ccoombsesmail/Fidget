@@ -7,7 +7,6 @@ import Modal from './Modal/Modal'
 import SideBar from './SideBar/SideBar'
 import ChannelIndex from './Channels/ChannelIndex'
 import ChannelShow from './Channels/ChannelShow/ChannelShow'
-import Logo from './twitchwhite.png'
 
 const App = (props) => {
 
@@ -18,17 +17,29 @@ const App = (props) => {
         document.getElementById('nav').style.borderBottom = '2px solid #E5E5E5'
         document.getElementById('sidebar').style.backgroundColor = '#EFEFF1'
         document.getElementById('indexArea').style.backgroundColor = '#F7F7F8'
-        // document.getElementById('channelIndexItem').style.backgroundColor = '#1F1F23'
+        // document.getElementBy('chatroomWrapper').style.backgroundColor = '#FFFFFF'
+        // document.getElementById('messageSubmit').style.backgroundColor = '#F2F2F2'
+        // document.getElementById('messageList').style.backgroundColor = '#F2F2F2'
+        document.getElementById('channelIndexItem').style.backgroundColor = '#1F1F23'
         let nodes = document.getElementById('indexArea').getElementsByTagName("div");
         for (let i = 0; i < nodes.length; i++) {
             nodes[i].style.background = '#1F1F23';
             nodes[i].style.color = 'white';
 
         }
+
+        let iconNodes = document.getElementById('sidebar').getElementsByTagName("div");
+            for (let i = 0; i < iconNodes.length; i++) {
+            // iconNodes[i].style.background = '#1F1F23';
+            iconNodes[i].style.color = 'black';
+
+        }
+
         }else {
 
         }
     }
+
 
 
 

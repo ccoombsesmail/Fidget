@@ -7,7 +7,13 @@ const ChannelShow= (props) => {
 
     
     return (
-        <div className={classes.channelWrapper}> 
+        <div className={classes.channelWrapper}>
+            <div className={classes.channelContents}>
+            <nav> hell </nav> 
+            </div>
+            <div className={classes.right}>
+                .
+            </div>
             <ChatRoom />
         </div>
     )
