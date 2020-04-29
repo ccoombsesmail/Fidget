@@ -1,3 +1,5 @@
 class StaticPagesController < ApplicationController
-    def root; end
+    def root
+        @demoUser = User.find_by(username: 'PleaseHireMe')
+    end
 end

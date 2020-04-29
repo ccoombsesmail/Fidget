@@ -5,6 +5,7 @@ import LoginContainerComponent from '../Session/login_container_component'
 import SignupContainerComponent from '../Session/signup_container_component'
 
 import classes from './Modal.module.css'
+import DemoForm from '../Session/DemoForm/DemoForm'
 
 
 const Modal = (props) => {
@@ -21,6 +22,9 @@ const Modal = (props) => {
             break;
         case 'signup':
             component = <SignupContainerComponent/>
+            break;
+        case 'demo':
+            component = <DemoForm/>
             break;
         default:
             return null;

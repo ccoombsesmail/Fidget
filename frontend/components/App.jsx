@@ -33,14 +33,6 @@ const App = (props) => {
 
 
 
-
-
-
-
-
-
-
-
     return(
         <div> 
             <Modal/>
@@ -48,7 +40,7 @@ const App = (props) => {
                 <div className = {classes.leftNav} > 
                     {/* <Link to = '/'> <h1 className={classes.appTitle}> Fidget</h1></Link> */}
                     {/* <Link to='/'> <a href="https://fontmeme.com/twitch-logo-font/"><img src="https://fontmeme.com/permalink/200429/c5c269ee240a3104c60edd9054042334.png" alt="twitch-logo-font" border="0"/></a></Link> */}
-                    <img src = "https://i.ibb.co/LRxhSsJ/twitchwhite.png"/>
+                    <Link to='/'> <img src="https://i.ibb.co/LRxhSsJ/twitchwhite.png" /></Link>
                 </div>
                 <span onClick={() => toggle(false)}> . </span>
                 <div className = {classes.rightNav}>

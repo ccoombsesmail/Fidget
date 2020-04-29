@@ -12,11 +12,15 @@ document.addEventListener('DOMContentLoaded', () => {
         const preloadedState =  {
             entities: {
                 users: {
-                    [window.currentUser.id] : window.currentUser
+                    [window.currentUser.id] : window.currentUser,
+                    [window.demoUser.id]: window.demoUser
                 }
             },
             session: {
-                currentUserId: window.currentUser.id
+                currentUserId: window.currentUser.id,
+            },
+            ui: {
+                demoUserId: window.demoUser.id
             }
         }
         
@@ -24,8 +28,22 @@ document.addEventListener('DOMContentLoaded', () => {
         delete window.currentUser
 
     }else {
-        store = configureStore()
+        const preloadedState = {
+            entities: {
+                users: {
+                    [window.demoUser.id]: window.demoUser
+                }
+            },
+            ui: {
+                demoUserId: window.demoUser.id
+            }
+        }
+
+        store = configureStore(preloadedState)
+        delete window.demoUser
     }
+
+
    
     
     let rootEl = document.getElementById('root')

@@ -1,17 +1,22 @@
-  
+  <% if logged_in? %>
+
+  <script type="text/javascript">
+      window.currentUser =
+      <%= render(
+          'api/users/user.json.jbuilder',
+          user: current_user
+      ).html_safe %>
+  </script>
+
+  <% end %>
+
+  <script type="text/javascript">
+      window.demoUser =
+      <%= render(
+          'api/users/user.json.jbuilder',
+          user: demo_user
+      ).html_safe %>
+  </script>
 
 
-<% if logged_in? %>
-     <script>
-        window.currentUser = <%= render(
-            'api/users/user.json.jbuilder',
-            user: current_user
-        ).html_safe
-        %>
-    </script>
-
-<% end %>
-
-
-
-<div id = "root"> React is not working </div>
+  <div id="root"> React is not working </div>

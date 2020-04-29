@@ -30,8 +30,8 @@
    text-decoration: none;
  }
  html {
-    /* font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; */
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    /* font-family: 'Ubuntu', sans-serif; */
     -webkit-font-smoothing: antialiased;
  }
 
