@@ -4,7 +4,7 @@
     width: 210px; */
     /* left: 0; */
     height: 100vh;
-    flex-grow: 1;
+    flex-grow: 1.1;
     min-width: 200px;
     max-width: 250px;
     display: flex;
@@ -15,6 +15,7 @@
 
 .sideBarItemContainer {
     margin: 15px;
+    margin-left: -5px;
     font-size: 25px;
     color: white; 
     display: flex;

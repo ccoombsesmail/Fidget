@@ -9,7 +9,7 @@
 .navTab {
     list-style: none;
     height: 100%;
-    width: 50px;
+    width: 47px;
     margin-right: 20px;
     font-size: 13px;
     cursor: pointer;
@@ -21,3 +21,5 @@
     border-bottom: 2px solid #9147FF;
     color: #9147FF
 }
+
+

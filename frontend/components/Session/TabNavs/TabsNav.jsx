@@ -38,7 +38,7 @@ class TabNavs extends React.Component {
 
         return (
             <ul className={classes.navContainer}>
-                <li className={loginBtnClasses.join(' ')} onClick= {this.changeTab} >Log In</li>
+                <li style = {{width: '38px'}} className={loginBtnClasses.join(' ')} onClick= {this.changeTab} >Log In</li>
                 <li className={signupBtnClasses.join(' ')} onClick={this.changeTab} >Sign Up</li>
             </ul>
 

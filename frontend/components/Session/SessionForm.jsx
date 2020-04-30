@@ -42,7 +42,12 @@ class SessionForm extends React.Component {
 
 
     render() {
-        
+        let disableBtn = false
+        let submitBtnClasses = [classes.formSubmit]
+        if (this.state.username === '' || this.state.password === ''){
+            disableBtn = true;
+            submitBtnClasses.push(classes.disableSubmit)
+        }
 
 
         return (
@@ -81,7 +86,7 @@ class SessionForm extends React.Component {
                         ) : null
                     }
 
-                    <button type="submit" className={classes.formSubmit}> {this.props.formType}</button>
+                    <button disabled={disableBtn} type="submit" className={submitBtnClasses.join(' ')}> {this.props.formType}</button>
                 </form>
             </div>
 

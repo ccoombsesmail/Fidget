@@ -1,12 +1,7 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
 import classes from './SessionControls.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUserNinja } from '@fortawesome/free-solid-svg-icons'
-import { faVideo } from '@fortawesome/free-solid-svg-icons'
-import { faCog } from '@fortawesome/free-solid-svg-icons'
-import { faSignInAlt } from '@fortawesome/free-solid-svg-icons'
-import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
+import { faUserNinja, faUser } from '@fortawesome/free-solid-svg-icons'
 import DropDownMenu from './DropDownMenu/DropDownMenu'
 
 
@@ -29,7 +24,7 @@ class SessionControls extends React.Component {
 
     componentDidMount() {
         document.body.addEventListener('click', this.toggleMenu);
-        this.userIcon = document.querySelector("[data-icon='user-ninja'")
+        this.userIcon = document.querySelector("[data-icon='user-ninja'") || document.querySelector("[data-icon='user'")
       
     }
 
@@ -43,7 +38,7 @@ class SessionControls extends React.Component {
 
   
     componentDidUpdate() {
-        this.userIcon = document.querySelector("[data-icon='user-ninja'")
+        this.userIcon = document.querySelector("[data-icon='user-ninja'") || document.querySelector("[data-icon='user'")
         // this.userIcon.addEventListener('click', (e) => {
         //     this.toggleMenu()
         //     e.stopPropagation()
@@ -100,7 +95,7 @@ class SessionControls extends React.Component {
                         <button className={classes.login} onClick={this.openModalOnClick('login')}>  Log In  </button>
                         <button className={classes.signup} onClick={this.openModalOnClick('signup')}> Sign Up </button>
 
-                        <FontAwesomeIcon onClick={this.toggleMenu} className={classes.userIcon} icon={faUserNinja}  />
+                        <FontAwesomeIcon onClick={this.toggleMenu} className={classes.userIcon} icon={faUser} style={{ backgroundColor: 'transparent'}}  />
                         <DropDownMenu toggle={this.toggle} login={this.openModalOnClick('login')} currentUser={this.props.currentUser} showMenu={this.state.showMenu} />
                     </div>
                   ) 

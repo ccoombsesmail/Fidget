@@ -45,13 +45,13 @@ class MessageForm extends React.Component {
 
                     />
                     {/* <input  type="submit" /> */}
-                </form>
                 <div className={classes.submitButtonWrapper}>
                     <FontAwesomeIcon className={classes.pointIcon} icon={faCircleNotch} />
-                    <button className={classes.chatButton}>
+                    <button type= 'submit' className={classes.chatButton}>
                             Chat
                     </button>
                 </div>
+                </form>
             </div>
         );
     }

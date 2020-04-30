@@ -4,6 +4,7 @@
     flex-direction: column;
     align-items: center;
     background-color: white;
+    /* background-color: #18181B; */
     width: 420px;
     height: 420px;
     border-radius: 7px;
@@ -94,4 +95,10 @@
     flex-direction: column;
     margin-left: 20px;
 
+}
+
+
+.disableSubmit{
+    background-color: #F9F9F9;
+    color: #E5E5E5;
 }
