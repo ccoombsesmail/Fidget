@@ -29,7 +29,7 @@ class EmojiMenu extends React.Component {
                 <FontAwesomeIcon icon={faCircleNotch} />
                 </li>
                 <li>
-                    <img onClick = {this.props.showEmoji} className = {classes.emojiImg} src= "https://i.ibb.co/Km2YDrb/UIHere.png" />
+                    <img  className = {classes.emojiImg} src= "https://i.ibb.co/Km2YDrb/UIHere.png" />
                 </li>
             </ul>
             ) : null

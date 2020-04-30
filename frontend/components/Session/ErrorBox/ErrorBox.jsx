@@ -46,7 +46,7 @@ const ErrorBox = ({ errors, navToOtherForm, passwordMatch}) => {
                     {errors[0]}
                 </b>
                 <p className={classes.errorBoxContent}>
-                    <a href='' onClick={navToOtherForm}>Forgot your password?</a>
+                    {/* <a href='' onClick={navToOtherForm}>Forgot your password?</a> */}
                 </p>
         </>
     }

@@ -94,7 +94,7 @@ class Signup extends React.Component {
 
                     <label className={classes.formLabel}>
                         <h4>Username</h4>
-                        <input id = "username" className={classes.formInput} type="text" value={this.state.username} onChange={this.update('username')} />
+                        <input id="username" className={classes.formInput} type="text" value={this.state.username} onChange={this.update('username')} autocomplete="off" />
                         <div className = {classes.infoDiv}>
                             <div className={classes.textDiv}> This is the name people will know you by on Fidget. You can always change it later  </div>
                         </div>
@@ -120,8 +120,8 @@ class Signup extends React.Component {
                                     return <option key = {idx} value={month}>{month}</option>
                                 })}
                             </select> 
-                            <input className={classes.dayInput} type="text" value={this.state.day} onChange={this.update('day')} />
-                            <input className={classes.yearInput} type="text" value={this.state.year} onChange={this.update('year')} /> 
+                            <input className={classes.dayInput} type="text" value={this.state.day} onChange={this.update('day')} placeholder = 'Day' />
+                            <input className={classes.yearInput} type="text" value={this.state.year} onChange={this.update('year')} placeholder = "Year" /> 
                          </div>
                     </label>
 
