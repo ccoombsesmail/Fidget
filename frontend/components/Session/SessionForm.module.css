@@ -23,7 +23,7 @@
     width: 100%;
     background-color: #E8F0FE;
     border-radius: 5px;
-    height: 22px;
+    height: 25px;
 
 }
 
@@ -222,11 +222,12 @@
 }
 
 .monthInput {
-    width: 40%;
+    width: 48%;
     background-color: #E8F0FE;
     border-radius: 5px;
-    height: 28px;
+    height: 30px;
     margin-right: 7px;
+  
 }
 
 
