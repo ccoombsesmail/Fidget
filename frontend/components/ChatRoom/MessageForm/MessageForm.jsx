@@ -69,7 +69,7 @@ class MessageForm extends React.Component {
 
                     />
                         { !this.state.showEmoji ? null : 
-                        <img style = {{position: 'absolute', left: this.state.left + 'px', width: '35px', height: '35px'}} src="https://i.ibb.co/Km2YDrb/UIHere.png" />
+                        <img style = {{position: 'relative', left: this.state.left + 'px', width: '35px', height: '35px'}} src="https://i.ibb.co/Km2YDrb/UIHere.png" />
                         }
                         <div onClick = {this.toggle} className={classes.emojiBtn}>  
                             <FontAwesomeIcon  icon={faSmileBeam} />

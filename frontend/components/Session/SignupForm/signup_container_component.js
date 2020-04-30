@@ -1,8 +1,8 @@
 import { connect } from 'react-redux'
-import { signup, clearErrors } from '../../actions/session_actions'
-import SessionForm from './SessionForm'
-import {openModal, closeModal} from '../../actions/modal_actions'
-
+import { signup, clearErrors } from '../../../actions/session_actions'
+import SessionForm from '../SessionForm'
+import {openModal, closeModal} from '../../../actions/modal_actions'
+import SignupForm from './SignupForm'
 
 const mSTP = state => {
 
@@ -27,4 +27,4 @@ const mDTP = dispatch => {
 }
 
 
-export default connect(mSTP, mDTP)(SessionForm)
+export default connect(mSTP, mDTP)(SignupForm)

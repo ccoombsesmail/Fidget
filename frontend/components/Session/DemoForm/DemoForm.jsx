@@ -49,7 +49,7 @@ class DemoForm extends React.Component {
                         <div className={classes.demoFormInput}  > 
                        
                             <Typist cursor = {{show: false}} >
-                                PleaseHireMe
+                                FidgetDemoUser
                             </Typist>
 
                           </div>

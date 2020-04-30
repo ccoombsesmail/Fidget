@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
     end
 
     def demo_user
-        @demo_user = User.find_by(username: 'PleaseHireMe')
+        @demo_user = User.find_by(username: 'FidgetDemoUser')
     end
 
     def logged_in?

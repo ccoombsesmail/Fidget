@@ -6,7 +6,7 @@
     background-color: white;
     /* background-color: #18181B; */
     width: 420px;
-    height: 420px;
+    min-height: 420px;
     border-radius: 7px;
 
 }
@@ -50,7 +50,7 @@
 .formLabel {
 
     width: 90%;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     font-size: 12px;
 }
 
@@ -60,10 +60,11 @@
     background-color: #9147FF;
     border: none;
     color: white;
-    border-radius: 8px;
+    border-radius: 5px;
     height: 30px;
     font-weight: 900;
     margin-top: 20px;
+    margin-bottom: 30px;
     outline: none;
 
 
@@ -101,4 +102,136 @@
 .disableSubmit{
     background-color: #F9F9F9;
     color: #E5E5E5;
+}
+
+.infoDiv {
+    /* display: none;
+    width: 90%;
+    height: 40px;
+    transform: translateY(40px); */
+    /* animation-name: slideUp;
+    animation-duration: 2s; */
+
+}
+
+
+
+
+
+
+
+ .formInput + div {
+    width: 90%;
+    height: 0px;
+    opacity: 0;
+
+}
+
+.formInput:focus + div {
+    display: block;
+    animation-name: slideUp;
+    animation-duration: .5s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+
+
+
+.formInput:not(:focus) + div {
+    animation-name: slideDown;
+    animation-duration: .5s;
+    animation-timing-function: linear;
+}  
+
+
+.textDiv {
+    height: 0px;
+    color: #9C9CA3;
+    margin-top: 5px; 
+}
+
+.textDiv:focus {
+    animation-name: slideDown;
+    animation-duration: .5s;
+    animation-timing-function: linear;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    height: 0px;
+    /* transform: translateY(70%); */
+  }
+
+  to {
+    opacity: 1;
+    height: 37px;
+    
+    /* transform: translateY(0%); */
+  }
+} 
+
+
+
+@keyframes slideDown {
+  from {
+    height: 37px;
+    /* transform: translateY(70%); */
+  }
+
+  to {
+    height: 0px;
+    /* transform: translateY(0%); */
+  }
+} 
+
+
+
+
+
+.dayInput {
+
+    width: 22%;
+    background-color: #E8F0FE;
+    border-radius: 5px;
+    height: 22px;
+    margin-left: 7px;
+
+}
+
+.dayInput:focus {
+     border: solid  #9147FF 2.2px;
+  border-radius: 5px;
+  outline: none;
+}
+
+.yearInput {
+
+    width: 22%;
+    background-color: #E8F0FE;
+    border-radius: 5px;
+    height: 22px;
+    margin-left: 7px;
+
+
+}
+.yearInput:focus {
+     border: solid  #9147FF 2.2px;
+  border-radius: 5px;
+  outline: none;
+}
+
+.monthInput {
+    width: 40%;
+    background-color: #E8F0FE;
+    border-radius: 5px;
+    height: 28px;
+    margin-right: 7px;
+}
+
+
+.monthInput:focus {
+     border: solid  #9147FF 2.2px;
+  border-radius: 5px;
+  outline: none;
 }
