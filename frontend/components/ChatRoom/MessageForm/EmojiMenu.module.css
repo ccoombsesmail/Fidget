@@ -1,0 +1,25 @@
+.menu {
+    position: absolute;
+    display: flex;
+    background-color: #18181B;
+    height: 200px;
+    width: 320px;
+    bottom: 90px;
+    border: 1px solid black;
+    border-radius: 7px;
+    -webkit-box-shadow: 4px 3px 5px 0px rgba(0,0,0,1);
+    -moz-box-shadow: 4px 3px 5px 0px rgba(0,0,0,1);
+    box-shadow: 4px 3px 5px 0px rgba(0,0,0,1);
+}
+
+.menu > li {
+    list-style: none;
+    margin: 10px;
+
+}
+
+
+.emojiImg {
+    width: 30px;
+    height: 30px;
+}

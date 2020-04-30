@@ -60,7 +60,6 @@ const App = (props) => {
             </nav>
             <div className={classes.mainContainer}> 
                 <SideBar />
-
             <Switch> 
                 <Route path = "/channels/:channelName" component = {ChannelShow}/>
                 <Route path = "/" component = {ChannelIndex}/>

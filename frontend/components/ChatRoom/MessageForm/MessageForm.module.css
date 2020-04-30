@@ -9,6 +9,14 @@
 
 }
 
+.emojiInputWrapper{
+
+    display: flex ;
+    align-items: center;
+    margin-right: -10px;
+}
+
+
 .messageSubmit {
   width: 100%;
   background-color: #3A3A3D;
@@ -63,4 +71,23 @@
 
 .pointIcon:hover{
   opacity: .7;
+}
+
+
+.emojiBtn {
+  position: absolute;
+  right: -5px;
+  font-size: 15px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  /* top: 50%; */
+  /* transform: translateY(50%) */
+}
+
+.emojiBtn:hover {
+  background-color: grey;
 }

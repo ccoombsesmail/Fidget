@@ -20,15 +20,22 @@ class ChatRoom extends React.Component {
 
     componentDidMount() {
         
-        // Subscribe to a channel with a given id. Define methods to receive and send data from/to socket
         
+        // twitchEmoji.add('Kappa', function (err) {
+        //     if (!err) {
+        //         console.log('hey')
+        //     }
+        // });
+        
+        // Subscribe to a channel with a given id. Define methods to receive and send data from/to socket
         App.cable.subscriptions.create(
             {channel: "ChatRoomsChannel", id: this.props.match.params.channelName},
 
             {
                 received: data => {
                     this.setState({
-                        messages: [...this.state.messages, [data.message, data.username]]
+                        messages: [...this.state.messages, [data.message, data.username]],
+                        // emojiUrl: data.url
                     })
                 },
                 speak: function(data) {
@@ -37,7 +44,6 @@ class ChatRoom extends React.Component {
 
             }
         )
-
     }
 
     componentDidUpdate() {
@@ -47,11 +53,14 @@ class ChatRoom extends React.Component {
     }
 
     render() {
-
+       
         const messageList = this.state.messages.map((message, idx) => {
             return (
                 <li className = {classes.messageLi} key={idx}>
-                    <p> <span className={classes.username}> {`${message[1]}:   `} </span>  <span className={classes.messageBody}> {`${message[0]}`} </span> </p>
+                    <p> 
+                        <span className={classes.username}> {`${message[1]}:   `} </span> 
+                         <span className={classes.messageBody}> {twitchEmoji.parse(`${message[0]}`)} </span> 
+                         </p>
                     <div ref={this.bottom} />
                 </li>
             );
