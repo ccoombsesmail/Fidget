@@ -15,7 +15,9 @@
 .chatroomContainer {
     position: absolute;
     right: 0;
-    height: 90vh;
+    /* height: 90vh; */
+    height: calc(100vh - 49px);
+    
     /* margin-top: 100px; */
     min-width: 340px;
     max-width: 340px;

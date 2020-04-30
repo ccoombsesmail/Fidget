@@ -1,6 +1,8 @@
 import React from "react";
 import { withRouter } from 'react-router-dom'
 import classes from './MessageForm.module.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCircleNotch } from '@fortawesome/free-solid-svg-icons'
 
 class MessageForm extends React.Component {
     constructor(props) {
@@ -44,7 +46,12 @@ class MessageForm extends React.Component {
                     />
                     {/* <input  type="submit" /> */}
                 </form>
-                <div className={classes.submitButton}> </div>
+                <div className={classes.submitButtonWrapper}>
+                    <FontAwesomeIcon className={classes.pointIcon} icon={faCircleNotch} />
+                    <button className={classes.chatButton}>
+                            Chat
+                    </button>
+                </div>
             </div>
         );
     }

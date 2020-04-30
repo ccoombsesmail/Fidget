@@ -2,7 +2,7 @@
   position: absolute;
   bottom: 0;
   margin-bottom: 10px;
-  width: 260px;
+  width: 310px;
   left: 50%;
   transform: translateX(-50%);
   margin-left: -5px;
@@ -30,7 +30,37 @@
 }
 
 
-.submitButton {
+.submitButtonWrapper {
+  display: flex;
+  padding-top: 10px;
+  justify-content: space-between;
+  align-items: center;
   background-color: #18181B;
+  
 
+}
+
+.chatButton {
+
+  width: 50px;
+  height: 30px;
+  color: white;
+  font-weight: 600;
+  background-color: #9147FF;
+  border: none;
+  border-radius: 7px;
+  margin-right: -12px;
+
+}
+.chatButton:hover {
+  opacity: .7;
+}
+
+.pointIcon{
+  font-size: large;
+  margin-left: 12px;
+}
+
+.pointIcon:hover{
+  opacity: .7;
 }
