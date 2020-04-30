@@ -49,7 +49,6 @@ class Signup extends React.Component {
         if (this.state.confirmPassword !== this.state.password && this.props.formType === 'Sign Up') {
             this.setState({ passwordMatch: false })
         } else {
-            debugger
             let monthNum = this.months.indexOf(this.state.month) + 1
             monthNum < 10 ? monthNum =  '0' + monthNum.toString() : monthNum = monthNum.toString()
             let day = this.state.day
@@ -94,7 +93,7 @@ class Signup extends React.Component {
 
                     <label className={classes.formLabel}>
                         <h4>Username</h4>
-                        <input id="username" className={classes.formInput} type="text" value={this.state.username} onChange={this.update('username')} autocomplete="off" />
+                        <input id="username" className={classes.formInput} type="text" value={this.state.username} onChange={this.update('username')} autoComplete="off" />
                         <div className = {classes.infoDiv}>
                             <div className={classes.textDiv}> This is the name people will know you by on Fidget. You can always change it later  </div>
                         </div>
@@ -115,7 +114,7 @@ class Signup extends React.Component {
                         <h4>Date of Birth</h4>
                          <div>
                             <select className={classes.monthInput} value={this.state.month} onChange={this.updateMonth}> 
-                                <option selected disabled >Month</option>
+                                <option value = "" disabled >Month</option>
                                 {this.months.map((month,idx) => {
                                     return <option key = {idx} value={month}>{month}</option>
                                 })}
