@@ -5,9 +5,15 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'open-uri'
 
 
 
 user = User.create!({:username => 'FidgetDemoUser', :password => '12345678', :email => 'demo.demouser@gmail.com', :dob => 19931119})
 channel = Channel.create!({:owner_id => user.id })
-channel.logoUrl.attach(io: File.open("/mnt/c/Users/coomb/Desktop/Fidget/Fidget/UIHere.png"), filename: 'UIHere.png')
+
+file = open('https://fidget-seeds.s3-us-west-1.amazonaws.com/UIHere.png')
+channel.logoUrl.attach(io: file, filename: 'UIHere.png')
+
+
+

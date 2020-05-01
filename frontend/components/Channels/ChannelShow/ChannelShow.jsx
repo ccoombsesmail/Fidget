@@ -10,6 +10,7 @@ const ChannelShow= (props) => {
         <div className={classes.channelWrapper}>
             <div className={classes.channelContents}>
             <nav> hell </nav> 
+            <video className = {classes.videoPlayer} > </video>
             </div>
             <div className={classes.right}>
                 .
