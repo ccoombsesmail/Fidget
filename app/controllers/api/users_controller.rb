@@ -9,7 +9,8 @@ class Api::UsersController < ApplicationController
 
         if @user.save!
             login!(@user)
-            Channel.create({:owner_id => @user.id})
+            channel = Channel.create({:owner_id => @user.id})
+            channel.logoUrl.attach(io: File.open("/mnt/c/Users/coomb/Desktop/Fidget/Fidget/UIHere.png"), filename: 'UIHere.png')
             render :user
         else
             
