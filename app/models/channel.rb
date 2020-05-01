@@ -5,6 +5,6 @@ class Channel < ApplicationRecord
         foreign_key: :owner_id,
         class_name: :User
 
-    has_one_attached :logo
+    # has_one_attached :logo
 
 end
