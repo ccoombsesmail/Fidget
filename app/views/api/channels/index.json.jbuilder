@@ -4,6 +4,9 @@ json.channels do
         json.set! channel.id do
             json.id channel.id
             json.ownerId channel.owner_id
+            if channel.id == 6
+                json.logoUrl url_for(channel.logo)
+            end
         end
     end
 end

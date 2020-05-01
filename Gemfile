@@ -31,7 +31,7 @@ gem 'validates_email_format_of'
 gem 'jquery-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
+gem "aws-sdk-s3"
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 

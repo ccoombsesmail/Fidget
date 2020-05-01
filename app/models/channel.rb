@@ -4,4 +4,7 @@ class Channel < ApplicationRecord
     belongs_to :owner,
         foreign_key: :owner_id,
         class_name: :User
+
+    has_one_attached :logo
+
 end

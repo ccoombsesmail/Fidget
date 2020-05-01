@@ -2,12 +2,15 @@
      position: absolute;
      width: 160px;
      height: 300px;
-     background-color: #1F1F23;
+     background-color: #18181B;
      right: 5px;
      top: 50px;
      color: white;
      border-radius: 7px;
      z-index: 99999;
+        -webkit-box-shadow: 4px 3px 5px 0px rgba(0,0,0,1);
+    -moz-box-shadow: 4px 3px 5px 0px rgba(0,0,0,1);
+    box-shadow: 4px 3px 5px 0px rgba(0,0,0,1);
  }
 
  .dropDown > li {
@@ -30,4 +33,40 @@
 
  .show {
      display: block;
+ }
+
+
+.topDiv {
+    display: flex;
+    /* border-bottom: 1px solid lightgrey; */
+    padding: 8px;
+    margin-bottom: 20px;
+    
+}
+
+ .userIconMain {
+     color: white;
+     font-size: large;
+     /* margin-left: 10px; */
+     font-size: 23px;
+     padding: 10px;
+     border-radius: 50%;
+     background-color: #00BAA3;
+     cursor: pointer;
+ }
+
+
+ hr {
+     width: 85%;
+     margin: auto;
+     background-color: rgb(48,48,50);
+     height: .5px;
+     border: none;
+ }
+
+ h5 {
+     margin-left: 8px;
+     margin-top: 4px;
+     font-size: 12px;
+     font-weight: 700;
  }
