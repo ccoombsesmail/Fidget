@@ -20,9 +20,9 @@ class ChannelIndex extends React.Component {
         
         return (
             <div id="indexArea" className = {classes.indexWrapper}> 
-            {this.props.channels.length === 0 ? null : 
+            {/* {this.props.channels.length === 0 ? null : 
             <img src = {this.props.channels[0].logoUrl}/> 
-            }  
+            }   */}
                 {
                     this.props.channels.map((channel, idx) => {
                         return <ChannelIndexItem key = {idx} channel = {channel}  user = {this.props.users[channel.ownerId]} />
