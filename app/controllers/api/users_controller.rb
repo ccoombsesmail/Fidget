@@ -4,7 +4,7 @@ class Api::UsersController < ApplicationController
         
       
         newParams = user_params
-        # newParams["dob"] = params[:user][:dob].to_i
+        newParams["dob"] = params[:user][:dob].to_i
         @user = User.new(newParams)
 
         if @user.save!

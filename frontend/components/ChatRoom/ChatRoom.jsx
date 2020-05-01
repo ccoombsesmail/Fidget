@@ -59,7 +59,7 @@ class ChatRoom extends React.Component {
                 <li className = {classes.messageLi} key={idx}>
                     <p> 
                         <span className={classes.username}> {`${message[1]}:   `} </span> 
-                         <span className={classes.messageBody}> {twitchEmoji.parse(`${message[0]}`)} </span> 
+                         <span className={classes.messageBody}> {`${message[0]}`} </span> 
                          </p>
                     <div ref={this.bottom} />
                 </li>
