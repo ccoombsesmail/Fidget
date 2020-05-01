@@ -37,7 +37,10 @@ const DropDownMenu = ({currentUser, showMenu, logout, login, toggle, history}) =
                 break;
             case 'showChannel':
                 history.push(`/channels/${currentUser.username}`)
-                break
+                break;
+            case 'dashboard':
+                history.push(`/${currentUser.username}/dashboard`)
+                break;
             default:
                 break;
         }
@@ -55,11 +58,10 @@ const DropDownMenu = ({currentUser, showMenu, logout, login, toggle, history}) =
             <div className={classes.topDiv}> 
                 <FontAwesomeIcon className={classes.userIconMain} icon={faUserNinja} />
                 <h5> {currentUser.username} </h5>
-                
             </div>
             <hr/>
             <li onClick = {() => handleClick('showChannel')}><FontAwesomeIcon className={classes.userIconList} icon={faVideo} />  <span> Channel </span> </li> 
-            <li><FontAwesomeIcon className={classes.userIconList} icon={faCog} /><span> Dashboard </span> </li>
+            <li onClick = {() => handleClick('dashboard')}><FontAwesomeIcon className={classes.userIconList} icon={faCog} /><span> Dashboard </span> </li>
             <li onClick={() => handleClick('logout')}><FontAwesomeIcon className={classes.userIconList} icon={faSignOutAlt} /><span> Sign Out </span> </li>
         </ul>    
 

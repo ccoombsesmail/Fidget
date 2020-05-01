@@ -1,0 +1,108 @@
+.dashboardWrapper {
+    flex-grow: 6.0;
+    display: flex;
+    flex-direction: column;
+    /* flex-wrap: wrap; */
+    background-color: #0E0E10;
+    align-items: flex-start;
+   
+}
+
+.dashboardWrapper > h1 {
+    margin-top: 30px;
+    margin-left: 20px;
+
+}
+
+.profileWrapper {
+
+    margin-top: 30px;
+    margin-left: 20px;
+
+}
+
+
+.profileWrapper > h2 {
+    color: white;
+    margin-bottom: 15px;
+    
+}
+
+
+.profileForm {
+    display: flex;
+    align-items: center;
+    width: 900px;
+    height: 140px;
+    background-color: #18181B;
+    border: 1px solid #303032;
+    border-radius: 7px;
+}
+
+
+
+ .userIcon{
+     color: black;
+     font-size: large;
+     margin-left: 20px;
+     font-size: 56px;
+     padding: 20px;
+     border-radius: 50%;
+     background-color: #00BAA3;
+     cursor: pointer;
+ }
+ 
+.dashboardWrapper > hr {
+     width: 90%;
+     margin-left: 20px;
+     margin-top: 30px;
+     background-color: rgb(48,48,50);
+     height: .5px;
+     border: none;
+
+}
+
+
+.profileBtnWrapper { 
+    position: relative; 
+    height: 30px;
+    width: 160px; 
+    
+}
+.profileInput { 
+    position: absolute; 
+    opacity: 0; 
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0; 
+}
+
+.profileBtnWrapper > label { 
+    position: absolute; 
+    top: 0; 
+    right: 0; 
+    left: 0; 
+    bottom: 0; 
+    background-color: #3A3A3D; 
+    color: rgb(226,226,228);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 5px;
+ 
+}
+
+.btnDirectionWrapper {
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    color:  #C0C0C4;
+}
+
+.btnDirectionWrapper > h5 {
+    margin-top: 8px ;
+}

@@ -56,7 +56,7 @@
  }
 
 
- hr {
+ .dropDown > hr {
      width: 85%;
      margin: auto;
      background-color: rgb(48,48,50);
@@ -64,7 +64,7 @@
      border: none;
  }
 
- h5 {
+.topDiv > h5 {
      margin-left: 8px;
      margin-top: 4px;
      font-size: 12px;

@@ -7,6 +7,8 @@ import Modal from './Modal/Modal'
 import SideBar from './SideBar/SideBar'
 import ChannelIndex from './Channels/ChannelIndex'
 import ChannelShow from './Channels/ChannelShow/ChannelShow'
+import Dashboard from './Dashboard/Dashboard'
+import AuthRoute from '../util/route_util'
 
 const App = (props) => {
 
@@ -62,6 +64,7 @@ const App = (props) => {
                 <SideBar />
             <Switch> 
                 <Route path = "/channels/:channelName" component = {ChannelShow}/>
+                <AuthRoute path = "/:channelName/dashboard"  component = {Dashboard}/>
                 <Route path = "/" component = {ChannelIndex}/>
             </Switch>
 
