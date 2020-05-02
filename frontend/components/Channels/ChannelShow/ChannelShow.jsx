@@ -1,16 +1,22 @@
 import React from 'react'
 import classes from './ChannelShow.module.css'
 import ChatRoom from '../../ChatRoom/ChatRoom'
-
+import {withRouter} from 'react-router-dom'
 
 const ChannelShow= (props) => {
 
-    
+    function clickHandler() {
+        let channelName = props.match.params.channelName
+        let vodId = 1
+        props.history.push(`/channels/${channelName}/${vodId}`)
+    }
+
     return (
         <div className={classes.channelWrapper}>
             <div className={classes.channelContents}>
-            <nav> hell </nav> 
-            <video className = {classes.videoPlayer} > </video>
+            <nav> 
+            <button onClick = {clickHandler.bind(this)}> Vods </button>
+            </nav> 
             </div>
             <div className={classes.right}>
                 .
@@ -25,5 +31,4 @@ const ChannelShow= (props) => {
 
 
 
-
-export default ChannelShow
+export default withRouter(ChannelShow)

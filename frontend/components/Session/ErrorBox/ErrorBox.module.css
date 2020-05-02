@@ -1,12 +1,14 @@
 .errorBox {
     display: flex;
     align-items: center;
-    width: 90%;
+    width: calc(90% - 3px);
     height: 50px;
     background-color: #E6E6EA;
     border: 1.2px solid red;
     border-radius: 7px;
-    box-shadow: -3px 0 0px 0px red
+    box-shadow: -3px 0 0px 0px red;
+    margin-bottom: 10px;
+    margin-left: 5px;
 
 }
 

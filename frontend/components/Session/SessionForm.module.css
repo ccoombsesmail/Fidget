@@ -20,10 +20,12 @@
 }
 
 .formInput {
-    width: 100%;
+    width: calc(100% - 10px);
     background-color: #E8F0FE;
     border-radius: 5px;
     height: 25px;
+    margin-top: 7px;
+    padding-left: 10px;
 
 }
 
@@ -50,7 +52,7 @@
 .formLabel {
 
     width: 90%;
-    margin-bottom: 15px;
+    margin-bottom: 25px;
     font-size: 12px;
 }
 
@@ -66,8 +68,12 @@
     margin-top: 20px;
     margin-bottom: 30px;
     outline: none;
+    
+}
 
+.formSubmit:hover {
 
+    cursor: pointer; 
 }
 
 .formMessage {
@@ -191,11 +197,13 @@
 
 .dayInput {
 
-    width: 22%;
+    width: calc(22% - 10px);
     background-color: #E8F0FE;
     border-radius: 5px;
     height: 22px;
     margin-left: 7px;
+    padding-left: 10px;
+
 
 }
 
@@ -207,11 +215,12 @@
 
 .yearInput {
 
-    width: 22%;
+    width: calc(22% - 10px);
     background-color: #E8F0FE;
     border-radius: 5px;
     height: 22px;
     margin-left: 7px;
+    padding-left: 10px;
 
 
 }
@@ -236,3 +245,16 @@
   border-radius: 5px;
   outline: none;
 }
+
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+

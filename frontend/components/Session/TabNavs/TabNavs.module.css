@@ -1,20 +1,24 @@
 .navContainer {
     display: flex;
-    width: 80%;
+    width: 87%;
     border-bottom: 1px solid #E5E5E5;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     margin-top: 10px;
 }
 
 .navTab {
     list-style: none;
     height: 100%;
-    width: 47px;
+    width: 55px;
     margin-right: 20px;
-    font-size: 13px;
     cursor: pointer;
 
 
+}
+
+.navTab > span {
+    margin-bottom: 10px;
+    font-size: 15px;
 }
 
 .selected {

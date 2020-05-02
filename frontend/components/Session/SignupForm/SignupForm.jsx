@@ -33,6 +33,9 @@ class Signup extends React.Component {
     }
 
     update(type) {
+        if (type === 'day' && this.state.day.length == 2) {
+            return null
+        }
         return (e) => {
             this.setState({ [type]: e.target.value })
         }
@@ -50,7 +53,7 @@ class Signup extends React.Component {
             this.setState({ passwordMatch: false })
         } else {
             let monthNum = this.months.indexOf(this.state.month) + 1
-            monthNum < 10 ? monthNum =  '0' + monthNum.toString() : monthNum = monthNum.toString()
+            monthNum < 10 ? monthNum = '0' + monthNum.toString() : monthNum = monthNum.toString()
             let day = this.state.day
             if (day.length === 1) {
                 day = '0' + day
@@ -119,8 +122,8 @@ class Signup extends React.Component {
                                     return <option key = {idx} value={month}>{month}</option>
                                 })}
                             </select> 
-                            <input className={classes.dayInput} type="text" value={this.state.day} onChange={this.update('day')} placeholder = 'Day' />
-                            <input className={classes.yearInput} type="text" value={this.state.year} onChange={this.update('year')} placeholder = "Year" /> 
+                            <input type="number" className={classes.dayInput}  value={this.state.day} onChange={this.update('day')} placeholder = 'Day' />
+                            <input type="number" className={classes.yearInput} value={this.state.year} onChange={this.update('year')} placeholder = "Year" /> 
                          </div>
                     </label>
 

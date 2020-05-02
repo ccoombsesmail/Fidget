@@ -7,7 +7,7 @@ class Api::UsersController < ApplicationController
         newParams["dob"] = params[:user][:dob].to_i
         @user = User.new(newParams)
 
-        if @user.save!
+        if @user.save
             login!(@user)
             channel = Channel.create({:owner_id => @user.id})
             channel.logoUrl.attach(io: File.open("/mnt/c/Users/coomb/Desktop/Fidget/Fidget/UIHere.png"), filename: 'UIHere.png')
@@ -23,5 +23,11 @@ class Api::UsersController < ApplicationController
     private
     def user_params
         params.require(:user).permit(:username, :password, :email, :dob)
+    end
+
+    def check_dob(dob)
+        year = dob[0..3]
+        month = dob[4..5]
+
     end
 end
