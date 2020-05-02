@@ -4,6 +4,7 @@ import classes from './ChatRoom.module.css'
 
 import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
+import {openModal} from '../../actions/modal_actions'
 
 import MessageForm from './MessageForm/MessageForm'
 
@@ -19,14 +20,7 @@ class ChatRoom extends React.Component {
 
 
     componentDidMount() {
-        
-        
-        // twitchEmoji.add('Kappa', function (err) {
-        //     if (!err) {
-        //         console.log('hey')
-        //     }
-        // });
-        
+
         // Subscribe to a channel with a given id. Define methods to receive and send data from/to socket
         App.cable.subscriptions.create(
             {channel: "ChatRoomsChannel", id: this.props.match.params.channelName},
@@ -46,10 +40,31 @@ class ChatRoom extends React.Component {
         )
     }
 
-    componentDidUpdate() {
-        // if (this.bottom.current !== null) {
-        //     this.bottom.current.scrollIntoView();
-        // }
+    componentDidUpdate(prevProps) {
+
+        if (prevProps.match.params.channelName !== this.props.match.params.channelName) {
+            
+            App.cable.disconnect();
+            App.cable.subscriptions.create(
+                { channel: "ChatRoomsChannel", id: this.props.match.params.channelName },
+                {
+                    received: data => {
+                        this.setState({
+                            messages: [...this.state.messages, [data.message, data.username]]
+                        });
+                    },
+                    speak: function (data) {
+                        return this.perform("speak", data);
+                    }
+                }
+            );
+            this.setState({ messages: [] })
+
+        }
+
+        if (this.bottom.current !== null) {
+            this.bottom.current.scrollIntoView();
+        }
     }
 
     render() {
@@ -74,9 +89,8 @@ class ChatRoom extends React.Component {
                     <div className = {classes.chatTitle}>STREAM CHAT {this.props.channelId}</div> 
                     <div id="messageList" className = {classes.messageList}>
                         {messageList}
-                        <MessageForm currentUser={this.props.currentUser} channelName={this.props.match.params.channelName} />
-                      
                     </div>
+                    <MessageForm openModal={this.props.openModal} currentUser={this.props.currentUser} channelName={this.props.match.params.channelName} />
 
                 </div>
             // </div>
@@ -93,6 +107,13 @@ const mSTP = state => {
     }
 }
 
+const mDTP = dispatch => {
+    return {
+        openModal: (form) => dispatch(openModal(form))
+    }
+
+}
 
 
-export default withRouter(connect(mSTP, null)(ChatRoom))
+
+export default withRouter(connect(mSTP, mDTP)(ChatRoom))

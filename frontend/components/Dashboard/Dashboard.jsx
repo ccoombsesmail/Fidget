@@ -31,11 +31,16 @@ class Dashboard extends React.Component {
         const formData = new FormData()
         formData.append('channel[owner_id]', this.props.currentUserId) 
         formData.append('channel[logoUrl]', this.state.photoFile) 
-        debugger
         this.props.updateChannel(this.props.currentUserId, formData)
     }
 
     render() {
+        let submitBtnClasses = [classes.submitBtn]
+        let disableBtn = false
+        if (this.state.photoFile === null ) {
+            disableBtn = true
+            submitBtnClasses.push(classes.disabledBtn)
+        }
         
         return (
             <div className = {classes.dashboardWrapper}>
@@ -52,10 +57,11 @@ class Dashboard extends React.Component {
                                     Add A Profile Picture
                             <input className={classes.profileInput}  type="file"  onChange = {this.handlePhoto} />
                             </label>
+                            <button disabled={disableBtn} className={submitBtnClasses.join(' ')} onClick={this.handleSubmit} type="submit"> Submit</button>
                         </div>
                     <h5> Must be JPEG, PNG, or GIF and cannot exceed 10MB </h5>
                     </div>
-                    <button onClick ={this.handleSubmit} type = "submit"> Submit</button>
+                    
                 </form>
 
                 </div>

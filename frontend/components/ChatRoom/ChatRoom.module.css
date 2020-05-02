@@ -27,21 +27,22 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    overflow-y: hidden;
+    /* overflow-y: hidden; */
     overflow-x: hidden;
 
 
 }
 
 .messageList{
-    /* overflow-y: scroll; */
-    height: 100%;
+    overflow-y: scroll;
+    height: 80%;
     width: 100%;
     /* width: 300px; */
     border: solid #303032 1px;
     background-color: #18181B;
     color: #EFEFF1;
     font-weight: 700;
+    border-bottom: none;
 }
 
 .messageLi {

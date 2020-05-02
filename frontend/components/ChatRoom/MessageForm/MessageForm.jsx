@@ -33,13 +33,12 @@ class MessageForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        // if (this.props.currentUser === undefined) {
-        //     this.props.history.push('/login')
-        // } else {
-        let userId = this.props.currentUser.id
-        App.cable.subscriptions.subscriptions[1].speak({ message: this.state.body, channelName: this.props.channelName, user_id: userId });
-
-        // }
+        if (this.props.currentUser === undefined) {
+            this.props.openModal("login")
+        } else {
+            let userId = this.props.currentUser.id
+            App.cable.subscriptions.subscriptions[1].speak({ message: this.state.body, channelName: this.props.channelName, user_id: userId });
+        }
         this.setState({ 
             body: "", showEmoji: false, left: 2});
     }
