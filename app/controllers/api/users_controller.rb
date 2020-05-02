@@ -1,3 +1,5 @@
+require 'open-uri'
+
 class Api::UsersController < ApplicationController
 
     def create
@@ -10,7 +12,8 @@ class Api::UsersController < ApplicationController
         if @user.save
             login!(@user)
             channel = Channel.create({:owner_id => @user.id})
-            channel.logoUrl.attach(io: File.open("/mnt/c/Users/coomb/Desktop/Fidget/Fidget/UIHere.png"), filename: 'UIHere.png')
+            file = open('https://fidget-seeds.s3-us-west-1.amazonaws.com/UIHere.png')
+            channel.logoUrl.attach(io: file, filename: 'UIHere.png')
             render :user
         else
             
