@@ -7,11 +7,11 @@ class Api::ChannelsController < ApplicationController
 
 
     def update
-        debugger
+        
         @channel = Channel.find_by(owner_id: params[:id])
 
         if @channel.update(channel_params)
-            debugger
+            
             render :show
         else
             render @channel.errors.full_messages, status: 401
