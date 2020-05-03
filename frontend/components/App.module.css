@@ -27,6 +27,10 @@
 
 .mainContainer {
     display: flex;
+    overflow-y: hidden;
+}
+.mainContainer2 {
+    overflow-y: hidden;
 }
 
 

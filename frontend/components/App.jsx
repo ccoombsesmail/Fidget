@@ -47,7 +47,7 @@ const App = (props) => {
 
 
     return(
-        <div> 
+        <div className={classes.mainContainer2}> 
             <Modal/>
             <nav id = "nav" className = {classes.mainNav}>
                 <div className = {classes.leftNav} > 

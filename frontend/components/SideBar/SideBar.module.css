@@ -1,15 +1,12 @@
 .sideBar {
     background-color: #1F1F23;
-    /* position: absolute;
-    width: 210px; */
-    /* left: 0; */
-    height: 100vh;
+    height: calc(100vh - 55px);
     flex-grow: 1.1;
     min-width: 250px;
     max-width: 250px;
     display: flex;
     flex-direction: column;
-    /* overflow-y: scroll; */
+    overflow-y: hidden;
 
 }
 

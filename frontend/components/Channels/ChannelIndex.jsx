@@ -4,6 +4,7 @@ import {requestChannels} from '../../actions/channel_actions'
 import classes from './ChannelIndex.module.css'
 
 import ChannelIndexItem from './ChannelIndexItem/ChannelIndexItem'
+import Categories from '../Categories/Categories'
 
 class ChannelIndex extends React.Component {
 
@@ -18,15 +19,23 @@ class ChannelIndex extends React.Component {
 
     render() {
         
-        return (
+        return ( 
             <div id="indexArea" className = {classes.indexWrapper}> 
-
+                <div className = {classes.innerContainer}> 
+                <div className = {classes.channelsContainer}>
                 {
                     this.props.channels.map((channel, idx) => {
                         return <ChannelIndexItem key = {idx} channel = {channel}  user = {this.props.users[channel.ownerId]} />
                     })
                 }
+                </div>
 
+                <hr/>
+
+                <Categories/>
+                <Categories />
+                <footer style = {{height: '900px', width: '100%'}}> .</footer>
+                </div>
             </div>
 
 
