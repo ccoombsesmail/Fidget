@@ -12,3 +12,8 @@
     -moz-box-shadow: 4px 3px 5px 0px rgba(145,71,255,1);
     box-shadow: 4px 3px 5px 0px rgba(145,71,255,1);
     }
+
+.icon {
+    width: 50px;
+    height: 50px;
+}
