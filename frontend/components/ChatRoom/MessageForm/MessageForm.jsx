@@ -77,8 +77,12 @@ class MessageForm extends React.Component {
 
                     </div>
                     {/* <input  type="submit" /> */}
+
                 <div className={classes.submitButtonWrapper}>
-                    <FontAwesomeIcon className={classes.pointIcon} icon={faCircleNotch} />
+                    <div onClick={this.toggle} className={classes.pointIconWrapper}> 
+                        <FontAwesomeIcon className={classes.pointIcon} icon={faCircleNotch} />
+                    </div>
+
                     <button type= 'submit' className={classes.chatButton}>
                             Chat
                     </button>

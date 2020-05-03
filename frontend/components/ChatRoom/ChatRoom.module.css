@@ -35,7 +35,7 @@
 
 .messageList{
     overflow-y: scroll;
-    height: 80%;
+    height: 83%;
     width: 100%;
     /* width: 300px; */
     border: solid #303032 1px;
@@ -64,4 +64,9 @@
     align-items: center;
     color: whitesmoke;
     height: 50px;
+}
+
+::-webkit-scrollbar {
+    width: 0px;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
 }

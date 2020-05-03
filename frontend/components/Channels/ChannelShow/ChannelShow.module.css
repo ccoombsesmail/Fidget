@@ -27,5 +27,6 @@ nav {
     min-width: 342px;
     max-width: 342px;
     flex: 1;
+    height: calc(100vh - 55px);
 }
 

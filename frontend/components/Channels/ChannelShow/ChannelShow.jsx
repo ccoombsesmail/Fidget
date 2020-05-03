@@ -19,7 +19,7 @@ const ChannelShow= (props) => {
             </nav> 
             </div>
             <div className={classes.right}>
-                .
+                
             </div>
             <ChatRoom />
         </div>
