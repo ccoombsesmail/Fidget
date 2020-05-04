@@ -31,9 +31,9 @@ export const requestVod = (vodId) => dispatch => {
 
 
 
-export const requestVods = () => dispatch => {
+export const requestVods = (filter) => dispatch => {
 
-    return VodAPIUtil.fetchVods()
+    return VodAPIUtil.fetchVods(filter)
         .then((vods) => dispatch(receiveVods(vods)))
 }
 

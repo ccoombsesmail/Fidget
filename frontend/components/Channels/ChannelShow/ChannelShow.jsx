@@ -33,7 +33,7 @@ class ChannelShow extends React.Component  {
                     : null
                     }   
                 </div>
-                <ChannelNavs channelName = {this.props.match.params.channelName} />
+                <ChannelNavs channelId = {this.props.match.params.channelId} channelName = {this.props.match.params.channelName} />
                
                     <div className = {classes.followWrapper}> 
                     <FontAwesomeIcon className={classes.followIcon} icon={faHeart} />
@@ -43,7 +43,7 @@ class ChannelShow extends React.Component  {
             </nav>
                  <Switch>
                     <Route  path="/channels/:channelName/videos/:vodId" component={VodShow} />
-                    <Route path = "/channels/:channelName/videos" component = {ChannelVideosIndex} />
+                    <Route path= "/channels/:channelId/:channelName/videos" component = {ChannelVideosIndex} />
                  </Switch>
             </div>
 

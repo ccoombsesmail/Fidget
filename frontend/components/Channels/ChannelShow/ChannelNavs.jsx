@@ -18,7 +18,7 @@ class ChannelNavs extends React.Component {
     componentDidUpdate(prevProps, prevState) {
         
         if (this.state.nextTab === "videos" && prevState.nextTab !== "videos") {
-            this.props.history.push(`/channels/${this.props.channelName}/videos`)
+            this.props.history.push(`/channels/${this.props.channelId}/${this.props.channelName}/videos`)
         }
     }
 

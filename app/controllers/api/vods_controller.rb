@@ -3,7 +3,8 @@ require 'open-uri'
 class Api::VodsController < ApplicationController
 
     def index
-        @vods = Vod.all
+        
+        @vods = Vod.all_filter(params[:filter])
         render :index
     end
 

@@ -7,10 +7,11 @@ export const fetchVod = (vodId) => {
 }
 
 
-export const fetchVods = () => {
+export const fetchVods = (filter) => {
     return $.ajax({
         method: 'GET',
-        url: '/api/vods'
+        url: '/api/vods',
+        data: {filter}
     })
 }
 
