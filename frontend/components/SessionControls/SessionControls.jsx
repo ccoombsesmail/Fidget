@@ -26,6 +26,9 @@ class SessionControls extends React.Component {
         document.body.addEventListener('click', this.toggleMenu);
         // this.userIcon = document.querySelector("[data-icon='user-ninja'") || document.querySelector("[data-icon='user'")
         this.userIcon = document.querySelector("[data-icon='user'") || document.getElementById("userIcon")
+        if (this.currentUser) {
+            this.props.requestChannel(this.props.currentUser.channelId)
+        }
     }   
 
   
@@ -34,9 +37,7 @@ class SessionControls extends React.Component {
         this.userIcon = document.querySelector("[data-icon='user'") || document.getElementById("userIcon")
         document.body.addEventListener('click', this.toggleMenu);
 
-        if (this.props.currentUser) {
-            this.props.requestChannel(this.props.currentUser.channelId)
-        }
+   
     }
  
 
