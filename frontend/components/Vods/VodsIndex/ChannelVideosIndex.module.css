@@ -1,16 +1,31 @@
 .vodsWrapper {
     display: flex;
 
+
 }
 
 
 .vodItem {
     display: flex;
     flex-direction: column;
+    margin: 30px
+}
+
+.vodItem > h5 {
+    color: white;
+
+}
+
+.vodItem > h6 {
+    color: white;
+    
 }
 
 .vodThumb {
-    width: 200px;
-    height: 110px;
-    background-color: honeydew;
+    width: 300px;
+    height: 160px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
