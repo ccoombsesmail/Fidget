@@ -39,7 +39,6 @@ class Signup extends React.Component {
         }
     }
 
-    // (e.target.value[e.target.value.length - 1] === '-'
     updateDayYear(type) {
 
         return (e) => {
@@ -57,17 +56,8 @@ class Signup extends React.Component {
             
             }
             
-            // } else if (((type === 'day' && this.state.day.length === 2) || ((type === 'year' && this.state.year.length === 4)))) {
-            //     this.setState({ [type]: e.target.value.slice(0, e.target.value.length ) })            }
-            // else {
-            //     this.setState({ [type]: e.target.value })
-            // }
         }
     
-
-    
-
-
 
     handleSubmit(e) {
         e.preventDefault()
@@ -100,10 +90,12 @@ class Signup extends React.Component {
     render() {
         let disableBtn = false
         let submitBtnClasses = [classes.formSubmit]
-        if (this.state.username === '' || this.state.password === '') {
-            disableBtn = true;
-            submitBtnClasses.push(classes.disableSubmit)
-        }
+        Object.values(this.state).forEach(val => {
+            if (val === '') {
+                disableBtn = true;
+                submitBtnClasses.push(classes.disableSubmit)
+            }
+        })
 
 
         return (
@@ -111,8 +103,6 @@ class Signup extends React.Component {
                 <a className={classes.formMessage} href="https://fontmeme.com/twitch-logo-font/">
                     <img src="https://fontmeme.com/permalink/200429/10e3b11e54c3e7af300891419c265af8.png" alt="twitch-logo-font" border="0" />
                 </a>
-
-                {/* <h2 className= {classes.formMessage}>{this.props.formType} To Fidget</h2> */}
 
                 <TabNavs clearErrors={this.props.clearErrors} navToOtherForm={this.props.navToOtherForm} currentForm={this.props.formType} />
                 <ErrorBox navToOtherForm={this.props.navToOtherForm} errors={this.props.errors} passwordMatch={this.state.passwordMatch} />

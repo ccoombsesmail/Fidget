@@ -13,3 +13,16 @@ export const fetchVods = () => {
         url: '/api/vods'
     })
 }
+
+
+export const postVod = (formData) => {
+
+    return $.ajax({
+        method: 'POST',
+        url: '/api/vods',
+        data: formData,
+        contentType: false,
+        processData: false
+    })
+
+}

@@ -2,7 +2,6 @@
     flex-grow: 6.0;
     display: flex;
     flex-direction: column;
-    /* flex-wrap: wrap; */
     background-color: #0E0E10;
     align-items: flex-start;
    
@@ -33,24 +32,20 @@
     display: flex;
     align-items: center;
     width: 900px;
-    height: 140px;
+    height: 180px;
     background-color: #18181B;
     border: 1px solid #303032;
     border-radius: 7px;
 }
 
 
-
- .userIcon{
-     color: black;
-     font-size: large;
-     margin-left: 20px;
-     font-size: 56px;
-     padding: 20px;
-     border-radius: 50%;
-     background-color: #00BAA3;
-     cursor: pointer;
+ .userIcon {
+    margin-left: 20px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
  }
+
  
 .dashboardWrapper > hr {
      width: 90%;
@@ -73,6 +68,8 @@
 
     
 }
+
+
 .profileInput { 
     position: absolute; 
     opacity: 0; 
@@ -84,6 +81,7 @@
     cursor: pointer;
 
 }
+
 
 .profileBtnWrapper > label { 
     position: absolute; 
@@ -103,6 +101,10 @@
     cursor: pointer;
 
  
+}
+
+.profileBtnWrapper > label:hover {
+    opacity: .7;
 }
 
 .btnDirectionWrapper {
@@ -132,7 +134,35 @@
 
 }
 
+.submitBtn:hover {
+    opacity: .5;
+}
+
 .disabledBtn {
     background-color: #3A3A3D;
     opacity: .5;
+}
+
+.imgPreviewWrapper {
+    margin-left: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #303032;
+    border-radius: 5px;
+    padding: 15px;
+   
+}
+
+.imgPreviewWrapper > h3 {
+    color: white;
+  
+}
+
+.imgPreviewWrapper > img {
+    margin-top: 10px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
 }

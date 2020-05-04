@@ -37,3 +37,9 @@ export const requestVods = () => dispatch => {
         .then((vods) => dispatch(receiveVods(vods)))
 }
 
+export const createVod = (formData) => dispatch => {
+
+    return VodAPIUtil.postVod(formData)
+        .then((vod) => dispatch(receiveVod(vod)))
+        .fail(err => console.log(err))
+}

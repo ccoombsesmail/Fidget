@@ -1,3 +1,5 @@
+require 'open-uri'
+
 class Api::VodsController < ApplicationController
 
     def index
@@ -10,4 +12,24 @@ class Api::VodsController < ApplicationController
         render :show
     end
 
+    def create
+        debugger
+        @vod = Vod.new(vod_params)
+        # file = open(params[:vod][:videoUrl])
+        # @vod.videoUrl.attach(io: file, filename: params[:vod][:title])
+        if @vod.save
+            render :show
+        else
+            render json: @vod.errors.full_messages, status: 422
+        end
+
+    end
+
+
+    private
+
+    def vod_params
+        params.require(:vod).permit(:channel_id, :title, :category, :videoUrl)
+
+    end
 end
