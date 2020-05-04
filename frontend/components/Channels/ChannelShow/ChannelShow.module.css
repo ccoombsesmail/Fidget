@@ -19,7 +19,19 @@ nav {
     background-color: #18181B;
     height: 48px;
     border-bottom: 2px solid #18181B ;
+    display: flex;
+    justify-content: space-between;
     
+}
+
+.leftNav {
+    width: 100px;
+    background-color: violet;
+}
+
+.rightNav {
+    width: 100px;
+    background-color: violet;
 }
 
 

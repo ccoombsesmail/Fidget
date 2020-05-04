@@ -2,7 +2,9 @@ class User < ApplicationRecord
     validates :username, :session_token, presence: true, uniqueness: true
     validates :password_digest, presence: true
     validates :password, length: {minimum: 6, allow_nil: true}
-    # validates_email_format_of :email, :message => 'Please enter a valid email'
+    validates_email_format_of :email, :message => 'Please enter a valid email'
+    validate :dob_is_valid_date
+
 
     attr_reader :password
     after_initialize :ensure_session_token
@@ -12,6 +14,8 @@ class User < ApplicationRecord
         class_name: :Channel,
         dependent: :destroy
 
+
+    
 
     def self.find_by_credentials(username, password) 
         queryResult = []
@@ -50,5 +54,11 @@ class User < ApplicationRecord
     def ensure_session_token
         self.session_token ||= SecureRandom.base64(64)
     end
+
+    def dob_is_valid_date
+        errors.add(:dob, 'Please Enter A Valid Date Of Birth') if ((Date.parse(dob.to_s) rescue ArgumentError) == ArgumentError)
+
+    end
+
 
 end

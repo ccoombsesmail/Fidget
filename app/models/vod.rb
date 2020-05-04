@@ -1,5 +1,5 @@
 class Vod < ApplicationRecord
-    validates :channel_id, :title, :category, uniqueness: true
+    validates :channel_id, :title, :category, presence: true
 
     belongs_to :channel
 

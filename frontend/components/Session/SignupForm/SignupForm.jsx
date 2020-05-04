@@ -22,7 +22,7 @@ class Signup extends React.Component {
         this.months = ["January", "February", "March", "April", "May", "June", "July",
             "August", "September", "October", "November", "December"];
         this.handleSubmit = this.handleSubmit.bind(this)
-        this.updateMonth = this.updateMonth.bind(this)
+        this.formatDate = this.formatDate.bind(this)
     }
 
 
@@ -33,32 +33,48 @@ class Signup extends React.Component {
     }
 
     update(type) {
-        if (type === 'day' && this.state.day.length == 2) {
-            return null
-        }
+        
         return (e) => {
             this.setState({ [type]: e.target.value })
         }
     }
 
-    updateMonth(e) {
-        this.setState({
-            month: e.target.value 
-        })
-    }
+    // (e.target.value[e.target.value.length - 1] === '-'
+    updateDayYear(type) {
+
+        return (e) => {
+
+            let charInput = e.target.value[e.target.value.length - 1]
+
+            if ((type === "day" && e.target.value.length > 2) || (type === "year" && e.target.value.length > 4)) {
+                this.setState({ [type]: e.target.value.slice(0, e.target.value.length - 1) })
+            } else if (charInput === undefined || (charInput.charCodeAt(0) > 47 && charInput.charCodeAt(0) < 58)){
+                this.setState({ [type]: e.target.value })
+            }
+            else { 
+                this.setState({ [type]: e.target.value.slice(0, e.target.value.length - 1 ) })
+            }
+            
+            }
+            
+            // } else if (((type === 'day' && this.state.day.length === 2) || ((type === 'year' && this.state.year.length === 4)))) {
+            //     this.setState({ [type]: e.target.value.slice(0, e.target.value.length ) })            }
+            // else {
+            //     this.setState({ [type]: e.target.value })
+            // }
+        }
+    
+
+    
+
+
 
     handleSubmit(e) {
         e.preventDefault()
         if (this.state.confirmPassword !== this.state.password && this.props.formType === 'Sign Up') {
             this.setState({ passwordMatch: false })
-        } else {
-            let monthNum = this.months.indexOf(this.state.month) + 1
-            monthNum < 10 ? monthNum = '0' + monthNum.toString() : monthNum = monthNum.toString()
-            let day = this.state.day
-            if (day.length === 1) {
-                day = '0' + day
-            }   
-            let dob = this.state.year + monthNum + day
+        } else { 
+            let dob = this.formatDate()
             this.props.processForm({
                 username: this.state.username,
                 password: this.state.password,
@@ -68,7 +84,17 @@ class Signup extends React.Component {
         }
     }
 
-    // this.props.closeModal()
+    formatDate() {
+        let monthNum = this.months.indexOf(this.state.month) + 1
+        monthNum < 10 ? monthNum = '0' + monthNum.toString() : monthNum = monthNum.toString()
+        let day = this.state.day
+        if (day.length === 1) {
+            day = '0' + day
+        }
+        return this.state.year + monthNum + day
+    }
+
+   
 
 
     render() {
@@ -116,14 +142,14 @@ class Signup extends React.Component {
                     <label className={classes.formLabel}>
                         <h4>Date of Birth</h4>
                          <div>
-                            <select className={classes.monthInput} value={this.state.month} onChange={this.updateMonth}> 
+                            <select className={classes.monthInput} value={this.state.month} onChange={this.update('month')}> 
                                 <option value = "" disabled >Month</option>
                                 {this.months.map((month,idx) => {
                                     return <option key = {idx} value={month}>{month}</option>
                                 })}
                             </select> 
-                            <input type="number" className={classes.dayInput}  value={this.state.day} onChange={this.update('day')} placeholder = 'Day' />
-                            <input type="number" className={classes.yearInput} value={this.state.year} onChange={this.update('year')} placeholder = "Year" /> 
+                            <input type="text" className={classes.dayInput} value={this.state.day} onChange={this.updateDayYear('day')} placeholder = 'Day' />
+                            <input type="text" className={classes.yearInput} value={this.state.year} onChange={this.updateDayYear('year')} placeholder = "Year" /> 
                          </div>
                     </label>
 

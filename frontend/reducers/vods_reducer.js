@@ -1,4 +1,4 @@
-import {RECEIVE_VOD} from '../actions/vod_actions'
+import {RECEIVE_VOD, RECEIVE_VODS} from '../actions/vod_actions'
 
 
 
@@ -8,6 +8,8 @@ const vodsReducer = (state = {}, action) => {
     switch (action.type) {
         case RECEIVE_VOD:
             return Object.assign({}, state, action.vod)
+        case RECEIVE_VODS:
+            return Object.assign({}, state, action.vods )
         default:
             return state
     }

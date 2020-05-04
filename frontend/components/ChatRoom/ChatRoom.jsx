@@ -45,6 +45,7 @@ class ChatRoom extends React.Component {
         if (prevProps.match.params.channelName !== this.props.match.params.channelName) {
             
             App.cable.disconnect();
+            
             App.cable.subscriptions.create(
                 { channel: "ChatRoomsChannel", id: this.props.match.params.channelName },
                 {

@@ -16,7 +16,6 @@ class Api::UsersController < ApplicationController
             channel.logoUrl.attach(io: file, filename: 'UIHere.png')
             render :user
         else
-            
             render json: @user.errors.full_messages, status: 422
         end
 
@@ -28,9 +27,4 @@ class Api::UsersController < ApplicationController
         params.require(:user).permit(:username, :password, :email, :dob)
     end
 
-    def check_dob(dob)
-        year = dob[0..3]
-        month = dob[4..5]
-
-    end
 end

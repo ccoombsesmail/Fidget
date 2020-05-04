@@ -5,3 +5,11 @@ export const fetchVod = (vodId) => {
         url: `/api/vods/${vodId}`
     })
 }
+
+
+export const fetchVods = () => {
+    return $.ajax({
+        method: 'GET',
+        url: '/api/vods'
+    })
+}

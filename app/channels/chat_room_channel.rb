@@ -1,4 +1,5 @@
 class ChatRoomsChannel < ApplicationCable::Channel
+ 
   def subscribed
     stream_for "chat_rooms_channel_#{params[:id]}"
   end

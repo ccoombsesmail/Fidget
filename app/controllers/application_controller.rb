@@ -16,6 +16,10 @@ class ApplicationController < ActionController::Base
     end
 
     def login!(user)
+        # token =  user.reset_session_token!
+        # cookies.signed[:session_token] = token 
+        # session[:session_token] = cookies.signed[:session_token]
+
         session[:session_token] = user.reset_session_token!
     end
 
