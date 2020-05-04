@@ -64,7 +64,7 @@ const App = (props) => {
                 <SideBar />
             <Switch> 
                 {/*  */}
-                <Route path = "/channels/:channelName" component = {ChannelShow}/>
+                <Route path = "/channels/:channelId/:channelName" component = {ChannelShow}/>
                 <AuthRoute path = "/:channelName/dashboard"  component = {Dashboard}/>
                 <Route path = "/" component = {ChannelIndex}/>
             </Switch>

@@ -12,8 +12,8 @@ require 'open-uri'
 user = User.create!({:username => 'FidgetDemoUser', :password => '12345678', :email => 'demo.demouser@gmail.com', :dob => 19931119})
 channel = Channel.create!({:owner_id => user.id })
 
-file = open('https://fidget-seeds.s3-us-west-1.amazonaws.com/UIHere.png')
-channel.logoUrl.attach(io: file, filename: 'UIHere.png')
+file = open('https://fidget-seeds.s3-us-west-1.amazonaws.com/logo.png')
+channel.logoUrl.attach(io: file, filename: 'logo.png')
 
 
 

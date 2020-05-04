@@ -16,6 +16,7 @@ json.users do
         json.set! owner.id do
             json.id owner.id
             json.username owner.username
+            json.channelId channel.id
         end
     end
 end

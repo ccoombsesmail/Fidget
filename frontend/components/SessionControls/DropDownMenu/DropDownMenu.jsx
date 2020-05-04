@@ -6,7 +6,7 @@ import classes from './DropDownMenu.module.css'
 
 
 
-const DropDownMenu = ({currentUser, showMenu, logout, login, toggle, history}) => {
+const DropDownMenu = ({currentUser, showMenu, logout, login, toggle, history, currentChannel}) => {
 
    
 
@@ -16,16 +16,6 @@ const DropDownMenu = ({currentUser, showMenu, logout, login, toggle, history}) =
     } else {
         menuClasses.push(classes.hide)
     }
-
-    // function loginClick() {
-    //     login()
-    //     toggle()
-    // }
-
-    // function logoutClick() {
-    //     logout()
-    //     toggle()
-    // }
 
     function handleClick(type) {
         switch (type) {
@@ -56,7 +46,9 @@ const DropDownMenu = ({currentUser, showMenu, logout, login, toggle, history}) =
 
         <ul className={menuClasses.join(' ')} onClick={e => e.stopPropagation()}>
             <div className={classes.topDiv}> 
-                <FontAwesomeIcon className={classes.userIconMain} icon={faUserNinja} />
+                {/* <FontAwesomeIcon className={classes.userIconMain} icon={faUserNinja} /> */}
+                    <div onClick={() => handleClick('dashboard')}  className={classes.userIconWrapper}> <img className={classes.userIcon} src={ currentChannel ? currentChannel.logoUrl : null} /> </div>
+
                 <h5> {currentUser.username} </h5>
             </div>
             <hr/>

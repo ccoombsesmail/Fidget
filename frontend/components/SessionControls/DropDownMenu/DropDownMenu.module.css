@@ -8,9 +8,11 @@
      color: white;
      border-radius: 7px;
      z-index: 99999;
-        -webkit-box-shadow: 4px 3px 5px 0px rgba(0,0,0,1);
+    -webkit-box-shadow: 4px 3px 5px 0px rgba(0,0,0,1);
     -moz-box-shadow: 4px 3px 5px 0px rgba(0,0,0,1);
     box-shadow: 4px 3px 5px 0px rgba(0,0,0,1);
+    word-wrap: break-word;
+
  }
 
  .dropDown > li {
@@ -42,6 +44,8 @@
     padding: 8px;
     margin-bottom: 20px;
     
+
+    
 }
 
  .userIconMain {
@@ -67,6 +71,23 @@
 .topDiv > h5 {
      margin-left: 8px;
      margin-top: 4px;
-     font-size: 12px;
+     font-size: 11.5px;
      font-weight: 700;
+     
+ }
+
+ .userIconWrapper {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    border-radius: 50%;
+    z-index: 6000;
+
+ }
+
+ .userIcon{
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
  }

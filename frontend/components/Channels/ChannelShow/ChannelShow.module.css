@@ -21,6 +21,7 @@ nav {
     border-bottom: 2px solid #18181B ;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     
 }
 
@@ -30,8 +31,7 @@ nav {
 }
 
 .rightNav {
-    width: 100px;
-    background-color: #6441A5;
+    width: 500px;
 }
 
 
@@ -42,3 +42,48 @@ nav {
     height: calc(100vh - 55px);
 }
 
+.followWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: #9147FF;
+    color: white;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.followWrapper:hover {
+    opacity: .7;
+  
+}
+
+
+.followWrapper > h5 {
+    color: white;
+    margin-left: 5px;    
+
+}
+
+.followIcon {
+    color: #EFEFF1;
+}
+
+
+.userIconWrapper {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    border-radius: 50%;
+    z-index: 6000;
+
+ }
+
+ .userIcon{
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+ }

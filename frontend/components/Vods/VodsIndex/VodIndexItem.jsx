@@ -12,9 +12,11 @@ const VodIndexItem = ({vod, match, history}) => {
     return (
 
         <div className = {classes.vodItem}>
-            <div onClick = {navToVodShow} className = {classes.vodThumb}>
-                VOD THUMB
-            </div>
+            {/* <div onClick = {navToVodShow} className = {classes.vodThumb}> */}
+            <video onClick={navToVodShow} className={classes.videoPlayer}>
+                    <source src={vod.videoUrl} />
+                </video>
+            {/* </div> */}
             <h5>{vod.title}</h5>
             <h6>{vod.category}</h6>
         </div>

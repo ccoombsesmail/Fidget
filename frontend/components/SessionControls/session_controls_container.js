@@ -6,10 +6,14 @@ import { openModal } from '../../actions/modal_actions'
 
 
 const mSTP = (state) => {
-
+    const currentUser = state.entities.users[state.session.currentUserId]
+    let currentChannel;
+    currentUser ? currentChannel = state.entities.channels[currentUser.channelId] : currentChannel = null
+    
     return {
-        currentUser: state.entities.users[state.session.currentUserId]
-
+        currentUser: currentUser,
+        currentChannel: currentChannel
+        
     }
 }
 

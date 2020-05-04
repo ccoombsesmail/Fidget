@@ -24,7 +24,8 @@ class SessionControls extends React.Component {
 
     componentDidMount() {
         document.body.addEventListener('click', this.toggleMenu);
-        this.userIcon = document.querySelector("[data-icon='user-ninja'") || document.querySelector("[data-icon='user'")
+        // this.userIcon = document.querySelector("[data-icon='user-ninja'") || document.querySelector("[data-icon='user'")
+        this.userIcon = document.querySelector("[data-icon='user'") || document.getElementById("userIcon")
       
     }
 
@@ -38,17 +39,13 @@ class SessionControls extends React.Component {
 
   
     componentDidUpdate() {
-        this.userIcon = document.querySelector("[data-icon='user-ninja'") || document.querySelector("[data-icon='user'")
-        // this.userIcon.addEventListener('click', (e) => {
-        //     this.toggleMenu()
-        //     e.stopPropagation()
-        // })       
+        // this.userIcon = document.querySelector("[data-icon='user-ninja'") || document.querySelector("[data-icon='user'")    
+        this.userIcon = document.querySelector("[data-icon='user'") || document.getElementById("userIcon")
+ 
         document.body.addEventListener('click', this.toggleMenu);
 
     }
-    // componentWillUnmount() {
-    //     document.body.removeEventListener('click', this.toggleMenu);
-    // }
+ 
 
     openModalOnClick(type) {
         return () => {
@@ -81,12 +78,13 @@ class SessionControls extends React.Component {
               {
                   this.props.currentUser ? (  
                     <div className={classes.welcomeWrapper}>
-                        
-                        {/* <h2 className={classes.welcomeMessage}  > Welcome {this.props.currentUser.username}</h2>
-                        <Link className={classes.logout} to = '/' onClick = {this.handleClick} >Logout</Link> */}
                             
-                        <div onClick={this.toggleMenu}> <FontAwesomeIcon className={classes.userIcon} icon={faUserNinja} /> </div>
-                        <DropDownMenu toggle={this.toggle} logout = {this.props.logout} currentUser = {this.props.currentUser} showMenu = {this.state.showMenu}/>
+                        {/* <div onClick={this.toggleMenu}> <FontAwesomeIcon className={classes.userIcon} icon={faUserNinja} /> </div> */}
+                        <DropDownMenu toggle={this.toggle} currentChannel = {this.props.currentChannel} logout = {this.props.logout} currentUser = {this.props.currentUser} showMenu = {this.state.showMenu}/>
+                        {this.props.currentChannel ? 
+                        <div id = "userIcon" onClick={this.toggleMenu} className = {classes.userIconWrapper}> <img className = {classes.userIcon} src={this.props.currentChannel.logoUrl} /> </div>
+                        : null 
+                        }
                     </div>
                   ) : (
                     <div className={classes.controlsWrapper}>
@@ -95,7 +93,7 @@ class SessionControls extends React.Component {
                         <button className={classes.login} onClick={this.openModalOnClick('login')}>  Log In  </button>
                         <button className={classes.signup} onClick={this.openModalOnClick('signup')}> Sign Up </button>
 
-                        <FontAwesomeIcon onClick={this.toggleMenu} className={classes.userIcon} icon={faUser} style={{ backgroundColor: 'transparent'}}  />
+                        <FontAwesomeIcon onClick={this.toggleMenu} className={classes.userIconLoggedOut} icon={faUser} style={{ backgroundColor: 'transparent'}}  />
                         <DropDownMenu toggle={this.toggle} login={this.openModalOnClick('login')} currentUser={this.props.currentUser} showMenu={this.state.showMenu} />
                     </div>
                   ) 

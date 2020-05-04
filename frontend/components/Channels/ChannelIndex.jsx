@@ -32,9 +32,8 @@ class ChannelIndex extends React.Component {
 
                 <hr/>
 
-                <Categories/>
                 <Categories />
-                <footer style = {{height: '900px', width: '100%'}}> .</footer>
+                {/* <footer style = {{height: '900px', width: '100%'}}> .</footer> */}
                 </div>
             </div>
 
