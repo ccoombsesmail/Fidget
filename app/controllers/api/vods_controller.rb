@@ -13,7 +13,7 @@ class Api::VodsController < ApplicationController
     end
 
     def create
-        debugger
+        
         @vod = Vod.new(vod_params)
         # file = open(params[:vod][:videoUrl])
         # @vod.videoUrl.attach(io: file, filename: params[:vod][:title])
