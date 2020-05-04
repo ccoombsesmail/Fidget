@@ -1,0 +1,16 @@
+.vodsWrapper {
+    display: flex;
+
+}
+
+
+.vodItem {
+    display: flex;
+    flex-direction: column;
+}
+
+.vodThumb {
+    width: 200px;
+    height: 110px;
+    background-color: honeydew;
+}

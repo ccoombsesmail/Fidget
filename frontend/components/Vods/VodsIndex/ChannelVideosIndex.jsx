@@ -2,8 +2,8 @@ import React from 'react'
 import {connect} from 'react-redux'
 import classes from './ChannelVideosIndex.module.css'
 import Categories from '../../Categories/Categories'
-
-
+import {requestVods} from '../../../actions/vod_actions'
+import VodIndexItem from './VodIndexItem'
 
 class ChannelVideosIndex extends React.Component {
     constructor(props) {
@@ -14,19 +14,20 @@ class ChannelVideosIndex extends React.Component {
     componentDidMount() {
 
         this.props.requestVods()
-        debugger
         
+
 
     }
 
     render() {
-
+        debugger
         return(
-            <div >
-                <Categories>
-                    
-                </Categories>
-
+            <div className = {classes.vodsWrapper}>
+                {
+                    this.props.vods.map(vod => {
+                        return <VodIndexItem vod = {vod}/> 
+                    })
+                }
             </div>
 
         )

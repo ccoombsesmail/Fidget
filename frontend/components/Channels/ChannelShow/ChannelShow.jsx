@@ -4,6 +4,7 @@ import ChatRoom from '../../ChatRoom/ChatRoom'
 import {withRouter, Switch, Route} from 'react-router-dom'
 import ChannelNavs from './ChannelNavs'
 import ChannelVideosIndex from '../../Vods/VodsIndex/ChannelVideosIndex'
+import VodShow from '../../Vods/VodShow/VodShow'
 
 const ChannelShow= (props) => {
 
@@ -27,6 +28,7 @@ const ChannelShow= (props) => {
             {/* <button onClick = {clickHandler.bind(this)}> Vods </button> */}
             </nav>
                  <Switch>
+                    <Route  path="/channels/:channelName/videos/:vodId" component={VodShow} />
                     <Route path = "/channels/:channelName/videos" component = {ChannelVideosIndex} />
                  </Switch>
             </div>

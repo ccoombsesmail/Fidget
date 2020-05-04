@@ -9,7 +9,7 @@ import ChannelIndex from './Channels/ChannelIndex'
 import ChannelShow from './Channels/ChannelShow/ChannelShow'
 import Dashboard from './Dashboard/Dashboard'
 import AuthRoute from '../util/route_util'
-import VodShow from './Vods/VodShow/VodShow'
+
 const App = (props) => {
 
 
@@ -63,7 +63,7 @@ const App = (props) => {
             <div className={classes.mainContainer}> 
                 <SideBar />
             <Switch> 
-                {/* <Route path="/channels/:channelName/:vodId" component={VodShow} /> */}
+                {/*  */}
                 <Route path = "/channels/:channelName" component = {ChannelShow}/>
                 <AuthRoute path = "/:channelName/dashboard"  component = {Dashboard}/>
                 <Route path = "/" component = {ChannelIndex}/>

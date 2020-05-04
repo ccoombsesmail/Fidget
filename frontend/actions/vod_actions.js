@@ -33,7 +33,7 @@ export const requestVod = (vodId) => dispatch => {
 
 export const requestVods = () => dispatch => {
 
-    return VodAPIUtil.fetchVod(vodId)
+    return VodAPIUtil.fetchVods()
         .then((vods) => dispatch(receiveVods(vods)))
 }
 
