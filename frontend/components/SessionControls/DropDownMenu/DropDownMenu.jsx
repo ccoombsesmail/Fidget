@@ -26,7 +26,7 @@ const DropDownMenu = ({currentUser, showMenu, logout, login, toggle, history, cu
                 logout()
                 break;
             case 'showChannel':
-                history.push(`/channels/${currentUser.username}`)
+                history.push(`/channels/${currentChannel.id}/${currentUser.username}`)
                 break;
             case 'dashboard':
                 history.push(`/${currentUser.username}/dashboard`)

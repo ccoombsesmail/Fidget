@@ -26,24 +26,17 @@ class SessionControls extends React.Component {
         document.body.addEventListener('click', this.toggleMenu);
         // this.userIcon = document.querySelector("[data-icon='user-ninja'") || document.querySelector("[data-icon='user'")
         this.userIcon = document.querySelector("[data-icon='user'") || document.getElementById("userIcon")
-      
-    }
-
-    // componentDidUpdate(){ 
-    //     if (this.state.showMenu === false) {
-    //         document.body.removeEventListener('click', this.toggleMenu);
-    //     }else {
-    //         document.body.addEventListener('click', this.toggleMenu);
-    //     }  
-    // }
+    }   
 
   
-    componentDidUpdate() {
+    componentDidUpdate(prevProps) {
         // this.userIcon = document.querySelector("[data-icon='user-ninja'") || document.querySelector("[data-icon='user'")    
         this.userIcon = document.querySelector("[data-icon='user'") || document.getElementById("userIcon")
- 
         document.body.addEventListener('click', this.toggleMenu);
 
+        if (this.props.currentUser) {
+            this.props.requestChannel(this.props.currentUser.channelId)
+        }
     }
  
 
@@ -54,8 +47,8 @@ class SessionControls extends React.Component {
     }
 
     toggleMenu(e) {
-        
-        if (e.target === this.userIcon || this.userIcon.contains(e.target)) {
+        // this.userIcon.contains(e.target)
+        if ( this.userIcon && (e.target === this.userIcon || this.userIcon.contains(e.target))) {
             
             this.toggle()
             e.stopPropagation()
@@ -104,6 +97,9 @@ class SessionControls extends React.Component {
         )
     }
 }
+
+
+
 
 
 export default SessionControls
