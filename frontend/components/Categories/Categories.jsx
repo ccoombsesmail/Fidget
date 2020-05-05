@@ -1,5 +1,7 @@
 import React from 'react'
 import classes from './Categories.module.css'
+import {connect} from 'react-redux'
+import {clearVods} from '../../actions/vod_actions'
 import {withRouter, Link} from 'react-router-dom'
 
 class Categories extends React.Component {
@@ -8,6 +10,10 @@ class Categories extends React.Component {
 
         this.categories = returnCategoryInfo()
         
+    }
+
+    componentWillUnmount() {
+        this.props.clearVods()
     }
 
    
@@ -55,6 +61,14 @@ function returnCategoryInfo() {
 
 }
 
-export default withRouter(Categories)
+
+const mDTP = dispatch => {
+
+    return {
+        clearVods: () => dispatch(clearVods())
+    }
+
+}
+export default withRouter(connect(null, mDTP)(Categories))
 
 

@@ -25,8 +25,8 @@
     content: ' ';
     position: absolute;
     border-left: solid 11px rgba(145,70,255,1);
-    border-bottom: solid 11px rgba(145,70,255,1);
-    top: 11px;
+    border-bottom: solid 12px rgba(145,70,255,1);
+    top: 0px;
     left: 11px;
     animation-name: boxDownBefore;
     animation-duration: .2s;
@@ -53,7 +53,7 @@
     z-index: 800;
     border-left: solid 12px rgba(145,70,255,1);
     border-bottom: solid 10px rgba(145,70,255,1);
-    bottom: 39.8px;
+    bottom: 29.8px;
     right: -1px;
     animation-name: boxDownAfter;
     animation-duration: .2s;
@@ -121,15 +121,15 @@
     from {
       
         border-left: solid 11px rgba(145,70,255,1);
-        border-bottom: solid 11px rgba(145,70,255,1);
-        top: 11px;
+        border-bottom: solid 12px rgba(145,70,255,1);
+        top: 0px;
         
     }
 
     to {
         border-left: solid 11px rgba(145,70,255,1);
-        border-bottom: solid 11px rgba(145,70,255,1);
-        top: 0;
+        border-bottom: solid 12px rgba(145,70,255,1);
+        top: -11px;
         
     }
 
@@ -183,15 +183,15 @@
     from {
       
         border-left: solid 11px rgba(145,70,255,1);
-        border-bottom: solid 11px rgba(145,70,255,1);
-        top: 0;
+        border-bottom: solid 12px rgba(145,70,255,1);
+        top: -11px;
         
     }
 
     to {
         border-left: solid 11px rgba(145,70,255,1);
-        border-bottom: solid 11px rgba(145,70,255,1);
-        top: 11px;
+        border-bottom: solid 12px rgba(145,70,255,1);
+        top: 0;
         
     }
 

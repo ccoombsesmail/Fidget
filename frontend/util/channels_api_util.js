@@ -1,9 +1,10 @@
 
-export const fetchChannels = () => {
+export const fetchChannels = (filter) => {
 
     return $.ajax({
         method: 'GET',
-        url: 'api/channels'
+        url: 'api/channels',
+        data: {filter}
     })
 }
 

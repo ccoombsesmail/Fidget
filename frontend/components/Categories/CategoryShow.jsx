@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {requestVods} from '../../actions/vod_actions'
+import {requestVods, clearVods} from '../../actions/vod_actions'
 import {withRouter} from 'react-router-dom'
 import classes from './CategoryShow.module.css'
 
@@ -21,6 +21,12 @@ class CategoryShow extends React.Component {
         })
     }
 
+
+    componentWillUnmount() {
+        this.props.clearVods()
+    }
+
+
     render() {
 
         return (
@@ -39,7 +45,12 @@ class CategoryShow extends React.Component {
                 <div className = {classes.videoWrapper}>
                         {
                             this.props.vods.map((vod, idx) => {
+
                                 return <VodIndexItem key={idx} vod={vod} /> 
+                                //    return <video className={classes.videoPlayer}>
+                                //         <source src={vod.videoUrl} />
+                                //     </video>
+
                             })
                         }
                 </div>
@@ -63,7 +74,9 @@ const mSTP = state => {
 
 const mDTP = dispatch => {
     return {
-        requestVods: (filter) => dispatch(requestVods(filter))
+        requestVods: (filter) => dispatch(requestVods(filter)),
+        clearVods: () => dispatch(clearVods())
+
     }
 }
 

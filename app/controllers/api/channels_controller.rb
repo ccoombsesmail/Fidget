@@ -2,7 +2,11 @@ class Api::ChannelsController < ApplicationController
 
     def index
         @channels = Channel.all
-        render :index
+        if params[:filter] == nil
+            render :index
+        else
+            render :index_first_vods
+        end
     end
 
 

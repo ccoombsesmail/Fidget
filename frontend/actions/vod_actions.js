@@ -1,5 +1,6 @@
 export const RECEIVE_VOD = "RECEIVE_VOD"
 export const RECEIVE_VODS = "RECEIVE_VODS"
+export const CLEAR_VODS = "CLEAR_VODS"
 import * as VodAPIUtil from '../util/vod_api_util'
 
 
@@ -18,6 +19,14 @@ const receiveVods = (vods) => {
         vods
     }
 }
+
+export const clearVods = () => {
+    return {
+        type: CLEAR_VODS,
+    }
+}
+
+
 
 
 
@@ -43,3 +52,5 @@ export const createVod = (formData) => dispatch => {
         .then((vod) => dispatch(receiveVod(vod)))
         .fail(err => console.log(err))
 }
+
+

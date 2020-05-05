@@ -39,9 +39,9 @@ export const requestChannel = (channelId) => dispatch => {
 
 
 
-export const requestChannels = () => dispatch => {
+export const requestChannels = (filter) => dispatch => {
 
-    return ChannelAPIUtil.fetchChannels()
+    return ChannelAPIUtil.fetchChannels(filter)
         .then((payload) => dispatch(receiveChannels(payload)))
 }
 

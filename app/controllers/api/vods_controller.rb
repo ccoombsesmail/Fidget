@@ -9,7 +9,9 @@ class Api::VodsController < ApplicationController
     end
 
     def show
+        
         @vod = Vod.find_by(id: params[:id])
+        
         render :show
     end
 
