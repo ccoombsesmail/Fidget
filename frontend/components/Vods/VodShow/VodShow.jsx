@@ -8,12 +8,14 @@ class VodShow extends React.Component {
 
     constructor(props) {
         super(props)
+
     }
 
     componentDidMount() {
+        
         this.props.requestVod(this.props.match.params.vodId)
+        
     }
-
 
     render() {
 

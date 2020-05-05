@@ -12,7 +12,7 @@ class ChannelVideosIndex extends React.Component {
     }
 
     componentDidMount() {
-
+        
         this.props.requestVods({
             channel_id: this.props.match.params.channelId
         })

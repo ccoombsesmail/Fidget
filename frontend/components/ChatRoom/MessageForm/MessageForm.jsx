@@ -79,7 +79,7 @@ class MessageForm extends React.Component {
                     {/* <input  type="submit" /> */}
 
                 <div className={classes.submitButtonWrapper}>
-                    <div onClick={this.toggle} className={classes.pointIconWrapper}> 
+                    <div className={classes.pointIconWrapper}> 
                         <FontAwesomeIcon className={classes.pointIcon} icon={faCircleNotch} />
                     </div>
 

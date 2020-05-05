@@ -45,7 +45,6 @@ const App = (props) => {
 
 
 
-
     return(
         <div className={classes.mainContainer2}> 
             <Modal/>

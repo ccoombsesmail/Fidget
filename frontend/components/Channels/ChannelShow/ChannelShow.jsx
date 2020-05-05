@@ -42,7 +42,7 @@ class ChannelShow extends React.Component  {
                  
             </nav>
                  <Switch>
-                    <Route  path="/channels/:channelName/videos/:vodId" component={VodShow} />
+                    <Route path="/channels/:channelId/:channelName/videos/:vodId" component={VodShow} />
                     <Route path= "/channels/:channelId/:channelName/videos" component = {ChannelVideosIndex} />
                  </Switch>
             </div>
