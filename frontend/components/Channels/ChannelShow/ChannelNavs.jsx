@@ -15,14 +15,15 @@ class ChannelNavs extends React.Component {
     }
 
 
-    componentDidUpdate(prevProps, prevState) {
+    // componentDidUpdate(prevProps, prevState) {
         
-        if (this.state.nextTab === "videos" && prevState.nextTab !== "videos") {
-            this.props.history.push(`/channels/${this.props.channelId}/${this.props.channelName}/videos`)
-        }
-    }
+    //     if (this.state.nextTab === "videos" && prevState.nextTab !== "videos") {
+    //         this.props.history.push(`/channels/${this.props.channelId}/${this.props.channelName}/videos`)
+    //     }
+    // }
 
     changeTab(tab) {
+        this.props.history.push(`/channels/${this.props.channelId}/${this.props.channelName}/${tab}`)
         this.setState({nextTab: tab})
     }
 

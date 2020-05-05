@@ -1,14 +1,18 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import classes from './ChannelShow.module.css'
-import ChatRoom from '../../ChatRoom/ChatRoom'
 import {withRouter, Switch, Route} from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHeart, faHeartbeat } from '@fortawesome/free-solid-svg-icons'
 import {requestChannel} from '../../../actions/channel_actions'
+// Components
+import ChatRoom from '../../ChatRoom/ChatRoom'
 import ChannelNavs from './ChannelNavs'
 import ChannelVideosIndex from '../../Vods/VodsIndex/ChannelVideosIndex'
 import VodShow from '../../Vods/VodShow/VodShow'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHeart, faHeartbeat} from '@fortawesome/free-solid-svg-icons'
+import ChannelFollowers from '../../ChannelFollowers/ChannelFollowers'
+import ChannelHome from '../../ChannelHome/ChannelHome'
+
 
 
 class ChannelShow extends React.Component  {
@@ -44,6 +48,9 @@ class ChannelShow extends React.Component  {
                  <Switch>
                     <Route path="/channels/:channelId/:channelName/videos/:vodId" component={VodShow} />
                     <Route path= "/channels/:channelId/:channelName/videos" component = {ChannelVideosIndex} />
+                    <Route path="/channels/:channelId/:channelName/followers" component={ChannelFollowers} />
+                    <Route path="/channels/:channelId/:channelName/home" component={ChannelHome} />
+
                  </Switch>
             </div>
 
