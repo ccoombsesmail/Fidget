@@ -9,6 +9,7 @@ import ChannelIndex from './Channels/ChannelIndex'
 import ChannelShow from './Channels/ChannelShow/ChannelShow'
 import Dashboard from './Dashboard/Dashboard'
 import AuthRoute from '../util/route_util'
+import CategoryShow from './Categories/CategoryShow'
 
 const App = (props) => {
 
@@ -50,7 +51,6 @@ const App = (props) => {
             <Modal/>
             <nav id = "nav" className = {classes.mainNav}>
                 <div className = {classes.leftNav} > 
-                    {/* <Link to = '/'> <h1 className={classes.appTitle}> Fidget</h1></Link> */}
                     {/* <Link to='/'> <a href="https://fontmeme.com/twitch-logo-font/"><img src="https://fontmeme.com/permalink/200429/c5c269ee240a3104c60edd9054042334.png" alt="twitch-logo-font" border="0"/></a></Link> */}
                     <Link to='/'> <img src="https://i.ibb.co/LRxhSsJ/twitchwhite.png" /></Link>
                 </div>
@@ -64,7 +64,9 @@ const App = (props) => {
             <Switch> 
                 {/*  */}
                 <Route path = "/channels/:channelId/:channelName" component = {ChannelShow}/>
+                <Route path="/directory/game/:categoryName" component={CategoryShow} />
                 <AuthRoute path = "/:channelName/dashboard"  component = {Dashboard}/>
+                
                 <Route path = "/" component = {ChannelIndex}/>
             </Switch>
 

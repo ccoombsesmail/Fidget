@@ -24,14 +24,20 @@ class ChannelVideosIndex extends React.Component {
     render() {
         
         return(
-            <div className = {classes.vodsWrapper}>
-                {
-                    this.props.vods.map((vod,idx) => {
-                        return <VodIndexItem key = {idx} vod = {vod}/> 
-                    })
-                }
+            <div className = {classes.indexWrapper}> 
+                <div className = {classes.videoCountWrapper}> 
+                    <h1>Videos </h1>
+                    <h1>{this.props.vods.length} </h1>
+                </div>
+                <hr/>
+                <div className = {classes.vodsWrapper}>
+                    {
+                        this.props.vods.map((vod,idx) => {
+                            return <VodIndexItem key = {idx} vod = {vod}/> 
+                        })
+                    }
+                </div>
             </div>
-
         )
     }
 

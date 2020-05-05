@@ -1,3 +1,9 @@
+.indexWrapper {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
 .vodsWrapper {
     display: flex;
     flex-wrap: wrap;
@@ -49,3 +55,31 @@
 
 }
 
+
+.videoCountWrapper{ 
+    display: flex;
+    margin: 30px;
+}
+
+.videoCountWrapper h1:nth-child(1) {
+    margin-right: 10px;
+    color: #EFEFF1;
+}
+
+
+.videoCountWrapper h1:nth-child(2) {
+    margin-right: 10px;
+    color: #A4A4AF;
+}
+
+
+
+.indexWrapper > hr {
+width: 90%;
+margin-left: 20px;
+margin-top: 30px;
+margin-bottom: 30px;
+background-color: rgb(48,48,50);
+height: .5px;
+border: none;
+}

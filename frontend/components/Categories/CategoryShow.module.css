@@ -1,0 +1,33 @@
+.categoryWrapper {
+    display: flex;
+    flex-direction: column;
+    background-color: #0E0E10;
+    flex-grow: 6;
+}
+
+.banner {
+    display: flex;
+    flex-direction: column;
+}
+
+.infoArea {
+    display: flex;
+    margin: 40px;
+}
+
+.description {
+    display: flex;
+    flex-direction: column;
+    margin-left: 30px;
+}
+
+.description > h5 {
+    margin-top: 15px;
+    color:#75757C;
+    font-size: 14px;
+}
+
+.videoWrapper {
+    margin-top: 100px;
+    display: flex;
+}
