@@ -14,7 +14,12 @@ class User < ApplicationRecord
         class_name: :Channel,
         dependent: :destroy
 
+    has_many :follows
 
+
+    has_many :followed_channels,
+        through: :follows,
+        source: :channel
     
 
     def self.find_by_credentials(username, password) 

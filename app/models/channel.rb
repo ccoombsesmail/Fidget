@@ -8,6 +8,13 @@ class Channel < ApplicationRecord
     has_many :vods,
         dependent: :destroy
 
+    has_many :follows
+    
+
+
+    has_many :users,
+        through: :follows,
+        source: :user
 
     has_one_attached :logoUrl
 
