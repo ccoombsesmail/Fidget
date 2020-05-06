@@ -12,7 +12,7 @@ export const postFollow = (follow) => {
 export const deleteFollow = (channelId) => {
 
     return $.ajax({
-        method: 'POST',
+        method: 'DELETE',
         url: `/api/follows/${channelId}`,
     })
 

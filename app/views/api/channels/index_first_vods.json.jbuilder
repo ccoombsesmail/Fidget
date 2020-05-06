@@ -21,7 +21,7 @@ json.vods do
                 json.videoUrl url_for(vod.videoUrl)
             end
         else
-            json.set! channel.id do
+            json.set! SecureRandom.base64(64) do
                 json.id nil
                 json.channelId channel.id
                 json.title nil

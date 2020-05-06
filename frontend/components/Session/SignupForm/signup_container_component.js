@@ -1,6 +1,5 @@
 import { connect } from 'react-redux'
 import { signup, clearErrors } from '../../../actions/session_actions'
-import SessionForm from '../SessionForm'
 import {openModal, closeModal} from '../../../actions/modal_actions'
 import SignupForm from './SignupForm'
 
@@ -21,7 +20,8 @@ const mDTP = dispatch => {
         processForm: (user) => dispatch(signup(user)),
         navToOtherForm: () => dispatch(openModal('login')),
         closeModal: () => dispatch(closeModal()),
-        clearErrors: () => dispatch(clearErrors())
+        clearErrors: () => dispatch(clearErrors()),
+
 
     }
 }

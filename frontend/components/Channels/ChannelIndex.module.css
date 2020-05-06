@@ -47,5 +47,6 @@
 
 .channelsContainer {
     display: flex;
+    flex-wrap: wrap;
 }
 

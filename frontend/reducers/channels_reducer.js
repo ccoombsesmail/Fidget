@@ -1,5 +1,5 @@
 import {RECEIVE_CHANNELS, UPDATE_CHANNEL, RECEIVE_CHANNEL} from '../actions/channel_actions'
-
+import {RECEIVE_NEW_USER} from '../actions/session_actions'
 
 
 const channelsReducer = (state = {}, action) => {
@@ -14,6 +14,8 @@ const channelsReducer = (state = {}, action) => {
             let newState = Object.assign({}, state);
             newState[action.channel.id] = action.channel;
             return newState;
+        case RECEIVE_NEW_USER:
+            return Object.assign({}, state, action.payload.channel);
         default:
             return state;
     }

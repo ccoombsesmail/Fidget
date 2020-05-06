@@ -36,6 +36,7 @@ class SessionControls extends React.Component {
         // this.userIcon = document.querySelector("[data-icon='user-ninja'") || document.querySelector("[data-icon='user'")    
         this.userIcon = document.querySelector("[data-icon='user'") || document.getElementById("userIcon")
         document.body.addEventListener('click', this.toggleMenu);
+      
 
    
     }
@@ -65,7 +66,8 @@ class SessionControls extends React.Component {
  
 
     render() {
-  
+        
+        
         return (
 
             <div>
@@ -73,7 +75,6 @@ class SessionControls extends React.Component {
                   this.props.currentUser ? (  
                     <div className={classes.welcomeWrapper}>
                             
-                        {/* <div onClick={this.toggleMenu}> <FontAwesomeIcon className={classes.userIcon} icon={faUserNinja} /> </div> */}
                         <DropDownMenu toggle={this.toggle} currentChannel = {this.props.currentChannel} logout = {this.props.logout} currentUser = {this.props.currentUser} showMenu = {this.state.showMenu}/>
                         {this.props.currentChannel ? 
                         <div id = "userIcon" onClick={this.toggleMenu} className = {classes.userIconWrapper}> <img className = {classes.userIcon} src={this.props.currentChannel.logoUrl} /> </div>

@@ -30,7 +30,7 @@ class ApplicationController < ActionController::Base
 
 
     def require_logged_in
-        render json: ['Must Log In'] unless logged_in?
+        render json: ['Must Logged In'] unless logged_in?
     end
 
 end
