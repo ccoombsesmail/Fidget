@@ -19,6 +19,11 @@ class SessionForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this)
     }
 
+    componentDidMount(){
+        var input = document.getElementById('usernameLogin');
+        input.focus();
+    }
+
     update(type) {
         return (e) => {
             this.setState({[type]: e.currentTarget.value})
@@ -68,7 +73,7 @@ class SessionForm extends React.Component {
 
                     <label className={classes.formLabel}>
                         <h4>Username</h4>
-                        <input className = {classes.formInput} type="text" value = {this.state.username} onChange = {this.update('username')}/>
+                        <input id = "usernameLogin" className = {classes.formInput} type="text" value = {this.state.username} onChange = {this.update('username')}/>
                     </label>
 
                     <label className={classes.formLabel}>

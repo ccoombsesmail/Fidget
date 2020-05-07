@@ -11,12 +11,11 @@ class MessageForm extends React.Component {
         this.state = { 
             body: "",
             showMenu: false,
-            left: 2,
-            showEmoji: false,
-            position: 'absolute' 
         };
 
         this.toggle = this.toggle.bind(this)
+        this.colors = ["#A86DFF", "0D6F86", "#1C6BBA", "#851F20", "#54BC75", "#DB80E1"]
+        this.usernameColor = this.colors[Math.floor(Math.random() * 6)]
     }
 
 
@@ -37,26 +36,23 @@ class MessageForm extends React.Component {
             this.props.openModal("login")
         } else {
             let userId = this.props.currentUser.id
-            App.cable.subscriptions.subscriptions[1].speak({ message: this.state.body, channelName: this.props.channelName, user_id: userId });
+            App.cable.subscriptions.subscriptions[1].speak({ message: this.state.body, channelName: this.props.channelName, user_id: userId, color: this.usernameColor });
         }
-        this.setState({ 
-            body: "", showEmoji: false, left: 2});
+
+        this.setState({body: ''})
+   
     }
 
     toggle() {
         this.setState({showMenu: !this.state.showMenu})
     }
-    displayEmoji(){
-        this.setState({showEmoji: true, body: this.state.body + '        '})
-    }
-
+  
 
     render() {
-        // console.log(twitchEmoji.parse('spicey memes Kappa'))
 
         return (
             <div className={classes.messageFormWrapper}>
-                <EmojiMenu showEmoji ={this.displayEmoji.bind(this)} show = {this.state.showMenu} /> 
+                <EmojiMenu show = {this.state.showMenu} /> 
 
                 <form className={classes.messageForm} onSubmit={this.handleSubmit.bind(this)}>
                     <div className = {classes.emojiInputWrapper} > 
@@ -68,15 +64,13 @@ class MessageForm extends React.Component {
                         autoComplete = "off"
 
                     />
-                        {/* { !this.state.showEmoji ? null : 
-                        <img style = {{position: 'absolute', left: this.state.left + 'px', width: '35px', height: '35px'}} src="https://i.ibb.co/Km2YDrb/UIHere.png" />
-                        } */}
+                  
                         <div onClick = {this.toggle} className={classes.emojiBtn}>  
                             <FontAwesomeIcon  icon={faSmileBeam} />
                         </div>
 
                     </div>
-                    {/* <input  type="submit" /> */}
+                  
 
                 <div className={classes.submitButtonWrapper}>
                     <div className={classes.pointIconWrapper}> 

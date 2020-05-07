@@ -112,7 +112,7 @@ class Signup extends React.Component {
 
                     <label className={classes.formLabel}>
                         <h4>Username</h4>
-                        <input id="username" className={classes.formInput} type="text" value={this.state.username} onChange={this.update('username')} autoComplete="off" />
+                        <input maxLength = {16} id="username" className={classes.formInput} type="text" value={this.state.username} onChange={this.update('username')} autoComplete="off" />
                         <div className = {classes.infoDiv}>
                             <div className={classes.textDiv}> This is the name people will know you by on Fidget. You can always change it later  </div>
                         </div>

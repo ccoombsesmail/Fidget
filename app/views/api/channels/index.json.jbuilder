@@ -17,6 +17,8 @@ json.users do
             json.id owner.id
             json.username owner.username
             json.channelId channel.id
+            json.follows owner.followed_channels.map{|channel| channel.id }
+
         end
     end
 end

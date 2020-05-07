@@ -2,9 +2,9 @@ import React from 'react'
 import classes from './SideBar.module.css'
 import {connect} from 'react-redux'
 import { requestChannels } from '../../actions/channel_actions'
+import {getFollowedChannels} from '../../util/selectors'
 import SideBarItem from './SideBarItem'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faInfoCircle, faPlayCircle, faTv, faToiletPaper, faBeer } from '@fortawesome/free-solid-svg-icons'
+
 
 class SideBar extends React.Component {
     constructor(props) {
@@ -22,34 +22,27 @@ class SideBar extends React.Component {
         return (
 
             <div id="sidebar" className = {classes.sideBar}>
+                <h1>Followed Channels</h1>
                 {
-                    this.props.channels ? (
+                    this.props.followedChannels ? (
+                        this.props.followedChannels.map((channel, idx) => {
+                            return <SideBarItem channel={channel} key={idx} users={this.props.users} />
+                        })
+                    ) : null   
+                    
+                }
+
+                <h1>Recommended Channels</h1>
+
+                {
+                    this.props.channels.length > 1 ? (
                         this.props.channels.map((channel, idx) => {
                            return <SideBarItem channel = {channel} key = {idx} users = {this.props.users}/> 
                         })
                     ) : null           
 
                 }
-                {/* 
-                <div className={classes.sideBarItemContainer}> 
-                    <FontAwesomeIcon className={classes.sideBarItem} icon={faTv} /><h6> Placholder </h6> 
-                </div>
-                <div className={classes.sideBarItemContainer}>
-                    <FontAwesomeIcon className={classes.sideBarItem} icon={faToiletPaper} /><h6> Placholder </h6>
-                </div>
-                <div className={classes.sideBarItemContainer}>
-                    <FontAwesomeIcon className={classes.sideBarItem} icon={faBeer} /><h6> Placholder </h6>
-                </div>    
-                
-                <div className={classes.sideBarItemContainer}> 
-                    <FontAwesomeIcon className={classes.sideBarItem} icon={faPlayCircle} /><h6> Placholder </h6> 
-                </div>
-                <div className={classes.sideBarItemContainer}>
-                    <FontAwesomeIcon className={classes.sideBarItem} icon={faPlayCircle} /><h6> Placholder </h6>
-                </div>
-                <div className={classes.sideBarItemContainer}>
-                    <FontAwesomeIcon className={classes.sideBarItem} icon={faPlayCircle} /><h6> Placholder </h6>
-                </div> */}
+   
 
             </div>
 
@@ -62,9 +55,15 @@ class SideBar extends React.Component {
 
 
 const mSTP = state => {
+    let currentUser = state.entities.users[state.session.currentUserId]
+    let followedChannels = [];
+    if (currentUser) {
+        followedChannels = getFollowedChannels(state.entities.channels, currentUser)
+    }
     return {
         channels: Object.values(state.entities.channels),
-        users: state.entities.users
+        users: state.entities.users,
+        followedChannels: followedChannels
     }
 }
 

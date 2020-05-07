@@ -6,7 +6,7 @@ class ChatRoomsChannel < ApplicationCable::Channel
 
   def speak(data)
     message = Message.create({:user_id => data['user_id'], :body => data['message']})
-    broadcastMessage = {message: message.body, username: message.user.username}
+    broadcastMessage = {message: message.body, username: message.user.username, color: data['color']}
     ChatRoomsChannel.broadcast_to("chat_rooms_channel_#{data['channelName']}", broadcastMessage)
   end
 

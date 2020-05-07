@@ -16,6 +16,7 @@ class ChatRoom extends React.Component {
             messages: [],
         };
         this.bottom = React.createRef();
+
     }
 
 
@@ -28,7 +29,7 @@ class ChatRoom extends React.Component {
             {
                 received: data => {
                     this.setState({
-                        messages: [...this.state.messages, [data.message, data.username]],
+                        messages: [...this.state.messages, [data.message, data.username, data.color]],
                         // emojiUrl: data.url
                     })
                 },
@@ -51,7 +52,7 @@ class ChatRoom extends React.Component {
                 {
                     received: data => {
                         this.setState({
-                            messages: [...this.state.messages, [data.message, data.username]]
+                            messages: [...this.state.messages, [data.message, data.username, data.color]]
                         });
                     },
                     speak: function (data) {
@@ -70,12 +71,13 @@ class ChatRoom extends React.Component {
     }
 
     render() {
-       
+
         const messageList = this.state.messages.map((message, idx) => {
             return (
                 <li className = {classes.messageLi} key={idx}>
                     <p> 
-                        <span className={classes.username}> {`${message[1]}:   `} </span> 
+                       
+                        <span style = {{color: message[2]}} className={classes.username}> {`${message[1]}:   `} </span> 
                          <span className={classes.messageBody}> {`${message[0]}`} </span> 
                          </p>
                     <div ref={this.bottom} />

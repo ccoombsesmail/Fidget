@@ -17,7 +17,9 @@
     margin-top: 15px;
     display: flex;
     justify-content: flex-start;
+    align-items: center;
     cursor: pointer;
+    position: relative;
 }
 .sideBarItemContainer:hover {
     background-color: #3A3A3D;
@@ -48,3 +50,8 @@
     font-size: 12px;
 }
 
+.sideBarItemContainer > h5 {
+   position: absolute;
+   right:  10px;
+   color: #C0C0C5;
+}
