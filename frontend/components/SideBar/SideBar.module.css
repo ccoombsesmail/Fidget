@@ -11,23 +11,40 @@
 }
 
 .sideBarItemContainer {
-    margin: 15px;
-    margin-left: -5px;
-    font-size: 25px;
-    color: white; 
+    padding-left: 15px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    margin-top: 15px;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: flex-start;
+    cursor: pointer;
+}
+.sideBarItemContainer:hover {
+    background-color: #3A3A3D;
 }
 
-.sideBarItemContainer :first-child {
-    margin-top: 35px;
-    
-}
-.sideBarItemContainer :nth-child(2) {
-    margin-top: 35px;
-    
-}
+
+
 
 .sideBarItem {
     /* font-size: 25px; */
 }
+
+.logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+
+.channelDetails {
+    display: flex;
+    align-items: center;
+    
+}
+.channelDetails > h4 {
+    color: #ACACB0;
+    font-size: 12px;
+}
+

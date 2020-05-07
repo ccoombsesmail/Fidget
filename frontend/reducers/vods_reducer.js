@@ -12,7 +12,6 @@ const vodsReducer = (state = {}, action) => {
         case RECEIVE_VODS:
             return Object.assign({}, action.vods )
         case RECEIVE_CHANNELS:
-            debugger
             return Object.assign({}, action.payload.vods)
         case CLEAR_VODS:
             return {}
