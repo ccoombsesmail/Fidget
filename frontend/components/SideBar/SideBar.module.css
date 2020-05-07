@@ -46,7 +46,7 @@
     
 }
 .channelDetails > h4 {
-    color: #ACACB0;
+    color: rgb(231, 231, 240);
     font-size: 12px;
 }
 
@@ -54,4 +54,11 @@
    position: absolute;
    right:  10px;
    color: #C0C0C5;
+}
+
+.sideBar > h3 {
+    color: white;
+    margin-top: 20px;
+    margin-left: 15px;
+    font-size: 14px;
 }

@@ -1,6 +1,7 @@
 import React from 'react'
 import classes from './SideBar.module.css'
 import {connect} from 'react-redux'
+import {withRouter} from 'react-router-dom'
 import { requestChannels } from '../../actions/channel_actions'
 import {getFollowedChannels} from '../../util/selectors'
 import SideBarItem from './SideBarItem'
@@ -17,22 +18,29 @@ class SideBar extends React.Component {
     }
 
 
+
     render() {
+
+
         
         return (
 
             <div id="sidebar" className = {classes.sideBar}>
-                <h1>Followed Channels</h1>
                 {
-                    this.props.followedChannels ? (
+                (this.props.users && this.props.followedChannels) ? (
+                    <>
+                        <h3>Followed Channels</h3>
+                        {
                         this.props.followedChannels.map((channel, idx) => {
                             return <SideBarItem channel={channel} key={idx} users={this.props.users} />
                         })
-                    ) : null   
+                        }
+                    </>
+                    ) : null  
                     
                 }
 
-                <h1>Recommended Channels</h1>
+                <h3>Recommended Channels</h3>
 
                 {
                     this.props.channels.length > 1 ? (
@@ -76,4 +84,4 @@ const mDTP = dispatch => {
 
 
 
-export default connect(mSTP,mDTP)(SideBar)
+export default withRouter(connect(mSTP,mDTP)(SideBar))
