@@ -1,24 +1,9 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Fidget is a Twitch clone that allow users to upload vods, and watch them together with live chat.
 
-Things you may want to cover:
+Live site: https://fidget-tv.herokuapp.com/#/
 
-* Ruby version
 
-* System dependencies
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Fidget is built with a Ruby on Rails backend, with a Javascript/React frontend. Postgres was used as the primary database, along with amazon s3. 
