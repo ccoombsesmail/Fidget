@@ -12,6 +12,7 @@ class Api::ChannelsController < ApplicationController
             @channels = Channel.all
             render :index_first_vods
         end
+        
     end
 
 
