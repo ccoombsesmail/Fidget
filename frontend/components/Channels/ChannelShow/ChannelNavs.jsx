@@ -7,10 +7,14 @@ class ChannelNavs extends React.Component {
 
     constructor(props) {
         super(props)
-        this.state = {
-            nextTab: 'home'
+        let nextTab = 'home'
+        if (props.location.state) {
+            nextTab = props.location.state.tab
         }
-
+        this.state = {
+            nextTab:  nextTab
+        }
+        
         this.changeTab = this.changeTab.bind(this)
     }
 

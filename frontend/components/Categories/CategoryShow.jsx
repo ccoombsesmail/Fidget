@@ -42,11 +42,17 @@ class CategoryShow extends React.Component {
                     </div>
                 </div>
 
+                <hr/>
+                <div className={classes.videoCountWrapper}>
+                    <h1>Videos </h1>
+                    <h1>{this.props.vods.length} </h1>
+                </div>
+
                 <div className = {classes.videoWrapper}>
                         {
                             this.props.vods.map((vod, idx) => {
 
-                                return <VodIndexItem key={idx} vod={vod} /> 
+                                return <VodIndexItem key={idx} vod={vod} channel = {this.props.channels[vod.channelId]} /> 
                                 //    return <video className={classes.videoPlayer}>
                                 //         <source src={vod.videoUrl} />
                                 //     </video>
@@ -67,7 +73,9 @@ class CategoryShow extends React.Component {
 
 const mSTP = state => {
     return {
-        vods: Object.values(state.entities.vods)
+        vods: Object.values(state.entities.vods),
+        channels: state.entities.channels
+        
     }
 }
 

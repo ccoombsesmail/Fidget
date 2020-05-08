@@ -11,7 +11,7 @@ require 'open-uri'
 
 
 user = User.create!({:username => 'FidgetDemoUser', :password => '12345678', :email => 'demo.demouser@gmail.com', :dob => 19931119})
-channel = Channel.create!({:owner_id => user.id })
+channel = Channel.create!({:owner_id => user.id, :channel_name => user.username })
 
 file = open('https://fidget-seeds.s3-us-west-1.amazonaws.com/logo.png')
 channel.logoUrl.attach(io: file, filename: 'logo.png')
@@ -24,7 +24,7 @@ vod.videoUrl.attach(io: vodFile, filename: "mythvalorant.mp4")
 #######2########
 
 user2 = User.create!({:username => 'Trick3g', :password => '12345678', :email => 'demo.demouser@gmail.com', :dob => 19931119})
-channel2 = Channel.create!({:owner_id => user2.id })
+channel2 = Channel.create!({:owner_id => user2.id, :channel_name => user2.username  })
 file2 = open('https://fidget-seeds.s3-us-west-1.amazonaws.com/trick3g.png')
 channel2.logoUrl.attach(io: file2, filename: 'trick3g.png')
 
@@ -36,7 +36,7 @@ vod2.videoUrl.attach(io: vodFile2, filename: "trick2gzzrot.mp4")
 #######3########
 
 user3 = User.create!({:username => 'ESCS_GO', :password => '12345678', :email => 'demo.demouser@gmail.com', :dob => 19931119})
-channel3 = Channel.create!({:owner_id => user3.id })
+channel3 = Channel.create!({:owner_id => user3.id, :channel_name => user3.username  })
 file3 = open('https://fidget-seeds.s3-us-west-1.amazonaws.com/csgoesl.png')
 channel3.logoUrl.attach(io: file3, filename: 'csgoesl.png')
 
@@ -44,3 +44,69 @@ channel3.logoUrl.attach(io: file3, filename: 'csgoesl.png')
 vod3 = Vod.create!({:channel_id => channel3.id, :title => "Kenny EZ clap", :category => "Counter-Strike"})
 vodFile3 = open("https://fidget-seeds.s3-us-west-1.amazonaws.com/kennyescsgo.mp4")
 vod3.videoUrl.attach(io: vodFile3, filename: "kennyescsgo.mp4")
+
+
+
+#######4########
+
+user4 = User.create!({:username => 'Ded', :password => '12345678', :email => 'ded.demouser@gmail.com', :dob => 19931119})
+channel4 = Channel.create!({:owner_id => user4.id, :channel_name => user4.username })
+file4 = open('https://fidget-seeds.s3-us-west-1.amazonaws.com/ded.png')
+channel4.logoUrl.attach(io: file4, filename: 'ded.png')
+
+
+vod4 = Vod.create!({:channel_id => channel4.id, :title => "Nice one idiot", :category => "Just Chatting"})
+vodFile4 = open("https://fidget-seeds.s3-us-west-1.amazonaws.com/fedbreak.mp4")
+vod4.videoUrl.attach(io: vodFile4, filename: "fedbreak.mp4")
+
+#######5########
+
+user5 = User.create!({:username => 'Xdeke', :password => '12345678', :email => 'xdeke.demouser@gmail.com', :dob => 19931119})
+channel5 = Channel.create!({:owner_id => user5.id, :channel_name => user5.username  })
+file5 = open('https://fidget-seeds.s3-us-west-1.amazonaws.com/xdeke.png')
+channel5.logoUrl.attach(io: file5, filename: 'xdeke.png')
+
+
+vod5 = Vod.create!({:channel_id => channel5.id, :title => "Playing TFT with Coscu", :category => "Teamfight Tactics"})
+vodFile5 = open("https://fidget-seeds.s3-us-west-1.amazonaws.com/xpeke.mp4")
+vod5.videoUrl.attach(io: vodFile5, filename: "xpeke.mp4")
+
+
+#######6########
+
+user6 = User.create!({:username => 'HearthKing', :password => '12345678', :email => 'tftking.demouser@gmail.com', :dob => 19931119})
+channel6 = Channel.create!({:owner_id => user6.id, :channel_name => user6.username  })
+file6 = open('https://fidget-seeds.s3-us-west-1.amazonaws.com/tftking.png')
+channel6.logoUrl.attach(io: file6, filename: 'tftking.png')
+
+
+vod6 = Vod.create!({:channel_id => channel6.id, :title => "Jebaited by viewer", :category => "Hearthstone"})
+vodFile6 = open("https://fidget-seeds.s3-us-west-1.amazonaws.com/jebaitedSmall.mp4")
+vod6.videoUrl.attach(io: vodFile6, filename: "jebaitedSmall.mp4")
+
+
+#######7########
+
+user7 = User.create!({:username => 'HMack', :password => '12345678', :email => 'hm.demouser@gmail.com', :dob => 19931119})
+channel7 = Channel.create!({:owner_id => user7.id, :channel_name => user7.username  })
+file7 = open('https://fidget-seeds.s3-us-west-1.amazonaws.com/harrymack.png')
+channel7.logoUrl.attach(io: file7, filename: 'harrymack.png')
+
+
+vod7 = Vod.create!({:channel_id => channel7.id, :title => "Depression Freestyle", :category => "Music"})
+vodFile7 = open("https://fidget-seeds.s3-us-west-1.amazonaws.com/harrymack.mp4")
+vod7.videoUrl.attach(io: vodFile7, filename: "harrymack.mp4")
+
+
+#######8########
+
+user8 = User.create!({:username => 'Hasagi', :password => '12345678', :email => 'hasagi.demouser@gmail.com', :dob => 19931119})
+channel8 = Channel.create!({:owner_id => user8.id, :channel_name => user8.username  })
+file8 = open('https://fidget-seeds.s3-us-west-1.amazonaws.com/hasagi.png')
+channel8.logoUrl.attach(io: file8, filename: 'harrymack.png')
+
+
+vod8 = Vod.create!({:channel_id => channel8.id, :title => "Nice outplay", :category => "League Of Legends"})
+vodFile8 = open("https://fidget-seeds.s3-us-west-1.amazonaws.com/yassuoBotPlay.mp4")
+vod8.videoUrl.attach(io: vodFile8, filename: "yassuoBotPlay.mp4")
+

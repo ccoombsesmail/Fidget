@@ -2,13 +2,13 @@ import React from 'react'
 import {withRouter} from 'react-router-dom'
 import classes from './ChannelVideosIndex.module.css'
 
-const VodIndexItem = ({vod, match, history}) => {
+const VodIndexItem = ({vod, match, history, channel}) => {
 
     
     const navToVodShow = () => {
         
-        let channelName = match.params.channelName
-        history.push(`/channels/${match.params.channelId}/${channelName}/videos/${vod.id}`)    
+        let channelName = match.params.channelName || channel.channelName
+        history.push(`/channels/${vod.channelId}/${channelName}/videos/${vod.id}`)    
     }
     
     return (

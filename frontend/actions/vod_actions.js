@@ -13,10 +13,10 @@ const receiveVod = (vod) => {
 }
 
 
-const receiveVods = (vods) => {
+const receiveVods = (payload) => {
     return {
         type: RECEIVE_VODS,
-        vods
+        payload
     }
 }
 

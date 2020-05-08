@@ -15,7 +15,6 @@ class ChannelIndex extends React.Component {
 
     componentDidMount() {
         this.props.requestChannels({firstVods: true})
-        
     }
 
 

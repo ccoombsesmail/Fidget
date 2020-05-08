@@ -13,7 +13,9 @@
 
 
 .leftNav {
-    margin-left: 30px;
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
 
 }
 
@@ -34,4 +36,25 @@
 }
 
 
+.browseContainer {
+    display: flex;
+    height: 55px;
+    margin-left: 20px;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 2px solid #A970FF;
+    cursor: pointer;
+}
 
+.browseContainer > span {
+    color: #A970FF;
+    font-size: 19px;
+    font-weight: 540;
+
+}
+.line{
+    height: 40px;
+    border-left: .5px solid rgb(48,48,50);
+    margin-left: 20px;
+
+}

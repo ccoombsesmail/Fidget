@@ -8,7 +8,7 @@ import CategoryShow from '../Categories/CategoryShow'
 import Dashboard from '../Dashboard/Dashboard'
 import SideBar from  "../SideBar/SideBar"
 import HomePageIndex from '../HomePageIndex/HomePageIndex'
-
+import MainNav from '../MainNav/MainNav'
 
 const MainPage = () => {
 
@@ -19,6 +19,7 @@ const MainPage = () => {
                 <Switch>
                     <Route path="/channels/:channelId/:channelName" component={ChannelShow} />
                     <Route path="/directory/game/:categoryName" component={CategoryShow} />
+                    <Route path="/directory" component={MainNav} />
                     <AuthRoute path="/:channelName/dashboard" component={Dashboard} />
                     <Route path="/" component={HomePageIndex} />
                 </Switch>

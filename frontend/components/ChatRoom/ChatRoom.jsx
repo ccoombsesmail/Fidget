@@ -49,6 +49,7 @@ class ChatRoom extends React.Component {
             
             App.cable.subscriptions.create(
                 { channel: "ChatRoomsChannel", id: this.props.match.params.channelName },
+
                 {
                     received: data => {
                         this.setState({

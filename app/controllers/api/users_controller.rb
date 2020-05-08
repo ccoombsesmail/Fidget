@@ -11,7 +11,7 @@ class Api::UsersController < ApplicationController
 
         if @user.save
             login!(@user)
-            @channel = Channel.create({:owner_id => @user.id})
+            @channel = Channel.create({:owner_id => @user.id, :channel_name => @user.username})
             file = open('https://fidget-seeds.s3-us-west-1.amazonaws.com/defaultlogo1.png')
             @channel.logoUrl.attach(io: file, filename: 'defaultlogo1.png')
             render :new_user
