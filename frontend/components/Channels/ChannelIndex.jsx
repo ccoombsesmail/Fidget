@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import {requestChannels} from '../../actions/channel_actions'
 import {requestVods} from '../../actions/vod_actions'
 import classes from './ChannelIndex.module.css'
-
+import {withRouter} from 'react-router-dom'
 import ChannelIndexItem from './ChannelIndexItem/ChannelIndexItem'
 import Categories from '../Categories/Categories'
 
@@ -14,7 +14,11 @@ class ChannelIndex extends React.Component {
     }
 
     componentDidMount() {
-        this.props.requestChannels({firstVods: true})
+        if (this.props.match.path == "/"){
+            this.props.requestChannels({firstVods: true})
+        }else {
+            this.props.requestChannels({ allChannels: true })
+        }
     }
 
 
@@ -56,4 +60,4 @@ const mDTP = (dispatch) => {
 }
 
 
-export default connect(mSTP,mDTP)(ChannelIndex)
+export default withRouter(connect(mSTP,mDTP)(ChannelIndex))

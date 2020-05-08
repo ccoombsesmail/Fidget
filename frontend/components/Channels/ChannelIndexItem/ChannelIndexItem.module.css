@@ -18,7 +18,7 @@
 .icon {
     width: 50px;
     height: 50px;
-    margin-top: 5px;
+    margin-top: 10px;
     border-radius: 50%;
 }
 
@@ -37,7 +37,8 @@
 .channelDetailsWrapper {
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
+
 }
 
 .details > h4 {
@@ -49,6 +50,6 @@
 }
 
 .details {
-    margin-top: 5px;
+    margin-top: 10px;
     margin-left: 10px;
 }

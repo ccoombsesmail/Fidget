@@ -11,6 +11,7 @@ class ChannelNavs extends React.Component {
         if (props.location.state) {
             nextTab = props.location.state.tab
         }
+        
         this.state = {
             nextTab:  nextTab
         }

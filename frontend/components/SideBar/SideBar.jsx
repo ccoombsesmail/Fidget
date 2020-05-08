@@ -20,8 +20,6 @@ class SideBar extends React.Component {
 
 
     render() {
-
-
         
         return (
 
@@ -69,9 +67,9 @@ const mSTP = state => {
         followedChannels = getFollowedChannels(state.entities.channels, currentUser)
     }
     return {
-        channels: Object.values(state.entities.channels),
+        channels: Object.values(state.entities.channels).slice(0,7),
         users: state.entities.users,
-        followedChannels: followedChannels
+        followedChannels: followedChannels.slice(0,7)
     }
 }
 

@@ -5,7 +5,7 @@ import {withRouter} from 'react-router-dom'
 const SideBarItem = ({channel, users, history}) => {
     
     const navToChannel = () => {
-        if (users) {
+        if (users && channel) {
             history.push(`/channels/${channel.id}/${users[channel.ownerId].username}/home`)
         }
     }
@@ -16,8 +16,8 @@ const SideBarItem = ({channel, users, history}) => {
             <img src={channel.logoUrl} className = {classes.logo} />  
             <div className = {classes.channelDetails}> 
                 {
-                Object.keys(users).length > 1 ?   // First request returns specific channel info and user info. Need to wait for second request to get followed channels/users for sidebar
-                <h4> {users[channel.ownerId].username}</h4> : null
+                    Object.keys(users).length > 1 && users[channel.ownerId] ?   // First request returns specific channel info and user info. Need to wait for second request to get followed channels/users for sidebar
+                    <h4> {users[channel.ownerId].username}</h4> : null
                 }   
             </div>
             <h5>Offline</h5>

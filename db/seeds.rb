@@ -21,6 +21,14 @@ vod = Vod.create({:channel_id => channel.id, :title => "First Valorant Headshot"
 vodFile = open("https://fidget-seeds.s3-us-west-1.amazonaws.com/mythvalorant.mp4")
 vod.videoUrl.attach(io: vodFile, filename: "mythvalorant.mp4")
 
+vod11 = Vod.create({:channel_id => channel.id, :title => "Hacking against devs", :category => "Valorant"})
+vodFile11 = open("https://fidget-seeds.s3-us-west-1.amazonaws.com/hackingwithdevs.mp4")
+vod11.videoUrl.attach(io: vodFile11, filename: "hackingwithdevs.mp4")
+
+vod12 = Vod.create({:channel_id => channel.id, :title => "Get rekt", :category => "Valorant"})
+vodFile12 = open("https://fidget-seeds.s3-us-west-1.amazonaws.com/qtpie.mp4")
+vod12.videoUrl.attach(io: vodFile12, filename: "qtpie.mp4")
+
 #######2########
 
 user2 = User.create!({:username => 'Trick3g', :password => '12345678', :email => 'demo.demouser@gmail.com', :dob => 19931119})
@@ -32,6 +40,15 @@ channel2.logoUrl.attach(io: file2, filename: 'trick3g.png')
 vod2 = Vod.create!({:channel_id => channel2.id, :title => "Trick2g zzrot backdoor", :category => "League Of Legends"})
 vodFile2 = open("https://fidget-seeds.s3-us-west-1.amazonaws.com/trick2gzzrot.mp4")
 vod2.videoUrl.attach(io: vodFile2, filename: "trick2gzzrot.mp4")
+
+vod22 = Vod.create!({:channel_id => channel2.id, :title => "D Cane!", :category => "League Of Legends"})
+vodFile22 = open("https://fidget-seeds.s3-us-west-1.amazonaws.com/dcane.mp4")
+vod22.videoUrl.attach(io: vodFile22, filename: "dcane.mp4")
+
+vod23 = Vod.create!({:channel_id => channel2.id, :title => "EZ Gates", :category => "League Of Legends"})
+vodFile23 = open("https://fidget-seeds.s3-us-west-1.amazonaws.com/opendgates.mp4")
+vod23.videoUrl.attach(io: vodFile23, filename: "opendgates.mp4")
+
 
 #######3########
 

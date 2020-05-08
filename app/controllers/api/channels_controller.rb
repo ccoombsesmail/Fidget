@@ -1,10 +1,15 @@
 class Api::ChannelsController < ApplicationController
 
     def index
-        @channels = Channel.all
-        if params[:filter] == nil
+        
+        if params[:filter] == nil 
+            @channels = Channel.all.limit(8)
             render :index
-        else
+        elsif params[:filter]['firstVods']
+            @channels = Channel.all.limit(8)
+            render :index_first_vods
+        elsif params[:filter]['allChannels']
+            @channels = Channel.all
             render :index_first_vods
         end
     end
