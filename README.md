@@ -37,3 +37,8 @@ VOD upload is another major feature of Fidget. To accomodate user upload of VOD,
 
 ![alt text](https://i.ibb.co/3Y5PGm7/readme-Img.png "Example Channel")
 
+
+
+## Coming soon -- Live Streaming
+
+
