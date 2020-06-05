@@ -13,7 +13,8 @@ const channelsReducer = (state = {}, action) => {
             return Object.assign({}, state, action.channel);
         case UPDATE_CHANNEL:
             let newState = Object.assign({}, state);
-            newState[action.channel.id] = action.channel;
+            let channel = Object.values(action.channel)[0]
+            newState[channel.id] = channel;
             return newState;
         case RECEIVE_NEW_USER:
             return Object.assign({}, state, action.payload.channel);

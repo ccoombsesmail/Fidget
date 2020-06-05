@@ -2,6 +2,7 @@ import React from 'react'
 import classes from './Dashboard.module.css'
 import { connect } from 'react-redux'
 import {updateChannel, requestChannel} from '../../actions/channel_actions'
+import {openModal} from '../../actions/modal_actions'
 import {createVod} from '../../actions/vod_actions'
 import VideoForm from './VideoForm'
 
@@ -45,6 +46,8 @@ class Dashboard extends React.Component {
         formData.append('channel[owner_id]', this.props.currentUser.id) 
         formData.append('channel[logoUrl]', this.state.logoFile) 
         this.props.updateChannel(this.props.currentUser.id, formData)
+        .then(() => this.setState({logoUrl: null, logoFile: null}))
+        .then(() => this.props.openModal("success"))
     }
 
     render() {
@@ -72,7 +75,7 @@ class Dashboard extends React.Component {
 
                 <div className = {classes.profileWrapper }>
                 <h2 >Profile Picture</h2>
-                <form className = {classes.profileForm} onSubmit = {this.handleSubmit} >
+                <form className = {classes.profileForm} onSubmit = {this.handleSubmit}>
                     
                     <img className={classes.userIcon} src={this.props.currentChannel ? this.props.currentChannel.logoUrl : null} /> 
                     <div className = {classes.btnDirectionWrapper}> 
@@ -97,7 +100,7 @@ class Dashboard extends React.Component {
 
                 </div>
 
-                <VideoForm createVod = {this.props.createVod} channelId = {this.props.currentChannel ? this.props.currentChannel.id : 0}/>
+                <VideoForm openModal = {this.props.openModal} createVod = {this.props.createVod} channelId = {this.props.currentChannel ? this.props.currentChannel.id : 0}/>
 
             </div>
 
@@ -122,7 +125,8 @@ const mDTP = dispatch => {
     return {
         updateChannel: (ownerId, formData) => dispatch(updateChannel(ownerId, formData)),
         requestChannel: (channelId) => dispatch(requestChannel(channelId)),
-        createVod: (vod) => dispatch(createVod(vod))
+        createVod: (vod) => dispatch(createVod(vod)),
+        openModal: (comp) => dispatch(openModal(comp))
     }
 }
 

@@ -6,7 +6,7 @@ class Api::ChannelsController < ApplicationController
             @channels = Channel.all.limit(8)
             render :index
         elsif params[:filter]['firstVods']
-            @channels = Channel.all.limit(8)
+            @channels = Channel.order(:created_at).limit(8)
             render :index_first_vods
         elsif params[:filter]['allChannels']
             @channels = Channel.all

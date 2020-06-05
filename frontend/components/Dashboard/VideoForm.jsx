@@ -39,6 +39,8 @@ class VideoForm extends React.Component {
         formData.append('vod[category]', this.state.category)
         formData.append('vod[videoUrl]', this.state.videoFile)
         this.props.createVod(formData)
+        .then(() => this.props.openModal('success'))
+        .then(() => this.setState({videoFile: null, videoUrl: null, title: '', category: ''}))
 
     }
 

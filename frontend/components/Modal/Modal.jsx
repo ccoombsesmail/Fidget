@@ -6,6 +6,7 @@ import SignupContainerComponent from '../Session/SignupForm/signup_container_com
 
 import classes from './Modal.module.css'
 import DemoForm from '../Session/DemoForm/DemoForm'
+import SuccessMessage from '../Dashboard/SuccessMessage'
 
 
 const Modal = (props) => {
@@ -25,6 +26,9 @@ const Modal = (props) => {
             break;
         case 'demo':
             component = <DemoForm/>
+            break;
+        case 'success':
+            component = <SuccessMessage/>
             break;
         default:
             return null;

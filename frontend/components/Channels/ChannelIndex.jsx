@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {requestChannels} from '../../actions/channel_actions'
-import {requestVods} from '../../actions/vod_actions'
+import {requestVods, clearVods} from '../../actions/vod_actions'
 import classes from './ChannelIndex.module.css'
 import {withRouter} from 'react-router-dom'
 import ChannelIndexItem from './ChannelIndexItem/ChannelIndexItem'
@@ -19,6 +19,10 @@ class ChannelIndex extends React.Component {
         }else {
             this.props.requestChannels({ allChannels: true })
         }
+    }
+
+    componentWillUnmount() {
+        this.props.clearVods()
     }
 
 
@@ -55,7 +59,8 @@ const mSTP = (state) => {
 const mDTP = (dispatch) => {
     return {
         requestChannels: (filter) => dispatch(requestChannels(filter)),
-        requestVods: () => dispatch(requestVods())
+        requestVods: () => dispatch(requestVods()),
+        clearVods: () => dispatch(clearVods())
     }
 }
 
