@@ -38,18 +38,31 @@
 
 .browseContainer {
     display: flex;
+    box-sizing: border-box;
     height: 55px;
     margin-left: 20px;
     align-items: center;
     justify-content: center;
-    border-bottom: 2px solid #A970FF;
+    /* border-bottom: 2px solid #A970FF; */
     cursor: pointer;
 }
 
+/* .browseContainer:hover {
+    border-bottom: 2px solid #A970FF;
+    border-top: 2px solid transparent;
+
+} */
+
 .browseContainer > span {
-    color: #A970FF;
+    color: white;
     font-size: 19px;
     font-weight: 540;
+
+}
+
+.browseContainer > span:hover {
+    color: #A970FF;
+    
 
 }
 .line{

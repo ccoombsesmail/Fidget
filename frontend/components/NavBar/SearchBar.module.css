@@ -4,6 +4,7 @@
     width: 20vw;
     height: 35px;
     z-index: 9999;
+    margin-left: -4vw;
 }
 .searchForm > input {
     flex-grow: 2;
@@ -84,3 +85,50 @@
     height: 40px;
 
  }
+
+ .overlay {
+   position: absolute;
+   /* width: 100vw;
+   height: 400vh; */
+   left: 0;
+   right: 0;
+   top: 0;
+   bottom: 0;
+   background-color: grey;
+   opacity: 0;
+ }
+
+
+ .searchIconWrapper {
+    height: 100%;
+    margin-left: 3px;
+    z-index: 9999;
+    background-color: #3A3A3D;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+ }
+
+ .searchIcon {
+   width: 55px;
+   height: 55px;
+   color:rgb(239,239,241)
+ }
+
+ ::placeholder { 
+  color: rgb(178,178,180);
+  font-weight: 700;
+  font-size: 15px;
+  
+}
+
+::-ms-input-placeholder { 
+  color: rgb(178,178,180);
+  font-weight: 700;
+  font-size: 15px;
+}

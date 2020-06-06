@@ -2,7 +2,7 @@ import React from "react";
 import { withRouter } from 'react-router-dom'
 import classes from './MessageForm.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircleNotch, faSmileBeam, faSmile } from '@fortawesome/free-solid-svg-icons'
+import { faCircleNotch, faSmileBeam } from '@fortawesome/free-solid-svg-icons'
 import EmojiMenu from "./EmojiMenu";
 
 class MessageForm extends React.Component {
