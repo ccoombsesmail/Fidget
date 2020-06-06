@@ -5,12 +5,16 @@ class Api::ChannelsController < ApplicationController
         if params[:filter] == nil 
             @channels = Channel.all.limit(8)
             render :index
-        elsif params[:filter]['firstVods']
+        elsif params[:filter]['firstVods']                      # Get first 8 channels along with their first vods to use as thumbnails (home page)
             @channels = Channel.order(:created_at).limit(8)
             render :index_first_vods
-        elsif params[:filter]['allChannels']
+        elsif params[:filter]['allChannels']                    # Get all channels along with their first vods to use as thumbnails (directory/browse)
             @channels = Channel.all
             render :index_first_vods
+        elsif params[:filter]['searchChannels']
+            @channels = Channel.where("channel_name LIKE ?", "%#{params[:filter]['searchInput']}%")
+            print(@channels)
+            render :index
         end
         
     end

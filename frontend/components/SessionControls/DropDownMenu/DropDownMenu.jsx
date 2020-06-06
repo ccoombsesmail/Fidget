@@ -45,7 +45,6 @@ const DropDownMenu = ({currentUser, showMenu, logout, login, toggle, history, cu
 
         <ul className={menuClasses.join(' ')} onClick={e => e.stopPropagation()}>
             <div className={classes.topDiv}> 
-                {/* <FontAwesomeIcon className={classes.userIconMain} icon={faUserNinja} /> */}
                 <div onClick={() => handleClick('dashboard')}  className={classes.userIconWrapper}> 
                     <img className={classes.userIcon} src={ currentChannel ? currentChannel.logoUrl : null} /> 
                 </div>
@@ -58,7 +57,6 @@ const DropDownMenu = ({currentUser, showMenu, logout, login, toggle, history, cu
         </ul>    
 
         ) : (
-
         <ul style = {{height: '150px'}} className={menuClasses.join(' ')} onClick={e => e.stopPropagation()}>
             {/* <li><FontAwesomeIcon className={classes.userIconList} icon={faCog} /><span> Dashboard </span> </li> */}
             <li onClick={() => handleClick('login')}><FontAwesomeIcon className={classes.userIconList} icon={faSignInAlt} /> <span> Sign In </span> </li>

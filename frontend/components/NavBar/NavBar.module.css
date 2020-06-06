@@ -1,0 +1,60 @@
+.mainNav {
+  background-color: #18181B;
+  /* background-color: whitesmoke; */
+  height: 55px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 3px 3px 8px #888888;
+  border-bottom: 2px solid #0E0E10;
+  width: 100%;
+  flex-shrink: 0
+}
+
+
+.leftNav {
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+
+}
+
+.rightNav {
+    margin-right: 20px;
+}
+
+.appTitle {
+    color: whitesmoke;
+}
+
+.mainContainer {
+    display: flex;
+    overflow-y: hidden;
+}
+.mainContainer2 {
+    overflow-y: hidden;
+}
+
+
+.browseContainer {
+    display: flex;
+    height: 55px;
+    margin-left: 20px;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 2px solid #A970FF;
+    cursor: pointer;
+}
+
+.browseContainer > span {
+    color: #A970FF;
+    font-size: 19px;
+    font-weight: 540;
+
+}
+.line{
+    height: 40px;
+    border-left: .5px solid rgb(48,48,50);
+    margin-left: 20px;
+
+}

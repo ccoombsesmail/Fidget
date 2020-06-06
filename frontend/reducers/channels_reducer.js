@@ -1,10 +1,11 @@
-import {RECEIVE_CHANNELS, UPDATE_CHANNEL, RECEIVE_CHANNEL} from '../actions/channel_actions'
+import {RECEIVE_CHANNELS, UPDATE_CHANNEL, RECEIVE_CHANNEL, CLEAR_CHANNELS, RECEIVE_SEARCHED_CHANNELS} from '../actions/channel_actions'
 import {RECEIVE_NEW_USER} from '../actions/session_actions'
 import {RECEIVE_VODS} from '../actions/vod_actions'
 
 
 const channelsReducer = (state = {}, action) => {
     Object.freeze(state);
+    let newState = Object.assign({}, state);
 
     switch (action.type) {
         case RECEIVE_CHANNELS:
@@ -12,7 +13,7 @@ const channelsReducer = (state = {}, action) => {
         case RECEIVE_CHANNEL:
             return Object.assign({}, state, action.channel);
         case UPDATE_CHANNEL:
-            let newState = Object.assign({}, state);
+            newState = Object.assign({}, state);
             let channel = Object.values(action.channel)[0]
             newState[channel.id] = channel;
             return newState;
@@ -20,6 +21,12 @@ const channelsReducer = (state = {}, action) => {
             return Object.assign({}, state, action.payload.channel);
         case RECEIVE_VODS:
             return Object.assign({}, state, action.payload.channels);
+        case RECEIVE_SEARCHED_CHANNELS:
+            newState = Object.assign({}, state)
+            newState['searched'] = action.payload.channels
+            return newState
+        case CLEAR_CHANNELS:
+            return {}
         default:
             return state;
     }
