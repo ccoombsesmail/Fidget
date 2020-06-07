@@ -9,7 +9,7 @@ const ChannelIndexItem = ({user, vod, channel}) => {
 
         <div>
         {user ? 
-        <Link to={{pathname: `/channels/${vod.channelId}/${channel.channelName}/videos/${vod.id}`, state: {tab: 'videos'}}}> 
+        <Link to={{pathname: `/channels/${vod.channelId}/${channel.channelName}/videos/`, state: {tab: 'videos'}}}> 
         <div id = "channelIndexItem" className={classes.channelItem}> 
             {  
             vod.videoUrl ? (

@@ -1,0 +1,134 @@
+
+.searchForm{
+    display: flex;
+    width: 20vw;
+    height: 35px;
+    z-index: 9999;
+    margin-left: -4vw;
+}
+.searchForm > input {
+    flex-grow: 2;
+    background-color: #3A3A3D;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border: none;
+    padding-left: 10px;
+    color: white;
+    z-index: 9999;
+
+
+}
+
+.searchForm:focus {
+    border: solid #9147FF 2.2px;
+    outline: none;
+
+}
+
+.searchForm > input:focus {
+     border: solid #9147FF 2.2px;
+     outline: none;
+     background-color: black;
+}
+
+.searchForm > button {
+    height: 100%;
+    margin-left: 3px;
+    z-index: 9999;
+
+}
+
+
+.searchResults {
+    position: absolute;
+    z-index: 8888;
+    padding: 5px;
+    padding-left: 5px;
+    width: 20vw;
+    margin-top: -6px;
+    margin-left: -5px;
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    /* background-color: blue; */
+    background-color: rgb(24,24,27);
+}
+
+.searchResults > li {
+    list-style: none;
+    color: white;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+}
+
+.searchResults > li:hover {
+    background-color: rgb(58,58,61);
+
+}
+
+.searchResults > li:first-child {
+    margin-top: 45px;
+}
+
+.searchResults > li > span {
+    margin-left: 10px;
+    font-weight: 700;
+}
+
+.logo{ 
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+
+ }
+
+ .overlay {
+   position: absolute;
+   /* width: 100vw;
+   height: 400vh; */
+   left: 0;
+   right: 0;
+   top: 0;
+   bottom: 0;
+   background-color: grey;
+   opacity: 0;
+ }
+
+
+ .searchIconWrapper {
+    height: 100%;
+    margin-left: 3px;
+    z-index: 9999;
+    background-color: #3A3A3D;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+ }
+
+ .searchIcon {
+   width: 55px;
+   height: 55px;
+   color:rgb(239,239,241)
+ }
+
+ ::placeholder { 
+  color: rgb(178,178,180);
+  font-weight: 700;
+  font-size: 15px;
+  
+}
+
+::-ms-input-placeholder { 
+  color: rgb(178,178,180);
+  font-weight: 700;
+  font-size: 15px;
+}

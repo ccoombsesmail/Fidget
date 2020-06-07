@@ -2,7 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import classes from './ChannelVideosIndex.module.css'
 import {withRouter} from 'react-router-dom'
-import {requestVods} from '../../../actions/vod_actions'
+import {requestVods, clearVods} from '../../../actions/vod_actions'
 import VodIndexItem from './VodIndexItem'
 
 class ChannelVideosIndex extends React.Component {
@@ -16,9 +16,11 @@ class ChannelVideosIndex extends React.Component {
         this.props.requestVods({
             channel_id: this.props.match.params.channelId
         })
-        
 
+    }
 
+    componentWillUnmount() {
+        this.props.clearVods()
     }
 
     render() {
@@ -54,7 +56,8 @@ const mSTP = state => {
 
 const mDTP = dispatch => {
     return {
-        requestVods: (filter) => dispatch(requestVods(filter))
+        requestVods: (filter) => dispatch(requestVods(filter)),
+        clearVods: () => dispatch(clearVods())
     }
 }
 

@@ -1,6 +1,8 @@
 export const RECEIVE_CHANNELS = 'RECEIVE_CHANNELS'
 export const RECEIVE_CHANNEL = 'RECEIVE_CHANNEL'
 export const UPDATE_CHANNEL = "UPDATE_CHANNEL"
+export const CLEAR_CHANNELS = "CLEAR_CHANNELS"
+export const RECEIVE_SEARCHED_CHANNELS = "RECEIVE_SEARCHED_CHANNELS"
 import * as ChannelAPIUtil from '../util/channels_api_util'
 
 
@@ -20,7 +22,18 @@ const receiveChannels = (payload) => {
         type: RECEIVE_CHANNELS,
         payload
     } 
+
 }
+
+const receiveSearchedChannels = (payload) => {
+
+    return{
+        type: RECEIVE_SEARCHED_CHANNELS,
+        payload
+    } 
+}
+
+
 
 const receiveUpdatedChannel = (channel) => {
 
@@ -29,6 +42,15 @@ const receiveUpdatedChannel = (channel) => {
         channel
     }
 }
+
+
+export const clearChannels = () => {
+
+    return {
+        type: CLEAR_CHANNELS,
+    }  
+}
+
 
 
 export const requestChannel = (channelId) => dispatch => {
@@ -43,6 +65,13 @@ export const requestChannels = (filter) => dispatch => {
 
     return ChannelAPIUtil.fetchChannels(filter)
         .then((payload) => dispatch(receiveChannels(payload)))
+}
+
+
+export const requestSearchedChannels = (filter) => dispatch => {
+
+    return ChannelAPIUtil.fetchChannels(filter)
+        .then((payload) => dispatch(receiveSearchedChannels(payload)))
 }
 
 

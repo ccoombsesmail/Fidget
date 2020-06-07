@@ -1,6 +1,6 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircleNotch, faSmileBeam, faSmile } from '@fortawesome/free-solid-svg-icons'
+import { faCircleNotch} from '@fortawesome/free-solid-svg-icons'
 import classes from './EmojiMenu.module.css'
 
 

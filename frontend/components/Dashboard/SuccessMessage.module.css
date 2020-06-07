@@ -1,0 +1,26 @@
+.messageWrapper {
+    width: 500px;
+    height: 600px;
+    background-color: #18181B;
+    border: 1px solid #303032;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.closeBtn {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    padding: 10px;
+    background-color: #3A3A3D;
+    border: none;
+    color: whitesmoke;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 800;
+    font-size: 14px;
+    font-family: 'Ubuntu', sans-serif;
+}

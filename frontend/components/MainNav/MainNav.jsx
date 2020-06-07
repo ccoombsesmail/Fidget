@@ -1,7 +1,8 @@
+/* eslint-disable */
+
 import React from 'react'
 import classes from './MainNav.module.css'
 import { withRouter } from 'react-router-dom'
-import { connect } from 'react-redux'
 import Categories from '../Categories/Categories'
 import ChannelIndex from '../Channels/ChannelIndex'
 class MainNav extends React.Component {
@@ -57,7 +58,6 @@ class MainNav extends React.Component {
                     <li onClick={() => this.changeTab("categories")} className={videoClasses.join(' ')}>
                         <p className={classes.tabTitle}> Categories </p>
                     </li>
-
                 </ul>
 
                 {
