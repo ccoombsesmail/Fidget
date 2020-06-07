@@ -20,6 +20,7 @@ class VodShow extends React.Component {
     render() {
 
         return (
+            // <div className = {classes.vodWrapper}>
             <>
                 {
                 this.props.vod ?
@@ -28,6 +29,7 @@ class VodShow extends React.Component {
                  </video> : null
                 }
             </>
+            // </div>
         )
     }
 

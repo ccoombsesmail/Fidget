@@ -1,4 +1,5 @@
 .mainContainer {
     display: flex;
-    overflow-y: hidden;
+    height: 100%;
+
 }

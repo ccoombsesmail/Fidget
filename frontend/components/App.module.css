@@ -29,10 +29,12 @@
 
 .mainContainer {
     display: flex;
-    overflow-y: hidden;
+    height: 100%;
+    /* overflow-y: visible; */
 }
 .mainContainer2 {
-    overflow-y: hidden;
+    height: 100%;
+    /* overflow-y: visible; */
 }
 
 
