@@ -1,10 +1,13 @@
 .videoPlayer {
     width: 100%;
     height: 800px;
+    padding-bottom: 500px;
+
 }
 
 
 .vodWrapper {
-    min-height: 1500px;
+    min-height: 200vh;
     overflow-y: scroll;
+    padding-bottom: 500px;
 }

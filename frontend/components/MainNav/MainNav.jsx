@@ -5,6 +5,7 @@ import classes from './MainNav.module.css'
 import { withRouter } from 'react-router-dom'
 import Categories from '../Categories/Categories'
 import ChannelIndex from '../Channels/ChannelIndex'
+
 class MainNav extends React.Component {
 
     constructor(props) {
@@ -63,9 +64,9 @@ class MainNav extends React.Component {
                 {
                 
                     this.state.nextTab === 'channels' ? (
-                        <ChannelIndex/>
+                        <ChannelIndex />
                     ) : (
-                        <Categories/>
+                        <Categories />
                     )
 
                 }

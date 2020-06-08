@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :channels, only: [:index, :show, :update]
     resources :vods, only: [:show, :index, :create]
     resources :follows, only: [:create, :destroy]
+    resources :categories, only: [:index, :show]
   end
 
   root to: 'static_pages#root'

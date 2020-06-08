@@ -24,7 +24,7 @@ class VodShow extends React.Component {
             <>
                 {
                 this.props.vod ?
-                <video className={classes.videoPlayer} controls> 
+                <video className={classes.videoPlayer} controls autoPlay> 
                 <source src={this.props.vod.videoUrl} /> 
                  </video> : null
                 }

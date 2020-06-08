@@ -3,7 +3,7 @@ import classes from './SideBar.module.css'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
 import { requestChannels } from '../../actions/channel_actions'
-import {getFollowedChannels} from '../../util/selectors'
+import { getFollowedChannels } from '../../util/selectors'
 import SideBarItem from './SideBarItem'
 
 
