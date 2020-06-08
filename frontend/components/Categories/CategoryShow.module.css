@@ -3,6 +3,10 @@
     flex-direction: column;
     background-color: #0E0E10;
     flex-grow: 6;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: 100vh;
+
 }
 
 .banner {
@@ -30,6 +34,8 @@
 .videoWrapper {
     margin-top: 60px;
     display: flex;
+    flex-wrap: wrap;
+    padding-bottom: 300px;
 }
 
 

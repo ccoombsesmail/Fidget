@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {requestVods, clearVods} from '../../actions/vod_actions'
+import {requestCategory} from '../../actions/category_actions'
 import {withRouter} from 'react-router-dom'
 import classes from './CategoryShow.module.css'
 
@@ -10,15 +11,17 @@ class CategoryShow extends React.Component {
     constructor(props){
         super(props)
 
-        this.imgUrl = props.location.state['imgUrl']
-        this.description = props.location.state['description']
+        // this.imgUrl = props.location.state['imgUrl']
+        // this.description = props.location.state['description']
     }
 
 
     componentDidMount() {
+        const {categoryName} = this.props.match.params
         this.props.requestVods({
-            category: this.props.match.params.categoryName
+            category: categoryName
         })
+        this.props.requestCategory(categoryName)
     }
 
 
@@ -28,35 +31,33 @@ class CategoryShow extends React.Component {
 
 
     render() {
-
+        const {categories, vods, channels} = this.props
         return (
-
             <div className = {classes.categoryWrapper}>
                 <div className = {classes.banner}>
+                    {
+                    categories[0] ? (
                     <div className = {classes.infoArea}>
-                        <img src={this.imgUrl} />
+                        <img src={categories[0].imgUrl} />
                         <div className = {classes.description}>
-                            <h1>{this.props.match.params.categoryName}</h1>
-                            <h5>{this.description} </h5>
+                            <h1>{categories[0].name}</h1>
+                            <h5>{categories[0].description} </h5>
                         </div>
                     </div>
+                    ) : null
+                    }   
                 </div>
 
                 <hr/>
                 <div className={classes.videoCountWrapper}>
                     <h1>Videos </h1>
-                    <h1>{this.props.vods.length} </h1>
+                    <h1>{vods.length} </h1>
                 </div>
 
                 <div className = {classes.videoWrapper}>
                         {
-                            this.props.vods.map((vod, idx) => {
-
-                                return <VodIndexItem key={idx} vod={vod} channel = {this.props.channels[vod.channelId]} /> 
-                                //    return <video className={classes.videoPlayer}>
-                                //         <source src={vod.videoUrl} />
-                                //     </video>
-
+                            vods.map((vod, idx) => {
+                                return <VodIndexItem key={idx} vod={vod} channel = {channels[vod.channelId]} /> 
                             })
                         }
                 </div>
@@ -71,11 +72,11 @@ class CategoryShow extends React.Component {
 }
 
 
-const mSTP = state => {
+const mSTP = (state) => {
     return {
         vods: Object.values(state.entities.vods),
-        channels: state.entities.channels
-        
+        channels: state.entities.channels,
+        categories: Object.values(state.entities.categories),
     }
 }
 
@@ -83,8 +84,8 @@ const mSTP = state => {
 const mDTP = dispatch => {
     return {
         requestVods: (filter) => dispatch(requestVods(filter)),
-        clearVods: () => dispatch(clearVods())
-
+        clearVods: () => dispatch(clearVods()),
+        requestCategory: (name) => dispatch(requestCategory(name)),
     }
 }
 

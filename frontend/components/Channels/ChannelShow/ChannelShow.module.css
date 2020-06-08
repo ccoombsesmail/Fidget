@@ -2,7 +2,7 @@
     flex-grow: 6.0;
     background-color: #0E0E10;
     display: flex;
-    height: 200vh;
+    height: 100vh;
     overflow-y: scroll !important;
     
 }

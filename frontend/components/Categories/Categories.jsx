@@ -1,15 +1,18 @@
 import React from 'react'
-import classes from './Categories.module.css'
-import {connect} from 'react-redux'
-import {clearVods} from '../../actions/vod_actions'
+import { connect } from 'react-redux'
 import {withRouter, Link} from 'react-router-dom'
+import { clearVods } from '../../actions/vod_actions'
+import { requestCategories } from '../../actions/category_actions'
+import classes from './Categories.module.css'
 
 class Categories extends React.Component {
     constructor(props){
         super(props)
+        // this.categories = returnCategoryInfo()
+    }
 
-        this.categories = returnCategoryInfo()
-        
+    componentDidMount() {
+        this.props.requestCategories()
     }
 
     componentWillUnmount() {
@@ -18,25 +21,23 @@ class Categories extends React.Component {
 
    
     render() {
-        
+        console.log(this.props.categories)
+
         return (
-
             <div className = {classes.categoriesWrapper}>
-
                 {
-                     this.categories.map((category, idx) => {
-                         return <Link key={idx} to={{ pathname: `/directory/game/${category[0]}`, state: { imgUrl: category[1], description: category[2] }}} > 
+                     this.props.categories.map((category, idx) => {
+                         let key = category.id || idx
+                         return <Link key={key} to={{ pathname: `/directory/game/${category.name}`, state: { imgUrl: category.imgUrl, description: category.description }}} > 
                                 <div className={classes.categoryItemWrapper} >
                                     <div  className = {classes.categoryItem}>    
-                                        <img className = {classes.categoryImg} src={category[1]}/>  
-                                        <h5> {category[0]} </h5>   
+                                        <img className = {classes.categoryImg} src={category.imgUrl}/>  
+                                        <h5> {category.name} </h5>   
                                      </div>
                                 </div> 
                                 </Link> 
                     })
                 }
-
-
             </div>
 
         )
@@ -61,14 +62,19 @@ function returnCategoryInfo() {
 
 }
 
-
-const mDTP = dispatch => {
-
+const mSTP = (state) => {
     return {
-        clearVods: () => dispatch(clearVods())
+        categories: Object.values(state.entities.categories)
     }
-
 }
-export default withRouter(connect(null, mDTP)(Categories))
+
+const mDTP = (dispatch) => {
+    return {
+        clearVods: () => dispatch(clearVods()),
+        requestCategories: () => dispatch(requestCategories()),
+    }
+}
+
+export default withRouter(connect(mSTP, mDTP)(Categories))
 
 

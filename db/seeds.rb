@@ -7,7 +7,30 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'open-uri'
 
+categories = [
+        ['League Of Legends', "https://i.ibb.co/sQN82r1/League-of-Legends-188x250.jpg", "League of Legends is a free-to-play competitive MOBA game with a large following in Esports"],
+        ['Valorant', "https://i.ibb.co/X7332MS/VALORANT.jpg", "Valorant is an upcoming free-to-play multiplayer first-person shooter developed and published by Riot Games"],
+        ['Just Chatting', "https://i.ibb.co/3YCt6C2/Just-Chatting-188x250.jpg", "A place to chill and chat"],
+        ['Teamfight Tactics', "https://i.ibb.co/Zg0H6mH/Teamfight-Tactics-188x250.jpg", "Teamfight Tactics is an auto battler game developed and published by Riot Games"],
+        ["Counter-Strike", "https://i.ibb.co/28vTh3v/csgosmaller.jpg", "Counter-Strike: Global Offensive is a multiplayer first-person shooter video game developed by Valve and Hidden Path Entertainment"],
+        ["Hearthstone", "https://i.ibb.co/3vq5916/Hearthstone-188x250.jpg", "Hearthstone is a free-to-play collectible card game by Blizzard Entertainment set in the Warcraft universe"],
+        ["Music", "https://i.ibb.co/nPNwM3g/twitchmusic.jpg", "A place for music creators and listeners"]
+    ]
+
+
+categories.each do |category|
+
+    newCategory = Category.create!({:name => category[0], :description => category[2]})
+    imgFile = open(category[1])
+    newCategory.imgUrl.attach(io: imgFile, filename: category[0])
+
+end
+
+
+
+
 #######1########
+
 
 
 user = User.create!({:username => 'FidgetDemoUser', :password => '12345678', :email => 'demo.demouser@gmail.com', :dob => 19931119})
@@ -126,4 +149,5 @@ channel8.logoUrl.attach(io: file8, filename: 'harrymack.png')
 vod8 = Vod.create!({:channel_id => channel8.id, :title => "Nice outplay", :category => "League Of Legends"})
 vodFile8 = open("https://fidget-seeds.s3-us-west-1.amazonaws.com/yassuoBotPlay.mp4")
 vod8.videoUrl.attach(io: vodFile8, filename: "yassuoBotPlay.mp4")
+
 
