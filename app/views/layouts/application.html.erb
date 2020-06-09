@@ -2,16 +2,17 @@
 <html>
 
 <head>
-    <title>Fidget</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
+  <title>Fidget</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= favicon_link_tag asset_path('favicon.png') %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
 </head>
 
 <body>
-    <%= yield %>
+  <%= yield %>
 </body>
 
 </html>

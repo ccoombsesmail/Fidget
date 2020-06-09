@@ -21,6 +21,11 @@ class NavBar extends React.Component {
                             <span className={classes.browse}> Browse </span>
                         </div>
                     </Link>
+                    <Link to='/about'>
+                      <div className={classes.browseContainer}>
+                        <span className={classes.browse}> About </span>
+                      </div>
+                    </Link>
 
                 </div>
                 <SearchBar/>

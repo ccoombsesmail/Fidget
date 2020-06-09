@@ -9,8 +9,9 @@ Rails.application.routes.draw do
     resources :vods, only: [:show, :index, :create]
     resources :follows, only: [:create, :destroy]
     resources :categories, only: [:index, :show]
+    resources :streams, only: [:create]
   end
 
   root to: 'static_pages#root'
-
+  mount ActionCable.server, at: '/cable'
 end

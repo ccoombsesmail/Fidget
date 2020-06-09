@@ -13,7 +13,6 @@ class Api::ChannelsController < ApplicationController
             render :index_first_vods
         elsif params[:filter]['searchChannels']
             @channels = Channel.where("channel_name LIKE ?", "%#{params[:filter]['searchInput']}%")
-            print(@channels)
             render :index
         end
         
