@@ -7,7 +7,28 @@ class Api::StreamsController < ApplicationController
 
   private
   def call_params
-    params.permit(:call, :type, :from, :to, :sdp)
+    permittedParams = params.permit(:call, :type, :id, :stream, :sdp)
+    if (params[:candidate])
+      
+      permittedParams['candidate'] = params[:candidate]
+    end
+    if (params[:description])
+      permittedParams['description'] = params[:description]
+    end
+    return permittedParams
   end
 
 end
+
+
+# candidate: [
+#       :candidate,
+#       :sdpMid,
+#       :sdpMLineIndex,
+#       :foundation,
+#       :component,
+#       :address,
+#       :protocol,
+#       :type,
+#       :usernameFragment
+#     ],

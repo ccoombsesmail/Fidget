@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import React from 'react'
 import classes from './Stream.module.css'
 import { connect } from 'react-redux'
@@ -22,7 +24,7 @@ class Stream extends React.Component {
             navigator.mediaDevices.getUserMedia({ audio: false, video: true })
                 .then(stream => {
                     this.localStream = stream;
-                    document.getElementById("local-video").srcObject = stream;
+                    this.video.srcObject = stream;
                 }).catch(error => { console.log(error) })
         }).then(this.joinCall())
     }
@@ -36,7 +38,7 @@ class Stream extends React.Component {
             { channel: "StreamChannel" },
             {
                 connected: () => {
-                    broadcastData({ type: BROADCAST, from: this.userId })
+                    broadcastData({ type: BROADCAST, id: this.userId })
                 },
                 received: data => {
                     console.log("RECEIVED: ", data);
@@ -46,6 +48,7 @@ class Stream extends React.Component {
                             console.log("hergerhasdfasdfasd")
                             return this.addPeerConnection(data)
                         case CANDIDATE:
+                            if (data.id === this.userId) return
                             return this.addCandidate(data)
                         case ANSWER:
                             return this.handleAnswer(data)
@@ -66,7 +69,7 @@ class Stream extends React.Component {
     }
 
     addCandidate(data) {
-        this.peerConnections[data.id].addIceCandidate(new RTCIceCandidate(data.candidate));
+      this.peerConnections[data.id].addIceCandidate(new RTCIceCandidate(data.candidate));
 
     }
 
@@ -85,7 +88,8 @@ class Stream extends React.Component {
 
         peerConnection.onicecandidate = (event) => {
             if (event.candidate) {
-                broadcastData({ type: CANDIDATE, id: data.id, event: event.candidate })
+              // console.log(event.candidate, "THIS IS WHAT YOU LOOK FOR")
+              broadcastData({ type: CANDIDATE, id: this.userId, candidate: event.candidate })
                 // socket.emit("candidate", data.id, event.candidate);
             }
         }
@@ -94,7 +98,7 @@ class Stream extends React.Component {
             .createOffer()
             .then(sdp => peerConnection.setLocalDescription(sdp))
             .then(() => {
-                broadcastData({ type: OFFER, id: data.id, description: peerConnection.localDescription })
+                broadcastData({ type: OFFER, id: this.userId, description: peerConnection.localDescription })
                 // socket.emit("offer", id, peerConnection.localDescription);
             });
     }

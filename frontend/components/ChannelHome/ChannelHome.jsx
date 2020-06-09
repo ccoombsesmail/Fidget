@@ -50,9 +50,9 @@ class ChannelHome extends React.Component {
       })
   }
 
-  addCandidate() {
+  addCandidate(data) {
     this.peerConnection
-      .addIceCandidate(new RTCIceCandidate(ice))
+      .addIceCandidate(new RTCIceCandidate(data.candidate))
       .catch(e => console.error(e));
   }
 
@@ -63,16 +63,16 @@ class ChannelHome extends React.Component {
       .then(() => this.peerConnection.createAnswer())
       .then(sdp => this.peerConnection.setLocalDescription(sdp))
       .then(() => {
-        broadcastData({ type: WATCHER, id: data.id, description: this.peerConnection.localDescription  })
+        broadcastData({ type: ANSWER, id: this.userId, description: this.peerConnection.localDescription  })
         // socket.emit("answer", id, peerConnection.localDescription);
       });
 
     this.peerConnection.ontrack = event => {
-      video.srcObject = event.streams[0];
+      this.video.srcObject = event.streams[0];
     };
     this.peerConnection.onicecandidate = event => {
       if (event.candidate) {
-        broadcastData({ type: CANDIDATE, id: data.id, candidate: event.candidate })
+        broadcastData({ type: CANDIDATE, id: this.userId, candidate: event.candidate })
         // socket.emit("candidate", id, event.candidate);
       }
     };
