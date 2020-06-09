@@ -9,11 +9,6 @@ import NavBar from './NavBar/NavBar'
 
 const App = (props) => {
 
-
-
-
-
-
     return(
         <div className={classes.mainContainer2}> 
             <Modal/>

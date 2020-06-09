@@ -1,4 +1,10 @@
 export const JOIN_CALL = 'JOIN_CALL'
+export const BROADCAST = 'BROADCAST'
+export const OFFER = 'OFFER'
+export const ANSWER = 'ANSWER'
+export const CANDIDATE = 'CANDIDATE'
+export const WATCHER = 'WATCHER'
+export const PEER_DISCONNECT = 'PEER_DISCONNECT'
 export const EXCHANGE = 'EXCHANGE'
 export const LEAVE_CALL = 'LEAVE_CALL'
 

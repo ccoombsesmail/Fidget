@@ -14,6 +14,7 @@ import VodShow from '../../Vods/VodShow/VodShow'
 import ChannelFollowers from '../../ChannelFollowers/ChannelFollowers'
 import ChannelHome from '../../ChannelHome/ChannelHome'
 import FollowButton from './FollowButton'
+import Stream from '../../Stream/Stream'
 
 
 
@@ -74,6 +75,7 @@ class ChannelShow extends React.Component  {
                     <Route path= "/channels/:channelId/:channelName/videos" component = {ChannelVideosIndex} />
                     <Route path="/channels/:channelId/:channelName/followers" component={ChannelFollowers} />
                     <Route path="/channels/:channelId/:channelName/home" component={ChannelHome} />
+                    <Route path="/channels/:channelId/:channelName/stream" component={Stream} />
 
                  </Switch>
             </div>
