@@ -4,7 +4,7 @@ import React from 'react'
 import classes from './ChannelHome.module.css'
 import { connect } from 'react-redux'
 import {requestChannel } from '../../actions/channel_actions'
-import { broadcastData, JOIN_CALL, LEAVE_CALL, EXCHANGE, CANDIDATE, OFFER, WATCHER, ANSWER, ice } from '../../util/stream_util'
+import { broadcastData, LEAVE_CALL, EXCHANGE, CANDIDATE, OFFER, WATCHER, ANSWER, ice } from '../../util/stream_util'
 
 
 class ChannelHome extends React.Component {
@@ -30,7 +30,7 @@ class ChannelHome extends React.Component {
           broadcastData({ type: WATCHER, id: this.userId })
         },
         received: data => {
-          console.log("RECEIVED: ", data);
+          // console.log("RECEIVED: ", data);
 
           if (data.id === this.userId) return
           switch (data.type) {

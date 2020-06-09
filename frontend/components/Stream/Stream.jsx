@@ -41,11 +41,10 @@ class Stream extends React.Component {
                     broadcastData({ type: BROADCAST, id: this.userId })
                 },
                 received: data => {
-                    console.log("RECEIVED: ", data);
+                    // console.log("RECEIVED: ", data);
                     if (data.id === this.userId) return
                     switch (data.type) {
                         case WATCHER:
-                            console.log("hergerhasdfasdfasd")
                             return this.addPeerConnection(data)
                         case CANDIDATE:
                             if (data.id === this.userId) return
