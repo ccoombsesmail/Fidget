@@ -12,9 +12,11 @@ class Stream extends React.Component {
     constructor(props){
         super(props)
         this.peerConnections = {}
-        this.userId = props.currentUser.id
-        console.log(this.userId)
-        console.log("heu")
+        if (props.currentUser) {
+          this.userId = props.currentUser.id
+        } else {
+          this.userId = Math.floor(Math.random() * 10000)
+        }
     }
 
 
@@ -33,7 +35,6 @@ class Stream extends React.Component {
 
 
     joinCall() {
-
         App.cable.subscriptions.create(
             { channel: "StreamChannel" },
             {
@@ -78,7 +79,7 @@ class Stream extends React.Component {
     }
 
     addPeerConnection(data) {
-
+        
         const peerConnection = new RTCPeerConnection(ice)
         this.peerConnections[data.id] = peerConnection
 

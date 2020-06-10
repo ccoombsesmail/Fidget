@@ -9,7 +9,6 @@ class Api::CategoriesController < ApplicationController
         @category = Category.find_by(name: params[:id])
         
         if @category
-            
             render :show
         else
             render json: {:error => "Category Does Not Exist"}, status: 422
