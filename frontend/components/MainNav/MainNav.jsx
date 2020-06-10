@@ -50,6 +50,7 @@ class MainNav extends React.Component {
 
         return (
             <div className = {classes.directoryWrapper}> 
+              <div className = {classes.outer}> 
                 <h1>Browse</h1>
                 <ul className={classes.tabsWrapper}>
                     <li onClick={() => this.changeTab("channels")} className={homeClasses.join(' ')}>
@@ -70,6 +71,7 @@ class MainNav extends React.Component {
                     )
 
                 }
+            </div>
             </div>
 
         )

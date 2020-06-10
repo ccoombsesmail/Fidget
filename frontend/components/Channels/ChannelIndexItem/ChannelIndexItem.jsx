@@ -1,6 +1,7 @@
 import React from 'react'
 import classes from './ChannelIndexItem.module.css'
 import {Link} from 'react-router-dom'
+/* eslint-disable */
 
 const ChannelIndexItem = ({user, vod, channel}) => {
 

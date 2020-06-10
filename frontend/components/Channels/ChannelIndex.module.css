@@ -34,7 +34,7 @@
     align-items: flex-start;
     width: 100%;
     overflow-y: scroll;
-    padding-bottom: 200px;
+    /* padding-bottom: 200px; */
     margin-left: 40px;
 }
 
@@ -50,8 +50,7 @@
 .channelsContainer {
     display: flex;
     flex-wrap: wrap;
-    height: 100vh;
-    padding-bottom: 800px;
-    overflow-y: scroll;
+    /* height: 100vh;
+    overflow-y: scroll; */
 }
 

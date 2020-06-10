@@ -8,8 +8,12 @@
     flex-grow: 6;
     height: 100vh;
     overflow-y: scroll;
-    padding-bottom: 600px;
 }
+
+.outer {
+  padding-bottom: 500px;
+}
+
 .directoryWrapper > h1 {
     margin-bottom: 30px;
     font-size: 50px;
