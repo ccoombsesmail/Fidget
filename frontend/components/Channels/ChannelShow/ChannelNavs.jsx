@@ -28,13 +28,14 @@ class ChannelNavs extends React.Component {
     // }
 
     changeTab(tab) {
-        if (tab === 'home') {
-            if (!this.props.currentUser || this.props.channelName !== this.props.currentUser.username) {
+        // if (tab === 'home') {
+            // if (!this.props.currentUser || this.props.channelName !== this.props.currentUser.username) {
                 this.props.history.push(`/channels/${this.props.channelId}/${this.props.channelName}/${tab}`)
-            } else {
-                this.props.history.push(`/channels/${this.props.channelId}/${this.props.channelName}/stream`)
-            }
-        }
+            // } 
+            // else {
+            //     this.props.history.push(`/channels/${this.props.channelId}/${this.props.channelName}/stream`)
+            // }
+        // }
         this.setState({nextTab: tab})
     }
 

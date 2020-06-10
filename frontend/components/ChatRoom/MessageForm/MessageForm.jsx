@@ -16,6 +16,8 @@ class MessageForm extends React.Component {
         this.toggle = this.toggle.bind(this)
         this.colors = ["#A86DFF", "0D6F86", "#1C6BBA", "#851F20", "#54BC75", "#DB80E1"]
         this.usernameColor = this.colors[Math.floor(Math.random() * 6)]
+        this.subIdx = null;
+        console.log(App.cable.subscriptions.subscriptions)
     }
 
 
@@ -32,16 +34,29 @@ class MessageForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
+        if (this.subIdx === null) {
+            this.subIdx = this.getSubIdx()
+        }
         if (this.props.currentUser === undefined) {
             this.props.openModal("login")
         } else {
             let userId = this.props.currentUser.id
-          console.log(App.cable.subscriptions.subscriptions)
-            App.cable.subscriptions.subscriptions[3].speak({ message: this.state.body, channelName: this.props.channelName, user_id: userId, color: this.usernameColor });
+            App.cable.subscriptions.subscriptions[this.subIdx].speak({ message: this.state.body, channelName: this.props.channelName, user_id: userId, color: this.usernameColor });
         }
 
         this.setState({body: ''})
    
+    }
+
+    getSubIdx() {
+        let index;
+        App.cable.subscriptions.subscriptions.forEach((sub, idx) => {
+            console.log(sub['identifier'].indexOf('ChatRoomsChannel'), sub['identifier'].indexOf('id') )
+            if (sub['identifier'].indexOf('ChatRoomsChannel') !== -1 && sub['identifier'].indexOf('id') !== -1 ) {
+                index = idx
+            }
+        })
+        return index
     }
 
     toggle() {

@@ -5,34 +5,72 @@ import classes from './ChannelHome.module.css'
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import {requestChannel } from '../../actions/channel_actions'
-import { broadcastData, LEAVE_CALL, EXCHANGE, CANDIDATE, OFFER, WATCHER, ANSWER, ice } from '../../util/stream_util'
+import { broadcastData, PEER_DISCONNECT, EXCHANGE, CANDIDATE, OFFER, WATCHER, ANSWER, ice } from '../../util/stream_util'
 
 
 class ChannelHome extends React.Component {
 
   constructor(props) {
     super(props)
-    this.leaveCall = this.leaveCall.bind(this)
     
     if (props.currentUser) {
       this.userId = props.currentUser.id
     } else {
       this.userId = Math.floor(Math.random() * 10000)
-      }
+    }
+    
+    this.leaveCall = this.leaveCall.bind(this)
+    this.goLive = this.goLive.bind(this)
+    this.subscribe = this.subscribe.bind(this) 
     }
 
 
-    componentWillUnmount(){
+    componentWillUnmount() {
       this.leaveCall()
     }
 
   componentDidMount() {
+    console.log("eat it")
     this.video = document.getElementById('local-video')
     this.peerConnection = null
-    this.props.requestChannel(this.props.match.params.channelId)
+    this.props.requestChannel(this.props.match.params.channelId).then(() => {
 
+    })
+    const { currentUser } = this.props
+
+    if (currentUser.username !== this.props.match.params.channelName) {
+      console.log("what the hell")
+      App.cable.subscriptions.create(
+        { channel: "StreamChannel" },
+        {
+          connected: () => {
+            broadcastData({ type: WATCHER, id: this.userId, to: Number(this.props.match.params.channelId) })
+          },
+          received: data => {
+            console.log("RECEIVED: ", data);
+
+            if (data.to !== this.userId) return
+            switch (data.type) {
+              case OFFER:
+                return this.handleOffer(data)
+              case EXCHANGE:
+                if (data.to !== this.userId) return;
+                return this.exchange(data)
+              case CANDIDATE:
+                return this.addCandidate(data)
+              default:
+                return;
+            }
+          },
+        })
+      broadcastData({ type: WATCHER, id: this.userId, to: Number(this.props.match.params.channelId) })
+
+    }
+    
+  }
+
+  subscribe() {
     App.cable.subscriptions.create(
-
       { channel: "StreamChannel" },
       {
         connected: () => {
@@ -55,6 +93,7 @@ class ChannelHome extends React.Component {
           }
         },
       })
+
   }
 
 
@@ -77,7 +116,7 @@ class ChannelHome extends React.Component {
       });
 
     this.peerConnection.ontrack = event => {
-      this.video.srcObject = event.streams[0];
+      this.video.srcObject = event.streams[0]
     };
     this.peerConnection.onicecandidate = event => {
       if (event.candidate) {
@@ -95,7 +134,7 @@ class ChannelHome extends React.Component {
     if (this.peerConnection) {
       this.peerConnection.close()
       this.video.srcObject.getTracks()
-        .forEach(function (track) { track.stop(); })
+        .forEach(function (track) { track.stop() })
 
       this.video.srcObject = null;
       // App.cable.subscriptions.subscriptions = []
@@ -103,13 +142,21 @@ class ChannelHome extends React.Component {
     }
   }
 
+  goLive() {
+    this.props.history.push(`/channels/${this.props.match.params.channelId}/${this.props.currentChannel.channelName}/stream`)
+  }
+
  
 
     render() {
-   
+        const {currentUser, currentChannel} = this.props
         return (
-            <div>            
-              <video className={classes.videoPlayer} id="local-video" autoPlay controls></video>
+            <div>
+              {
+                currentChannel && currentUser.username === currentChannel.channelName ? (
+                  <div className = {classes.btnWrapper}><button onClick = {this.goLive}>Go Live</button></div>
+                  ) : <video className={classes.videoPlayer} id="local-video" autoPlay controls></video>
+              }  
             </div>
         )
     }

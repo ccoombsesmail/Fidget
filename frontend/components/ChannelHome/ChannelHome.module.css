@@ -1,8 +1,31 @@
 .videoPlayer {
     width: 100%;
     height: 800px;
+    padding-bottom: 600px;
 }
 
+.btnWrapper {
+    height: 800px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btnWrapper > button {
+    margin-top: -100px;
+    padding: 10px;
+    width: 300px;
+    background-color: #9147FF;
+    border: none;
+    color: whitesmoke;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 800;
+    font-size: 14px;
+    margin-right: 12px;
+    font-family: 'Ubuntu', sans-serif;
+    cursor: pointer;
+}
 
 .peerVideoWrapper {
     display: flex;
