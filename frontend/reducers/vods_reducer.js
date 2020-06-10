@@ -8,7 +8,6 @@ const vodsReducer = (state = {}, action) => {
 
     switch (action.type) {
         case RECEIVE_VOD:
-            console.log(action)
             return Object.assign({}, state, action.vod)
         case RECEIVE_VODS:
             return Object.assign({}, action.payload.vods )

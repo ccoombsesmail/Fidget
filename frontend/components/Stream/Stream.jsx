@@ -42,13 +42,12 @@ class Stream extends React.Component {
                     broadcastData({ type: BROADCAST, id: this.userId })
                 },
                 received: data => {
-                    // console.log("RECEIVED: ", data);
-                    if (data.id === this.userId) return
+                    console.log("RECEIVED: ", data);
+                  if (data.to !== this.userId) return
                     switch (data.type) {
                         case WATCHER:
                             return this.addPeerConnection(data)
                         case CANDIDATE:
-                            if (data.id === this.userId) return
                             return this.addCandidate(data)
                         case ANSWER:
                             return this.handleAnswer(data)
@@ -69,17 +68,20 @@ class Stream extends React.Component {
     }
 
     addCandidate(data) {
+      console.log(this.peerConnections)
       this.peerConnections[data.id].addIceCandidate(new RTCIceCandidate(data.candidate));
 
     }
 
     handleAnswer(data) {
+      console.log(this.peerConnections)
         this.peerConnections[data.id].setRemoteDescription(data.description);
 
     }
 
     addPeerConnection(data) {
-        
+      console.log(this.peerConnections)
+
         const peerConnection = new RTCPeerConnection(ice)
         this.peerConnections[data.id] = peerConnection
 
@@ -89,7 +91,7 @@ class Stream extends React.Component {
         peerConnection.onicecandidate = (event) => {
             if (event.candidate) {
               // console.log(event.candidate, "THIS IS WHAT YOU LOOK FOR")
-              broadcastData({ type: CANDIDATE, id: this.userId, candidate: event.candidate })
+              broadcastData({ type: CANDIDATE, id: this.userId, to: data.id, candidate: event.candidate })
                 // socket.emit("candidate", data.id, event.candidate);
             }
         }
@@ -98,7 +100,7 @@ class Stream extends React.Component {
             .createOffer()
             .then(sdp => peerConnection.setLocalDescription(sdp))
             .then(() => {
-                broadcastData({ type: OFFER, id: this.userId, description: peerConnection.localDescription })
+                broadcastData({ type: OFFER, id: this.userId, to: data.id, description: peerConnection.localDescription })
                 // socket.emit("offer", id, peerConnection.localDescription);
             });
     }

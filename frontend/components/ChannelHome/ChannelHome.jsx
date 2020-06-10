@@ -2,6 +2,7 @@
 
 import React from 'react'
 import classes from './ChannelHome.module.css'
+import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import {requestChannel } from '../../actions/channel_actions'
 import { broadcastData, LEAVE_CALL, EXCHANGE, CANDIDATE, OFFER, WATCHER, ANSWER, ice } from '../../util/stream_util'
@@ -11,10 +12,18 @@ class ChannelHome extends React.Component {
 
   constructor(props) {
     super(props)
-    this.userId = props.currentUser.id
     this.leaveCall = this.leaveCall.bind(this)
-    console.log(this.userId)
+    
+    if (props.currentUser) {
+      this.userId = props.currentUser.id
+    } else {
+      this.userId = Math.floor(Math.random() * 10000)
+      }
+    }
 
+
+    componentWillUnmount(){
+      this.leaveCall()
     }
 
   componentDidMount() {
@@ -27,12 +36,12 @@ class ChannelHome extends React.Component {
       { channel: "StreamChannel" },
       {
         connected: () => {
-          broadcastData({ type: WATCHER, id: this.userId })
+          broadcastData({ type: WATCHER, id: this.userId, to: Number(this.props.match.params.channelId) })
         },
         received: data => {
-          // console.log("RECEIVED: ", data);
+          console.log("RECEIVED: ", data);
 
-          if (data.id === this.userId) return
+          if (data.to !== this.userId) return
           switch (data.type) {
             case OFFER:
               return this.handleOffer(data)
@@ -50,10 +59,12 @@ class ChannelHome extends React.Component {
       })
   }
 
+
+
   addCandidate(data) {
     this.peerConnection
       .addIceCandidate(new RTCIceCandidate(data.candidate))
-      .catch(e => console.error(e));
+      .catch(e => console.error(e))
   }
 
   handleOffer(data) {
@@ -63,7 +74,7 @@ class ChannelHome extends React.Component {
       .then(() => this.peerConnection.createAnswer())
       .then(sdp => this.peerConnection.setLocalDescription(sdp))
       .then(() => {
-        broadcastData({ type: ANSWER, id: this.userId, description: this.peerConnection.localDescription  })
+        broadcastData({ type: ANSWER, id: this.userId, to: data.id, description: this.peerConnection.localDescription  })
         // socket.emit("answer", id, peerConnection.localDescription);
       });
 
@@ -72,7 +83,7 @@ class ChannelHome extends React.Component {
     };
     this.peerConnection.onicecandidate = event => {
       if (event.candidate) {
-        broadcastData({ type: CANDIDATE, id: this.userId, candidate: event.candidate })
+        broadcastData({ type: CANDIDATE, id: this.userId, to: data.id, candidate: event.candidate })
         // socket.emit("candidate", id, event.candidate);
       }
     };
@@ -131,4 +142,4 @@ const mDTP = (dispatch) => {
 
 // state.entities.channels[ownProps.match.params.channelId]
 
-export default connect(mSTP, mDTP)(ChannelHome)
+export default withRouter(connect(mSTP, mDTP)(ChannelHome))
