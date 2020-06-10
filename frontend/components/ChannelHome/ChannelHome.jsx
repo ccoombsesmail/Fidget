@@ -50,8 +50,6 @@ class ChannelHome extends React.Component {
               return this.exchange(data)
             case CANDIDATE:
               return this.addCandidate(data)
-            case LEAVE_CALL:
-              return this.removeUser(data)
             default:
               return;
           }
@@ -94,26 +92,18 @@ class ChannelHome extends React.Component {
 
 
   leaveCall() {
-    const pcKeys = Object.keys(this.pcPeers);
-    for (let i = 0; i < pcKeys.length; i++) {
-      this.pcPeers[pcKeys[i]].close()
+    if (this.peerConnection) {
+      this.peerConnection.close()
+      this.video.srcObject.getTracks()
+        .forEach(function (track) { track.stop(); })
+
+      this.video.srcObject = null;
+      // App.cable.subscriptions.subscriptions = []
+      broadcastData({ type: PEER_DISCONNECT, id: this.userId, to: this.props.match.params.channelId })
     }
-    this.pcPeers = {}
-    this.localVideo.srcObject.getTracks()
-      .forEach(function (track) { track.stop(); })
-
-    this.localVideo.srcObject = null;
-    App.cable.subscriptions.subscriptions = []
-    this.remoteVideoContainer.innerHTML = ""
-    broadcastData({ type: LEAVE_CALL, id: this.userId })
   }
 
-  removeUser(data) {
-      let video = document.getElementById(`remoteVideoContainer+${data.from}`)
-      video && video.remove()
-      let peers = this.pcPeers
-      delete peers[data.from]
-  }
+ 
 
     render() {
    

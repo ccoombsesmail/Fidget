@@ -36,7 +36,8 @@ class MessageForm extends React.Component {
             this.props.openModal("login")
         } else {
             let userId = this.props.currentUser.id
-            App.cable.subscriptions.subscriptions[1].speak({ message: this.state.body, channelName: this.props.channelName, user_id: userId, color: this.usernameColor });
+          console.log(App.cable.subscriptions.subscriptions)
+            App.cable.subscriptions.subscriptions[3].speak({ message: this.state.body, channelName: this.props.channelName, user_id: userId, color: this.usernameColor });
         }
 
         this.setState({body: ''})
