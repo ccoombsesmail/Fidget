@@ -27,6 +27,7 @@
     align-items: center;
     box-sizing: border-box;
     margin-bottom: 100px;
+    margin-top: 20px;
 }
 
 .tabsWrapper > li {

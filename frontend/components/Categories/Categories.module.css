@@ -25,7 +25,7 @@
     color: wheat;
 }
 
-.categoryItem::before {
+/* .categoryItem::before {
     content: ' ';
     position: absolute;
     border-left: solid 11px rgba(145,70,255,1);
@@ -37,20 +37,16 @@
     animation-timing-function: linear;
     animation-fill-mode: forwards;
     
-}
+} */
 
-.categoryItem:hover::before { 
-
+/* .categoryItem:hover::before { 
     animation-name: boxUpBefore;
     animation-duration: .2s;
     animation-timing-function: linear;
     animation-fill-mode: forwards;
+} */
 
-
-
-}
-
-
+/* 
 .categoryItem::after {
     content: ' ';
     position: absolute;
@@ -64,9 +60,56 @@
     animation-timing-function: linear;
     animation-fill-mode: forwards;
     
+} */
+
+/* .categoryItem:hover::after { 
+    z-index: 800;
+    animation-name: boxUpAfter;
+    animation-duration: .2s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+
+} */
+
+.categoryImgWrap::before {
+    content: ' ';
+    position: absolute;
+    border-left: solid 12px rgba(145,70,255,1);
+    border-bottom: solid 12px rgba(145,70,255,1);
+    top: 0px;
+    left: 11.4px;
+    margin-top: .5px;
+    animation-name: boxDownBefore;
+    animation-duration: .2s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    
 }
 
-.categoryItem:hover::after { 
+.categoryImgWrap:hover::before { 
+    animation-name: boxUpBefore;
+    animation-duration: .2s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+
+.categoryImgWrap::after {
+    content: ' ';
+    position: absolute;
+    z-index: 800;
+    border-left: solid 12.4px rgba(145,70,255,1);
+    border-bottom: solid 10.4px rgba(145,70,255,1);
+    bottom: 31.4px;
+    right: 1px;
+    margin-right: .5px;
+    animation-name: boxDownAfter;
+    animation-duration: .2s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    
+}
+
+.categoryImgWrap:hover::after { 
     z-index: 800;
     animation-name: boxUpAfter;
     animation-duration: .2s;
@@ -74,6 +117,7 @@
     animation-fill-mode: forwards;
 
 }
+
 
 
 
@@ -167,7 +211,6 @@
         -moz-box-shadow: -11px 11px 0px -1px rgba(145,70,255,1);
         box-shadow: -11px 11px 0px -1px rgba(145,70,255,1);
         transform: translate3d(11px, -11px ,0)
-       
     }
 
     to {
@@ -175,7 +218,6 @@
         -moz-box-shadow: 0px 0px 0px -1px rgba(145,70,255,1);
         box-shadow: 0px 0px 0px -1px rgba(145,70,255,1);
         transform: translate3d(0, 0 ,0)
-
     }
 
 }
