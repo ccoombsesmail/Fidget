@@ -4,10 +4,16 @@
   align-items: center;
   flex-grow: 6;
   background-color:  #18181B;
+  height: 100vh;
+  overflow-y: scroll;
+}
 
+.mostOuter {
+  padding-bottom: 500px;
 }
 
 .outer {
+  margin-top: 500px ;
   display: flex;
   flex-direction: column;
   width: 600px;

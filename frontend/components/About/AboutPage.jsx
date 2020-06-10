@@ -7,6 +7,7 @@ const AboutPage = () => {
 
   return (
     <div className={classes.aboutWrapper}>
+      <div className = {classes.mostOuter}> 
       <div className={classes.outer}>
         <img className={classes.picture} src="https://i.ibb.co/BNWWQ2f/aaheadshot.png" alt="" />
         {/* <img className={classes.picture} src="https://i.ibb.co/mGfB7PF/linkedIn.jpg" alt="" /> */}
@@ -29,6 +30,7 @@ const AboutPage = () => {
             </a>
           </li>
         </ul>
+      </div>
       </div>
     </div>
 
