@@ -1,0 +1,44 @@
+
+.carouselWrapper {
+	width: 100%;
+	height: 30vh;
+	display: flex;
+	align-items: center;
+	position: relative;
+}
+.imgsContainer {
+	width: 600px;
+	height: 600px;
+	display: flex;
+	align-items: center;
+	position: relative;
+	transition: all 1s ease-in-out;
+}
+.imgContainer {
+	height: 600px;
+	width: 600px;
+	/* margin-right: 50%; */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.carouselImg {
+	width: 100%;
+	/* height: 80%; */
+	object-fit: contain;
+	transition: all 1s ease-in-out;
+}
+.controls {
+	position: absolute;
+	width: 100vw;
+	display: flex;
+	justify-content: space-between;
+}
+.prevBtn {
+	margin-left: 30px;
+  cursor: pointer;
+}
+.nextBtn {
+	margin-right: 30px;
+  cursor: pointer;
+}
