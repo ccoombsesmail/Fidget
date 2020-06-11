@@ -21,12 +21,31 @@
     text-decoration: none;
     border-radius: 5px;
     font-weight: 800;
-    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 17px;
     margin-right: 12px;
     font-family: 'Ubuntu', sans-serif;
     cursor: pointer;
+    animation: pulse 2.5s ease-in-out;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+
 }
 
 .peerVideoWrapper {
     display: flex;
+}
+
+
+
+@keyframes pulse {
+  from {
+    box-shadow: 0px 0px 0px #9147FF;
+
+  }
+  to {
+      box-shadow: 0px 0px 40px #9b5bfa;
+ 
+  }
 }
