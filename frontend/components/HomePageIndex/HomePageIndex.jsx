@@ -16,7 +16,8 @@ class HomePageIndex extends React.Component {
         return (
 
             <div id="indexArea" className={classes.indexWrapper}>
-                {/* <Carousel></Carousel> */}
+            <Carousel></Carousel>
+
                 <h2> Top Channels </h2>
                 <hr/>
                 <div className={classes.innerContainer}>
@@ -25,6 +26,7 @@ class HomePageIndex extends React.Component {
                     <h2 className = {classes.categoriesHeader}> <b>Categories</b> You May Like</h2>
                     <Categories />
                 </div>
+
             </div>
 
 

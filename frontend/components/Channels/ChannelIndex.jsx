@@ -32,7 +32,7 @@ class ChannelIndex extends React.Component {
           const channel = this.props.channels[vod.channelId]
           let user
           channel ? user = this.props.users[channel.ownerId] : user = null
-          return <ChannelIndexItem key={vod.id} vod={vod} user={user} channel={channel} />
+          return <ChannelIndexItem key={idx} vod={vod} user={user} channel={channel} />
         }, this)
         }
       </div>

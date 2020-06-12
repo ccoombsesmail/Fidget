@@ -14,6 +14,20 @@ class Vod < ApplicationRecord
         elsif !filter[:category].nil?
             newFilter = {:category => filter[:category]}
             return Vod.where("category = :category", newFilter)
+        elsif !filter[:random].nil?
+          count = Vod.count + 1
+          ids = []
+          vods = []
+          while ids.length < 5
+            randomId = rand(count)
+            if randomId != 0 && !ids.include?(randomId)
+              ids.push(randomId)
+            end
+          end
+          ids.each do |id|
+            vods.push(Vod.where("id = ?", "#{id}")[0])
+          end
+          return vods
         end
 
         return Vod.all

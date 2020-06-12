@@ -1,6 +1,7 @@
 export const RECEIVE_VOD = "RECEIVE_VOD"
 export const RECEIVE_VODS = "RECEIVE_VODS"
 export const CLEAR_VODS = "CLEAR_VODS"
+export const RECEIVE_RANDOM_VODS = "RECEIVE_RANDOM_VODS"
 import * as VodAPIUtil from '../util/vod_api_util'
 
 
@@ -18,6 +19,13 @@ const receiveVods = (payload) => {
         type: RECEIVE_VODS,
         payload
     }
+}
+
+const receiveRandomVods = (payload) => {
+  return {
+    type: RECEIVE_RANDOM_VODS,
+    payload
+  }
 }
 
 export const clearVods = () => {
@@ -44,6 +52,12 @@ export const requestVods = (filter) => dispatch => {
 
     return VodAPIUtil.fetchVods(filter)
         .then((vods) => dispatch(receiveVods(vods)))
+}
+
+export const requestRandomVods = (filter) => (dispatch) => {
+
+  return VodAPIUtil.fetchVods(filter)
+    .then((vods) => dispatch(receiveRandomVods(vods)))
 }
 
 export const createVod = (formData) => dispatch => {
