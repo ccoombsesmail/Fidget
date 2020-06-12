@@ -21,7 +21,6 @@ class ChannelHome extends React.Component {
     
     this.leaveCall = this.leaveCall.bind(this)
     this.goLive = this.goLive.bind(this)
-    this.subscribe = this.subscribe.bind(this) 
     }
 
 
@@ -30,7 +29,6 @@ class ChannelHome extends React.Component {
     }
 
   componentDidMount() {
-    console.log("eat it")
     this.video = document.getElementById('local-video')
     this.peerConnection = null
     this.props.requestChannel(this.props.match.params.channelId).then(() => {
@@ -38,8 +36,7 @@ class ChannelHome extends React.Component {
     })
     const { currentUser } = this.props
 
-    if (currentUser.username !== this.props.match.params.channelName) {
-      console.log("what the hell")
+    if (currentUser === undefined || currentUser.username !== this.props.match.params.channelName) {
       App.cable.subscriptions.create(
         { channel: "StreamChannel" },
         {
@@ -67,33 +64,6 @@ class ChannelHome extends React.Component {
 
     }
     
-  }
-
-  subscribe() {
-    App.cable.subscriptions.create(
-      { channel: "StreamChannel" },
-      {
-        connected: () => {
-          broadcastData({ type: WATCHER, id: this.userId, to: Number(this.props.match.params.channelId) })
-        },
-        received: data => {
-          console.log("RECEIVED: ", data);
-
-          if (data.to !== this.userId) return
-          switch (data.type) {
-            case OFFER:
-              return this.handleOffer(data)
-            case EXCHANGE:
-              if (data.to !== this.userId) return;
-              return this.exchange(data)
-            case CANDIDATE:
-              return this.addCandidate(data)
-            default:
-              return;
-          }
-        },
-      })
-
   }
 
 
@@ -153,9 +123,9 @@ class ChannelHome extends React.Component {
         return (
             <div>
               {
-                currentChannel && currentUser.username === currentChannel.channelName ? (
+                currentUser && currentChannel && currentUser.username === currentChannel.channelName ? (
                   <div className = {classes.btnWrapper}><button onClick = {this.goLive}>Go Live</button></div>
-                  ) : <video className={classes.videoPlayer} id="local-video" autoPlay controls></video>
+                  ) : <video className={classes.videoPlayer} id="local-video" autoPlay controls> </video>
               }  
             </div>
         )
