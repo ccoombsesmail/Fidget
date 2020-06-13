@@ -23,7 +23,7 @@ class Stream extends React.Component {
     componentDidMount() {
         this.video = document.getElementById("local-video")
         this.props.requestChannel(this.props.match.params.channelId).then(() => {
-            navigator.mediaDevices.getUserMedia({ audio: false, video: true })
+            navigator.mediaDevices.getUserMedia({ audio: true, video: true })
                 .then(stream => {
                     this.localStream = stream;
                     this.video.srcObject = stream;

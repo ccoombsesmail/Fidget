@@ -17,8 +17,6 @@ class Api::VodsController < ApplicationController
     def create
         
         @vod = Vod.new(vod_params)
-        # file = open(params[:vod][:videoUrl])
-        # @vod.videoUrl.attach(io: file, filename: params[:vod][:title])
         if @vod.save
             render :show
         else
