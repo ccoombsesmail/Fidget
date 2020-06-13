@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react'
 import { connect } from 'react-redux'
 import './Carousel.css'
@@ -104,12 +105,6 @@ class Carousel extends React.Component {
               )
             })
           }
-
-           {/* <label htmlFor="s1" id="slide1"> <video className='videoLabel'  > <source src={this.props.vods[0].videoUrl} /></video> 1</label> : null
-          <label htmlFor="s2" id="slide2"> <video className='videoLabel' > <source src="https://fidget-seeds.s3-us-west-1.amazonaws.com/dcane.mp4" /></video>2</label>
-          <label htmlFor="s3" id="slide3"> <video className='videoLabel' > <source src="https://fidget-seeds.s3-us-west-1.amazonaws.com/dcane.mp4" /></video>3</label>
-          <label htmlFor="s4" id="slide4"> <video className='videoLabel' > <source src="https://fidget-seeds.s3-us-west-1.amazonaws.com/dcane.mp4" /></video>4</label>
-          <label htmlFor="s5" id="slide5"> <video className='videoLabel' > <source src="https://fidget-seeds.s3-us-west-1.amazonaws.com/dcane.mp4" /></video>5</label> */}
         </section>
         <span onClick={this.scrollRight} className="right">
           <FontAwesomeIcon icon={faArrowRight} />

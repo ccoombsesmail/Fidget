@@ -2,11 +2,7 @@
     flex-grow: 6.0;
     display: flex;
     flex-direction: column;
-    /* box-sizing: border-box; */
-    
-    /* flex-wrap: wrap; */
     background-color: #0E0E10;
-    /* justify-content: center; */
     height: 100vh;
     overflow-y: scroll;
 
