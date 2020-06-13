@@ -5,4 +5,6 @@ class Follow < ApplicationRecord
 
     belongs_to :channel
 
+ 
+
 end

@@ -1,5 +1,8 @@
 import React from 'react'
 import classes from './ChannelFollowers.module.css'
+import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
+import { requestFollowedChannels } from '../../actions/follow_actions'
 
 class ChannelFollowers extends React.Component {
 
@@ -8,14 +11,24 @@ class ChannelFollowers extends React.Component {
 
     }
 
+    componentDidMount() {
+        this.props.requestFollowedChannels(this.props.match.params.channelId)
+    }
 
     render() {
 
         return (
-            <div>
-                <video className={classes.videoPlayer} controls>
-                    <source src={null} />
-                </video>
+            <div className={classes.followersWrapper}>
+               {
+                this.props.channels.map((channel) => {
+                    return ( 
+                        <div className={classes.channelWrapper}>
+                        <img src={channel.logoUrl} alt=""/>
+                        <span>{channel.channelName}</span>
+                        </div>
+                    )
+                })
+               }
             </div>
         )
     }
@@ -23,4 +36,17 @@ class ChannelFollowers extends React.Component {
 }
 
 
-export default ChannelFollowers;
+const mSTP = (state) => {
+    const channels = state.entities.channels.followedChannels ? Object.values(state.entities.channels.followedChannels) : []
+    return {
+        channels: channels
+    }
+}
+
+const mDTP = (dispatch) => {
+    return {
+        requestFollowedChannels: (channelId) => dispatch(requestFollowedChannels(channelId))
+    }
+}
+
+export default withRouter(connect(mSTP, mDTP)(ChannelFollowers))

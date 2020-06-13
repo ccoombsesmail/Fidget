@@ -17,3 +17,13 @@ export const deleteFollow = (channelId) => {
     })
 
 }
+
+
+export const getChannelFollowers = (id) => {
+
+    return $.ajax({
+        method: 'GET',
+        url: `/api/follows/${id}`,
+    })
+
+}

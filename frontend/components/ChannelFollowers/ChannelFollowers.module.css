@@ -1,4 +1,39 @@
-.videoPlayer {
-    width: 100%;
-    height: 800px;
+
+.followersWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-left: 10px;
+    padding-top: 50px;
+}
+.channelWrapper {
+    width: 20vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform-style: preserve-3d;
+    -webkit-transition: transform .2s linear;
+	-moz-transition: transform .2s linear;
+	-o-transition: transform .2s linear;
+	transition: transform .2s linear;
+
+}
+
+.channelWrapper > img {
+    border-radius: 5px;
+    width: 80%;
+    
+}
+
+.channelWrapper:hover {
+  -webkit-transform: scale(1.2);
+	-moz-transform: scale(1.2);
+	-o-transform: scale(1.2);
+	transform: scale(1.2);
+}
+
+.channelWrapper > span {
+    padding-top: 5px;
+    color: white;
+    font-size: 25px;
 }

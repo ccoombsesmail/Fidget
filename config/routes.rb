@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
     resources :channels, only: [:index, :show, :update]
     resources :vods, only: [:show, :index, :create]
-    resources :follows, only: [:create, :destroy]
+    resources :follows, only: [:create, :destroy, :show]
     resources :categories, only: [:index, :show]
     resources :streams, only: [:create]
   end

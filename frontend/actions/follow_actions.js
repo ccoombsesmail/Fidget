@@ -1,5 +1,6 @@
 export const RECEIVE_FOLLOW = "RECEIVE_FOLLOW"
 export const REMOVE_FOLLOW = "REMOVE_FOLLOW"
+export const RECEIVE_FOLLOWED_CHANNELS = "RECEIVE_FOLLOWED_CHANNELS"
 import * as FollowsAPIUtil from '../util/follows_api_util'
 
 
@@ -13,8 +14,6 @@ const receiveFollow = (follow) => {
 }
 
 
-
-
 const removeFollow = (follow) => {
 
     return {
@@ -23,6 +22,23 @@ const removeFollow = (follow) => {
     }
 
 }
+
+const receiveFollowedChannels = (channels) => {
+
+    return {
+        type: RECEIVE_FOLLOWED_CHANNELS,
+        channels
+    }
+
+}
+
+
+export const requestFollowedChannels = (channelId) => (dispatch) => {
+
+    return FollowsAPIUtil.getChannelFollowers(channelId)
+        .then((channels) => dispatch(receiveFollowedChannels(channels)))
+}
+
 
 
 export const createFollow = (follow) => dispatch => {

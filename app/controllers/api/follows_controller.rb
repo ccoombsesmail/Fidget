@@ -2,6 +2,12 @@ class Api::FollowsController < ApplicationController
         before_action :require_logged_in, only: [:destroy, :create]
 
 
+    def show
+        @followers = Follow.where("channel_id = ?", params[:id]).includes(:user).includes(:channel).references(:user).references(:channel)
+        render :show
+    end
+
+
     def create
         @follow = Follow.new(follow_params)
 
