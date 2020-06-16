@@ -1,7 +1,6 @@
 import React from 'react'
 import classes from './ChannelNavs.module.css'
 import {withRouter} from 'react-router-dom'
-import { connect } from 'react-redux'
 
 class ChannelNavs extends React.Component {
 
@@ -19,23 +18,25 @@ class ChannelNavs extends React.Component {
         this.changeTab = this.changeTab.bind(this)
     }
 
+    componentDidMount() {
+        this.setState({nextTab: this.getTabFromUrl()})
+    }
 
-    // componentDidUpdate(prevProps, prevState) {
-        
-    //     if (this.state.nextTab === "videos" && prevState.nextTab !== "videos") {
-    //         this.props.history.push(`/channels/${this.props.channelId}/${this.props.channelName}/videos`)
-    //     }
-    // }
+    getTabFromUrl() {
+        let url = this.props.location.pathname
+        let i = url.length
+        while (i > 0) {
+            if (url[i] === '/'){
+                return url.slice(i+1)
+            }
+            i--
+        }
+        return null
+    }
+
 
     changeTab(tab) {
-        // if (tab === 'home') {
-            // if (!this.props.currentUser || this.props.channelName !== this.props.currentUser.username) {
-                this.props.history.push(`/channels/${this.props.channelId}/${this.props.channelName}/${tab}`)
-            // } 
-            // else {
-            //     this.props.history.push(`/channels/${this.props.channelId}/${this.props.channelName}/stream`)
-            // }
-        // }
+        this.props.history.push(`/channels/${this.props.channelId}/${this.props.channelName}/${tab}`)
         this.setState({nextTab: tab})
     }
 

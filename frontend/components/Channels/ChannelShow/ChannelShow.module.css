@@ -84,14 +84,9 @@ nav {
 
  .userIcon{
     border-radius: 50%;
-    width: 45px;
-    height: 45px;
+    width: 40px;
+    height: 40px;
     cursor: pointer;
  }
 
 
- /* .innerWrapper {
-    overflow-y: scroll !important;
-    min-height: 4000px;
- 
- } */
