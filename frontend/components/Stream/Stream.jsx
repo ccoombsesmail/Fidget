@@ -26,18 +26,18 @@ class Stream extends React.Component {
       }
 
       if (navigator.mediaDevices.getUserMedia === undefined) {
-        navigator.mediaDevices.getUserMedia = function (constraints) {
+        navigator.mediaDevices.getUserMedia = (constraints) => {
 
           // First get ahold of the legacy getUserMedia, if present
           var getUserMedia = navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
           if (!getUserMedia) {
-            return Promise.reject(new Error('getUserMedia is not implemented in this browser'));
+            return Promise.reject(new Error('getUserMedia is not implemented in this browser'))
           }
 
           // Otherwise, wrap the call to the old navigator.getUserMedia with a Promise
           return new Promise(function (resolve, reject) {
             getUserMedia.call(navigator, constraints, resolve, reject);
-          });
+          })
         }
       }
 
@@ -84,7 +84,7 @@ class Stream extends React.Component {
                     broadcastData({ type: BROADCAST, id: this.userId })
                 },
                 received: data => {
-                    console.log("RECEIVED: ", data);
+                    // console.log("RECEIVED: ", data);
                   if (data.to !== this.userId) return
                     switch (data.type) {
                         case WATCHER:
@@ -110,14 +110,12 @@ class Stream extends React.Component {
     }
 
     addCandidate(data) {
-      console.log(this.peerConnections)
       this.peerConnections[data.id].addIceCandidate(new RTCIceCandidate(data.candidate));
 
     }
 
     handleAnswer(data) {
-      console.log(this.peerConnections)
-        this.peerConnections[data.id].setRemoteDescription(data.description);
+      this.peerConnections[data.id].setRemoteDescription(data.description);
 
     }
 
@@ -131,11 +129,9 @@ class Stream extends React.Component {
         stream.getTracks().forEach(track => peerConnection.addTrack(track, stream))
 
         peerConnection.onicecandidate = (event) => {
-            if (event.candidate) {
-              // console.log(event.candidate, "THIS IS WHAT YOU LOOK FOR")
-              broadcastData({ type: CANDIDATE, id: this.userId, to: data.id, candidate: event.candidate })
-                // socket.emit("candidate", data.id, event.candidate);
-            }
+          if (event.candidate) {
+            broadcastData({ type: CANDIDATE, id: this.userId, to: data.id, candidate: event.candidate })
+          }
         }
 
         peerConnection
@@ -143,17 +139,13 @@ class Stream extends React.Component {
             .then(sdp => peerConnection.setLocalDescription(sdp))
             .then(() => {
                 broadcastData({ type: OFFER, id: this.userId, to: data.id, description: peerConnection.localDescription })
-                // socket.emit("offer", id, peerConnection.localDescription);
             });
     }
 
 
     render() {
         return (
-
-            <video className={classes.videoPlayer} id="local-video" autoPlay controls></video>
-
-
+          <video className={classes.videoPlayer} id="local-video" autoPlay controls></video>
         )
     }
 
@@ -165,14 +157,14 @@ class Stream extends React.Component {
 const mSTP = (state, ownProps) => {
     const currentUser = state.entities.users[state.session.currentUserId]
     return {
-        currentUser: currentUser,
-        currentChannel: state.entities.channels[ownProps.match.params.channelId]
+      currentUser: currentUser,
+      currentChannel: state.entities.channels[ownProps.match.params.channelId]
     }
 }
 
 const mDTP = (dispatch) => {
     return {
-        requestChannel: (channelId) => dispatch(requestChannel(channelId))
+      requestChannel: (channelId) => dispatch(requestChannel(channelId))
     }
 }
 
