@@ -28,9 +28,10 @@
     margin-right: 12px;
     font-family: 'Ubuntu', sans-serif;
     cursor: pointer;
-    animation: pulse 2.5s ease-in-out;
-    animation-direction: alternate;
-    animation-iteration-count: infinite;
+    -webkit-animation: pulse 2.3s ease-in-out infinite alternate; /* Safari 4+ */
+    -moz-animation:    pulse 2.3s ease-in-out infinite alternate; /* Fx 5+ */
+    -o-animation:      pulse 2.3s ease-in-out infinite alternate; /* Opera 12+ */
+    animation:         pulse 2.3s ease-in-out infinite alternate; /* IE 10+, Fx 29+ */
 
 }
 
@@ -42,7 +43,49 @@
 
 @keyframes pulse {
   from {
-    box-shadow: 0px 0px 0px #9147FF;
+    box-shadow: 0px 0px 4px #9147FF;
+
+  }
+  to {
+      box-shadow: 0px 0px 40px #9b5bfa;
+ 
+  }
+}
+
+
+@-webkit-keyframes pulse {
+   from {
+    box-shadow: 0px 0px 4px #9147FF;
+
+  }
+  to {
+      box-shadow: 0px 0px 40px #9b5bfa;
+ 
+  }
+}
+@-moz-keyframes pulse {
+  from {
+    box-shadow: 0px 0px 4px #9147FF;
+
+  }
+  to {
+      box-shadow: 0px 0px 40px #9b5bfa;
+ 
+  }
+}
+@-o-keyframes pulse {
+  from {
+    box-shadow: 0px 0px 4px #9147FF;
+
+  }
+  to {
+      box-shadow: 0px 0px 40px #9b5bfa;
+ 
+  }
+}
+@keyframes pulse {
+  from {
+    box-shadow: 0px 0px 4px #9147FF;
 
   }
   to {
