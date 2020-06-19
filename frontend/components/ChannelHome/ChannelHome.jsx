@@ -61,9 +61,7 @@ class ChannelHome extends React.Component {
           },
         })
       broadcastData({ type: WATCHER, id: this.userId, to: Number(this.props.match.params.channelId) })
-
     }
-    
   }
 
 

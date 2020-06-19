@@ -65,7 +65,7 @@ class Stream extends React.Component {
               this.video.onloadedmetadata = (e) => {
                 this.video.play()
               }
-            }).then(() => this.joinCall())
+            }).then(() => this.beginBroadcast())
             .catch((err) => {
               console.log(err.name + ": " + err.message);
             });
@@ -76,32 +76,30 @@ class Stream extends React.Component {
 
 
 
-    joinCall() {
-        App.cable.subscriptions.create(
-            { channel: "StreamChannel" },
-            {
-                connected: () => {
-                    broadcastData({ type: BROADCAST, id: this.userId })
-                },
-                received: data => {
-                    // console.log("RECEIVED: ", data);
-                  if (data.to !== this.userId) return
-                    switch (data.type) {
-                        case WATCHER:
-                            return this.addPeerConnection(data)
-                        case CANDIDATE:
-                            return this.addCandidate(data)
-                        case ANSWER:
-                            return this.handleAnswer(data)
-                        case PEER_DISCONNECT:
-                            return this.handlePeerDisconnect(data)
-                        case LEAVE_CALL:
-                            return this.removeUser(data)
-                        default:
-                            return;
-                    }
-                },
-            })
+  beginBroadcast() {
+    App.cable.subscriptions.create(
+        { channel: "StreamChannel" },
+        {
+          connected: () => {
+              broadcastData({ type: BROADCAST, id: this.userId })
+          },
+          received: data => {
+              // console.log("RECEIVED: ", data);
+            if (data.to !== this.userId) return
+              switch (data.type) {
+                case WATCHER:
+                    return this.addPeerConnection(data)
+                case CANDIDATE:
+                    return this.addCandidate(data)
+                case ANSWER:
+                    return this.handleAnswer(data)
+                case PEER_DISCONNECT:
+                    return this.handlePeerDisconnect(data)
+                default:
+                    return;
+              }
+          },
+      })
     }
 
     handlePeerDisconnect(data) {
