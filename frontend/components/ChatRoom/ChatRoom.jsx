@@ -30,7 +30,6 @@ class ChatRoom extends React.Component {
                 received: data => {
                     this.setState({
                         messages: [...this.state.messages, [data.message, data.username, data.color]],
-                        // emojiUrl: data.url
                     })
                 },
                 speak: function(data) {
@@ -72,7 +71,6 @@ class ChatRoom extends React.Component {
     }
 
     render() {
-
         const messageList = this.state.messages.map((message, idx) => {
             return (
                 <li className = {classes.messageLi} key={idx}>
