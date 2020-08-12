@@ -25,9 +25,6 @@ class EmojiMenu extends React.Component {
                 <FontAwesomeIcon icon={faCircleNotch} />
                 </li> 
                 
-                <li>
-                <FontAwesomeIcon icon={faCircleNotch} />
-                </li>
              
             </ul>
             ) : null
