@@ -6,7 +6,6 @@ import { requestFollowedChannels } from '../../actions/follow_actions'
 
 class ChannelFollowers extends React.Component {
 
-
   componentDidMount() {
     this.props.requestFollowedChannels(this.props.match.params.channelId)
   }
@@ -15,14 +14,14 @@ class ChannelFollowers extends React.Component {
     return (
       <div className={classes.followersWrapper}>
         {
-        this.props.channels.map((channel) => {
-          return (
-            <div className={classes.channelWrapper}>
-              <img src={channel.logoUrl} alt=""/>
-              <span>{channel.channelName}</span>
-            </div>
-          )
-        })
+         this.props.channels.map((channel) => {
+           return (
+             <div className={classes.channelWrapper}>
+               <img src={channel.logoUrl} alt=""/>
+               <span>{channel.channelName}</span>
+             </div>
+           )
+         })
         }
       </div>
     )
@@ -33,7 +32,7 @@ class ChannelFollowers extends React.Component {
 const mSTP = (state) => {
   const channels = state.entities.channels.followedChannels ? Object.values(state.entities.channels.followedChannels) : []
   return {
-    channels: channels,
+    channels,
   }
 }
 
