@@ -1,24 +1,24 @@
 import React from 'react'
-import styles from './SuccessMessage.module.css'
-import { closeModal } from '../../actions/modal_actions'
 import { connect } from 'react-redux'
+import { closeModal } from '../../actions/modal_actions'
+import styles from './SuccessMessage.module.css'
+/* eslint-disable */
 
-const SuccessMessage = (props) => {
+const SuccessMessage = ({ closeModalOnClick }) => {
 
-    return (
-        <div className = {styles.messageWrapper}>
-            <h1>Successful Upload</h1>
-            <button onClick = {props.closeModal} className = {styles.closeBtn}>Close</button>
-        </div>
-    )
-
+  return (
+    <div className={styles.messageWrapper}>
+      <h1>Successful Upload</h1>
+      <button type="button" onClick={closeModalOnClick} className={styles.closeBtn}>Close</button>
+    </div>
+  )
 }
 
 
-const mDTP = dispatch => {
-    return {
-        closeModal: (comp) => dispatch(closeModal(comp)),
-    }
+const mDTP = (dispatch) => {
+  return {
+    closeModalOnClick: (comp) => dispatch(closeModal(comp)),
+  }
 }
 
 
