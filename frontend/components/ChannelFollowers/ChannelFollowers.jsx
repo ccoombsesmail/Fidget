@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
@@ -17,7 +18,7 @@ class ChannelFollowers extends React.Component {
          this.props.channels.map((channel) => {
            return (
              <div className={classes.channelWrapper}>
-               <img src={channel.logoUrl} alt=""/>
+               <img src={channel.logoUrl} alt="" />
                <span>{channel.channelName}</span>
              </div>
            )

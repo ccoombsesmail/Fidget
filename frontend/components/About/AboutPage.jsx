@@ -1,13 +1,13 @@
 import React from 'react'
 import classes from './AboutPage.module.css'
+/* eslint-disable */
 
 
 const AboutPage = () => {
 
-
   return (
     <div className={classes.aboutWrapper}>
-      <div className = {classes.mostOuter}> 
+      <div className={classes.mostOuter}>
         <div className={classes.outer}>
           <img className={classes.picture} src="https://i.ibb.co/BNWWQ2f/aaheadshot.png" alt="" />
           <h1> Charles Coombs-Esmail</h1>

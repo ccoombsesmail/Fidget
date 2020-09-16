@@ -13,9 +13,9 @@
     align-items: center;
     transform-style: preserve-3d;
     -webkit-transition: transform .2s linear;
-	-moz-transition: transform .2s linear;
-	-o-transition: transform .2s linear;
-	transition: transform .2s linear;
+    -moz-transition: transform .2s linear;
+    -o-transition: transform .2s linear;
+    transition: transform .2s linear;
 
 }
 
@@ -26,10 +26,10 @@
 }
 
 .channelWrapper:hover {
-  -webkit-transform: scale(1.2);
-	-moz-transform: scale(1.2);
-	-o-transform: scale(1.2);
-	transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    transform: scale(1.2);
 }
 
 .channelWrapper > span {
