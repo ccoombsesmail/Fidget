@@ -6,11 +6,11 @@ import categoriesReducer from './categories_reducer';
 
 
 const entitiesReducer = combineReducers({
-    users: usersReducer,
-    channels: channelsReducer,
-    vods: vodsReducer,
-    categories: categoriesReducer,
+  users: usersReducer,
+  channels: channelsReducer,
+  vods: vodsReducer,
+  categories: categoriesReducer,
 })
 
 
-export default entitiesReducer;
+export default entitiesReducer
