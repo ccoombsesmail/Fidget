@@ -1,22 +1,17 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 import classes from './SideBar.module.css'
-import {connect} from 'react-redux'
-import {withRouter} from 'react-router-dom'
 import { requestChannels } from '../../actions/channel_actions'
 import { getFollowedChannels } from '../../util/selectors'
 import SideBarItem from './SideBarItem'
 
 
 class SideBar extends React.Component {
-    constructor(props) {
-        super(props)
 
-    }
-
-    componentDidMount() {
-        this.props.requestChannels()
-    }
-
+  componentDidMount() {
+    this.props.requestChannels()
+  }
 
 
     render() {

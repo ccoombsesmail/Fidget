@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import { requestVod } from '../../../actions/vod_actions'
 import classes from './VodShow.module.css'
+/* eslint-disable */
 
 class VodShow extends React.Component {
 
