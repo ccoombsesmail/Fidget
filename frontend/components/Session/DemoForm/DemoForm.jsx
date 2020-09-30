@@ -1,95 +1,83 @@
 import React from 'react'
-import classes from '../SessionForm.module.css'
 import { withRouter } from 'react-router-dom'
-import {connect} from 'react-redux'
-import {login} from '../../../actions/session_actions'
-
+import { connect } from 'react-redux'
+import Typist from 'react-typist'
+import { login } from '../../../actions/session_actions'
+import classes from '../SessionForm.module.css'
 import TabNavs from '../TabNavs/TabsNav'
-import Typist from 'react-typist';
+/* eslint-disable */
 
 
 class DemoForm extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            username: this.props.demoUser.username,
-            password: '12345678',
-        }
-
-        this.handleSubmit = this.handleSubmit.bind(this)
+  constructor(props) {
+    super(props)
+    this.state = {
+      username: this.props.demoUser.username,
+      password: '12345678',
     }
 
- 
-
-    handleSubmit() {
-        this.props.login(this.state)
-    }
+    this.handleSubmit = this.handleSubmit.bind(this)
+  }
 
 
-
-    render() {
-
-
-
-        return (
-            <div className={classes.formWrapper}>
-        
-                <a className={classes.formMessage} href="https://fontmeme.com/twitch-logo-font/"><img src="https://fontmeme.com/permalink/200429/1e5f1ba7db348c186573e62f09c03de8.png" alt="twitch-logo-font" border="0" /></a>
+  handleSubmit() {
+    this.props.login(this.state)
+  }
 
 
-                {/* <h2 className= {classes.formMessage}>{this.props.formType} To Fidget</h2> */}
+  render() {
 
-                <TabNavs clearErrors={this.props.clearErrors} navToOtherForm={this.props.navToOtherForm} currentForm={this.props.formType} />
-
-               
-                <form onSubmit={this.handleSubmit} className={classes.form}>
-
-                    <label className={classes.formLabel}>
-                        <h4>Username</h4>
-                        <div className={classes.demoFormInput}  > 
-                       
-                            <Typist cursor = {{show: false}} >
-                                FidgetDemoUser
-                            </Typist>
-
-                          </div>
-                    </label>
-
-                    <label className={classes.formLabel}>
-                        <h4>Password</h4>
-                        <div className={classes.demoFormInput}  >
-                            <Typist cursor={{ show: false }} onTypingDone={this.handleSubmit}>
-                                <Typist.Delay ms={1200} />
-                                *************
-                            </Typist>
-                          </div>
-                    </label>
-
-                    <button type="submit" className={classes.formSubmit}>Log In</button>
-                </form>
+    return (
+      <div className={classes.formWrapper}>
+        <a className={classes.formMessage} href="https://fontmeme.com/twitch-logo-font/">
+          <img src="https://fontmeme.com/permalink/200429/1e5f1ba7db348c186573e62f09c03de8.png" alt="twitch-logo-font" border="0" />
+        </a>
+        <TabNavs
+          clearErrors={this.props.clearErrors}
+          navToOtherForm={this.props.navToOtherForm}
+          currentForm={this.props.formType}
+        />
+        <form onSubmit={this.handleSubmit} className={classes.form}>
+          <label className={classes.formLabel}>
+            <h4>Username</h4>
+            <div className={classes.demoFormInput}>
+              <Typist cursor={{ show: false }}>
+                FidgetDemoUser
+              </Typist>
             </div>
+          </label>
 
-        )
-    }
+          <label className={classes.formLabel}>
+            <h4>Password</h4>
+            <div className={classes.demoFormInput}>
+              <Typist cursor={{ show: false }} onTypingDone={this.handleSubmit}>
+                <Typist.Delay ms={1200} />
+                *************
+              </Typist>
+            </div>
+          </label>
+
+          <button type="submit" className={classes.formSubmit}>Log In</button>
+        </form>
+      </div>
+    )
+  }
 }
 
 
+const mSTP = (state) => {
 
-
-const mSTP = state => {
-
-    return {
-        demoUser: state.entities.users[state.ui.demoUserId]
-    }
-    
+  return {
+    demoUser: state.entities.users[state.ui.demoUserId],
+  }
 }
 
 
-const mDTP = dispatch => {
+const mDTP = (dispatch) => {
 
-    return {
-        login: (user) => dispatch(login(user))
-    }
+  return {
+    login: (user) => dispatch(login(user)),
+  }
 }
 
 
