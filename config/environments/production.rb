@@ -1,8 +1,8 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
-  config.web_socket_server_url = "wss://devash-fidget.herokuapp.com/cable" 
-  config.action_cable.allowed_request_origins = ['https://devash-fidget.herokuapp.com', 'http://devash-fidget.herokuapp.com']
+  config.web_socket_server_url = "wss://mzsir-fidget.herokuapp.com/cable" 
+  config.action_cable.allowed_request_origins = ['https://mzsir-fidget.herokuapp.com', 'http://mzsir-fidget.herokuapp.com']
 
   # Code is not reloaded between requests.
   config.cache_classes = true
@@ -42,7 +42,7 @@ Rails.application.configure do
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for NGINX
 
   # Store uploaded files on the local file system (see config/storage.yml for options)
-  config.active_storage.service = :amazon_prod
+  config.active_storage.service = :local
 
   # Mount Action Cable outside main process or domain
   # config.action_cable.mount_path = nil
