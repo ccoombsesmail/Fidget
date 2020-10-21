@@ -71,7 +71,7 @@ class Stream extends React.Component {
           broadcastData({ type: BROADCAST, id: this.userId })
         },
         received: (data) => {
-          // console.log("RECEIVED: ", data);
+          console.log("RECEIVED: ", data);
           if (data.to !== this.userId) return
           switch (data.type) {
             case WATCHER:

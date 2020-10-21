@@ -38,6 +38,7 @@ class ChannelHome extends React.Component {
           },
           received: (data) => {
             if (data.to !== this.userId) return
+            console.log("RECEIVED: ", data);
             switch (data.type) {
               case OFFER:
                 return this.handleOffer(data)
