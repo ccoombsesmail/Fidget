@@ -1,4 +1,3 @@
-/* eslint-disable */
 
 import React from 'react'
 import { connect } from 'react-redux'
@@ -43,12 +42,6 @@ class Stream extends React.Component {
 
       this.video = document.getElementById("local-video")
       this.props.requestChannel(this.props.match.params.channelId).then(() => {
-      //     navigator.mediaDevices.getUserMedia({ audio: true, video: true })
-      //         .then(stream => {
-      //             this.localStream = stream;
-      //             this.video.srcObject = stream;
-      //         }).catch(error => { console.log(error) })
-      // }).then(this.joinCall())
 
       navigator.mediaDevices.getUserMedia({ audio: true, video: true })
         .then((stream) => {
@@ -78,7 +71,7 @@ class Stream extends React.Component {
           broadcastData({ type: BROADCAST, id: this.userId })
         },
         received: (data) => {
-          // console.log("RECEIVED: ", data);
+          console.log("RECEIVED: ", data);
           if (data.to !== this.userId) return
           switch (data.type) {
             case WATCHER:

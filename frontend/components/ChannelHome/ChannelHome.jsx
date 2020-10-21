@@ -11,6 +11,7 @@ class ChannelHome extends React.Component {
 
   constructor(props) {
     super(props)
+    // If the user is logged in, use curentUser ID. Otherwise use a randomly generated ID
     if (props.currentUser) {
       this.userId = props.currentUser.id
     } else {
@@ -37,6 +38,7 @@ class ChannelHome extends React.Component {
           },
           received: (data) => {
             if (data.to !== this.userId) return
+            console.log("RECEIVED: ", data);
             switch (data.type) {
               case OFFER:
                 return this.handleOffer(data)
@@ -67,7 +69,7 @@ class ChannelHome extends React.Component {
   }
 
   handleOffer(data) {
-    this.peerConnection = new RTCPeerConnection(ice);
+    this.peerConnection = new RTCPeerConnection(ice)
     this.peerConnection
       .setRemoteDescription(data.description)
       .then(() => this.peerConnection.createAnswer())

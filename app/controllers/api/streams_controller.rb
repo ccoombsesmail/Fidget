@@ -9,7 +9,6 @@ class Api::StreamsController < ApplicationController
   def call_params
     permittedParams = params.permit(:call, :type, :id, :to, :stream, :sdp)
     if (params[:candidate])
-      
       permittedParams['candidate'] = params[:candidate]
     end
     if (params[:description])

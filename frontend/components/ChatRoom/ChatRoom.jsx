@@ -28,7 +28,7 @@ class ChatRoom extends React.Component {
             messages: [...this.state.messages, [data.message, data.username, data.color]],
           })
         },
-        speak: (data) => {
+        speak: function(data) {
           return this.perform('speak', data)
         },
       },
@@ -46,7 +46,7 @@ class ChatRoom extends React.Component {
               messages: [...this.state.messages, [data.message, data.username, data.color]],
             })
           },
-          speak: (data) => {
+          speak: function(data) {
             return this.perform("speak", data);
           },
         },
