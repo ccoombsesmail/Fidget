@@ -40,8 +40,8 @@ class Stream extends React.Component {
     }
 
 
-      this.video = document.getElementById("local-video")
-      this.props.requestChannel(this.props.match.params.channelId).then(() => {
+    this.video = document.getElementById("local-video")
+    this.props.requestChannel(this.props.match.params.channelId).then(() => {
 
       navigator.mediaDevices.getUserMedia({ audio: true, video: true })
         .then((stream) => {
@@ -55,6 +55,7 @@ class Stream extends React.Component {
           }
           this.video.onloadedmetadata = () => {
             this.video.play()
+            this.video.muted = true
           }
         }).then(() => this.beginBroadcast())
         .catch((err) => {
